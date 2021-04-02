@@ -1,0 +1,15 @@
+[Unit]
+Description=Squeekboard - a Wayland on-screen keyboard
+PartOf=graphical-session.target
+# Don't stop restarting the program
+StartLimitIntervalSec=0
+
+[Service]
+ExecStart=/usr/bin/squeekboard
+
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=graphical-session.target
+
