@@ -1,7 +1,20 @@
-us Inglés (EE.UU.)
+ara Árabe
+be Belga
+bg Búlgaro
+br Brasileño
 de Alemán
-el Griego
+dk Danés
+emoji Emoyi
 es Español
+fi Finlandés
+fr Francés
+gr Griego
 it Italiano
+it+fur Friulano
 jp+kana Japonés (Kana)
 no Noruego
+pl Polaco
+ru Ruso
+se Sueco
+terminal Terminal
+ua Ucraniano
