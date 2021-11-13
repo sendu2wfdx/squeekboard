@@ -1,21 +1,19 @@
 ---
 outlines:
-    default: { width: 54, height: 42 }
-    altline: { width: 81, height: 42 }
-    wide: { width: 108, height: 42 }
-    spaceline: { width: 216, height: 42 }
-    special: { width: 54, height: 42 }
+    default: { width: 54, height: 37 }
+    wide: { width: 81, height: 37 }
+    spaceline: { width: 135, height: 37 }
 
 views:
     base:
         - "q w e r t y u i o p"
         - "a s d f g h j k l ñ"
-        - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars references         space        ? . Return"
+        - "Shift_L z x c v b n m BackSpace"
+        - "show_numbers show_eschars preferences space ? . Return"
     upper:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L Ñ"
-        - "Shift_L   Z X C V B N M  BackSpace"
+        - "Shift_L   Z X C V B N M  DelUp"
         - "show_numbers show_eschars preferences         space       ¿ . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
@@ -25,12 +23,12 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
+        - "show_numbers   \\ / < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        ? . Return"
     eschars:
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
-        - "show_numbers ü ç ï Ü Ç Ï ´ Backspace"
+        - "show_numbers ´ ü ç ï Ü Ç Ï BackSpace"
         - "show_letters show_symbols preferences         space        « » Return"
 
 buttons:
@@ -39,25 +37,24 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "altline"
+        outline: "wide"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "wide"
         icon: "edit-clear-symbolic"
         action: "erase"
+    DelUp:
+        outline: "wide"
+        label: "Del"
+        keysym: "Delete"
     preferences:
         action: "show_prefs"
-        outline: "special"
+        outline: "default"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
             set_view: "numbers"
         outline: "wide"
-        label: "123"
-    show_numbers_from_symbols:
-        action:
-            set_view: "numbers"
-        outline: "altline"
         label: "123"
     show_letters:
         action:
@@ -67,15 +64,15 @@ buttons:
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "altline"
+        outline: "wide"
         label: "*/="
     show_eschars:
         action:
             set_view: "eschars"
-        outline: "altline"
+        outline: "wide"
         label: "áÁ"
     ".":
-        outline: "special"
+        outline: "default"
         text: "."
     space:
         outline: "spaceline"
