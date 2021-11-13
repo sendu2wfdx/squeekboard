@@ -1,10 +1,9 @@
 ---
 outlines:
-    default: { width: 35.33, height: 52 }
-    altline: { width: 52.67, height: 52 }
-    wide: { width: 62, height: 52 }
-    spaceline: { width: 99.67, height: 52 }
-    special: { width: 44, height: 52 }
+    default: { width: 35.33, height: 47 }
+    altline: { width: 52.67, height: 47 }
+    wide: { width: 62, height: 47 }
+    spaceline: { width: 90, height: 47 }
 
 views:
     base:
@@ -25,12 +24,12 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
+        - "show_numbers   \\ / < > = [ ]  BackSpace"
         - "show_letters show_eschars preferences         space        ? . Return"
     eschars:
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
-        - "show_numbers ü ç ï Ü Ç Ï ´ BackSpace"
+        - "show_numbers ´ ü ç ï Ü Ç Ï BackSpace"
         - "show_letters show_symbols preferences         space        « » Return"
 
 buttons:
