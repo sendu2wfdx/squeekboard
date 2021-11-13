@@ -2,8 +2,8 @@
 outlines:
     default:   { width: 54,   height: 37 }
     action:    { width: 90,   height: 37 }
-    wide:      { width: 82,   height: 37 }
-    spaceline: { width: 190,  height: 37 }
+    wide:      { width: 81,   height: 37 }
+    spaceline: { width: 185,  height: 37 }
     small:     { width: 67.4, height: 22 }
 
 views:
@@ -35,8 +35,8 @@ views:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
-        - "show_numbers ü ç ï Ü Ç Ï ´ BackSpace"
-        - "show_letters show_symbols preferences        space        . Return"
+        - "show_numbers ´ ü ç ï Ü Ç Ï BackSpace"
+        - "show_letters show_symbols preferences        space        show_actions Return"
     actions:
         - "EscSmall TabSmall Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
@@ -58,7 +58,7 @@ buttons:
         action: erase
     preferences:
         action: "show_prefs"
-        outline: "special"
+        outline: "default"
         icon: "keyboard-mode-symbolic"
     show_numbers:
         action:
