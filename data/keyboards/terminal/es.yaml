@@ -35,8 +35,8 @@ views:
         - "Ctrl Alt ↑ ↓ ← →"
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
-        - "show_numbers ü ç ï Ü Ç ï ´ BackSpace"
-        - "show_letters show_symbols preferences        space        . Return"
+        - "show_numbers , ü ç ï Ü Ç ï BackSpace"
+        - "show_letters show_symbols preferences        space        show_actions Return"
     actions:
         - "Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
