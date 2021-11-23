@@ -4,3 +4,8 @@ sq_view.pin sq_button {
     border-radius: 0px;
     margin: 1px 1px 1px 1px;
 }
+
+/* 1px border to separate keybord from content */
+window > box {
+     border-top: 1px solid @borders;
+}
