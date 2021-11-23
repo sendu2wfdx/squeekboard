@@ -215,15 +215,19 @@ destroy_window (ServerContextService *self)
 static void
 make_widget (ServerContextService *self)
 {
+    GtkWidget *box;
+
     if (self->widget) {
         gtk_widget_destroy(self->widget);
         self->widget = NULL;
     }
     self->widget = eek_gtk_keyboard_new (self->state, self->submission, self->layout);
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
     gtk_widget_set_has_tooltip (self->widget, TRUE);
-    gtk_container_add (GTK_CONTAINER(self->window), self->widget);
-    gtk_widget_show_all(self->widget);
+    gtk_box_pack_start (GTK_BOX (box), self->widget, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER(self->window), box);
+    gtk_widget_show_all(box);
 }
 
 static void
