@@ -72,7 +72,7 @@ foreach layout : [
     'de', 'de_wide',
     'dk',
     'epo',
-    'es',
+    'es', 'es_wide',
     'es+cat',
     'fi',
     'fr', 'fr_wide',
@@ -92,6 +92,8 @@ foreach layout : [
     'us+dvorak', 'us+dvorak_wide',
 
     # Terminal keyboards
+    'terminal/es',
+    'terminal/es_wide',
     'terminal/fr', 
     'terminal/fr_wide', 
     'terminal/us',
