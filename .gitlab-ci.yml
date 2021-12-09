@@ -6,10 +6,6 @@ stages:
 
 before_script:
   - apt-get -y update
-  - apt-get -y install wget ca-certificates gnupg
-  - echo "deb [trusted=yes] http://ci.puri.sm/ bullseyeci main" > /etc/apt/sources.list.d/ci.list
-  - wget -O- https://ci.puri.sm/ci-repo.key | apt-key add -
-  - apt-get -y update
 
 build_docs:
   stage: build
@@ -32,6 +28,7 @@ build_meson:
     expire_in: 3h
   script:
     - apt-get -y build-dep .
+    - apt-get -y install --no-install-recommends ca-certificates
     - meson . _build/ -Ddepdatadir=/usr/share --werror
     - ninja -C _build install
   except:
@@ -91,7 +88,7 @@ test:
     - build_meson
   script:
     - apt-get -y build-dep .
-    - apt-get -y install clang-tidy
+    - apt-get -y install clang-tidy ca-certificates
     - ninja -C _build test
     - tools/style-check_build _build
   except:
