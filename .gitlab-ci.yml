@@ -46,7 +46,7 @@ build_deb:
   script:
     - rm -f ../*.deb
     - apt-get -y build-dep .
-    - apt-get -y install devscripts
+    - apt-get -y install --no-install-recommends devscripts git
     - REV=$(git log -1 --format=%h)
     - VER=$(dpkg-parsechangelog -SVersion)
     - DEBFULLNAME="Librem5 CI"
@@ -65,7 +65,7 @@ build_deb:arm64:
   script:
     - rm -f ../*.deb
     - apt-get -y build-dep .
-    - apt-get -y install devscripts
+    - apt-get -y install --no-install-recommends devscripts
     - REV=$(git log -1 --format=%h)
     - VER=$(dpkg-parsechangelog -SVersion)
     - DEBFULLNAME="Librem5 CI"
