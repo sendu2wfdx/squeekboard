@@ -1,5 +1,4 @@
 image: debian:bullseye
-
 stages:
   - build
   - test
@@ -53,6 +52,7 @@ build_deb:
     - cp ../*.deb .
 
 build_deb:arm64:
+  image: $CI_REGISTRY/world/phosh/squeekboard/debian:v0.0.20211209
   tags:
     - aarch64
   stage: build
@@ -116,3 +116,4 @@ check_release:
   except:
     variables:
       - $PKG_ONLY == "1"
+
