@@ -271,19 +271,21 @@ static GType button_type(void) {
 
 
 static void
-on_gtk_theme_name_changed (GtkSettings *settings, gpointer foo, EekRenderer *self)
+on_gtk_theme_name_changed (GtkSettings *settings, GParamSpec *pspec, EekRenderer *self)
 {
   g_autofree char *name = NULL;
 
   g_object_get (settings, "gtk-theme-name", &name, NULL);
   g_debug ("GTK theme: %s", name);
 
-  gtk_style_context_remove_provider_for_screen (gdk_screen_get_default (),
-                                                GTK_STYLE_PROVIDER (self->css_provider));
-  gtk_style_context_remove_provider (self->button_context,
-                                     GTK_STYLE_PROVIDER(self->css_provider));
-  gtk_style_context_remove_provider (self->view_context,
-                                     GTK_STYLE_PROVIDER(self->css_provider));
+  if (self->css_provider) {
+      gtk_style_context_remove_provider_for_screen (gdk_screen_get_default (),
+                                                    GTK_STYLE_PROVIDER (self->css_provider));
+      gtk_style_context_remove_provider (self->button_context,
+                                         GTK_STYLE_PROVIDER(self->css_provider));
+      gtk_style_context_remove_provider (self->view_context,
+                                         GTK_STYLE_PROVIDER(self->css_provider));
+  }
 
   g_set_object (&self->css_provider, squeek_load_style());
 
@@ -311,8 +313,6 @@ renderer_init (EekRenderer *self)
 
     self->theme_name_id = g_signal_connect (gtk_settings, "notify::gtk-theme-name",
                                             G_CALLBACK (on_gtk_theme_name_changed), self);
-
-    self->css_provider = squeek_load_style();
 }
 
 EekRenderer *
@@ -335,9 +335,6 @@ eek_renderer_new (LevelKeyboard  *keyboard,
     if (squeek_layout_get_kind(keyboard->layout) == ARRANGEMENT_KIND_WIDE) {
         gtk_style_context_add_class(renderer->view_context, "wide");
     }
-    gtk_style_context_add_provider (renderer->view_context,
-        GTK_STYLE_PROVIDER(renderer->css_provider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
     /* Create a style context for the buttons */
     path = gtk_widget_path_new();
@@ -400,9 +397,10 @@ eek_renderer_new (LevelKeyboard  *keyboard,
     gtk_widget_path_unref(path);
     gtk_style_context_set_parent(renderer->button_context, renderer->view_context);
     gtk_style_context_set_state (renderer->button_context, GTK_STATE_FLAG_NORMAL);
-    gtk_style_context_add_provider (renderer->button_context,
-        GTK_STYLE_PROVIDER(renderer->css_provider),
-        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    /* Trigger theme load */
+    on_gtk_theme_name_changed (gtk_settings_get_default(), NULL, renderer);
+
     return renderer;
 }
 
