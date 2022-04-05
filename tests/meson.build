@@ -79,6 +79,7 @@ foreach layout : [
     'gr',
     'il',
     'ir',
+    'isv',
     'it',
     'it+fur',
     'jp+kana','jp+kana_wide',
