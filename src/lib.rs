@@ -31,6 +31,7 @@ mod event_loop;
 pub mod float_ord;
 pub mod imservice;
 mod keyboard;
+pub mod keycodes;
 mod layout;
 mod locale;
 mod main;
