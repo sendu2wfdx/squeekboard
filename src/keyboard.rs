@@ -4,6 +4,7 @@
 use crate::action::Action;
 use crate::layout;
 use crate::util;
+use crate::keycodes::{*};
 use std::collections::HashMap;
 use std::fmt;
 use std::io;
@@ -104,10 +105,21 @@ fn sorted<'a, I: Iterator<Item=String>>(
 pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
     key_names: C,
 ) -> HashMap<String, KeyCode> {
+    // Some broken clients try to interpret keymaps as if they were input
+    // sequences coming from evdev. Workaround that by only using codes
+    // that directly produce characters.
+    let allowed = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8,
+                   KEY_9, KEY_0, KEY_MINUS, KEY_EQUAL, KEY_Q, KEY_W, KEY_E,
+                   KEY_R, KEY_T, KEY_Y, KEY_U, KEY_I, KEY_O, KEY_P, KEY_LEFTBRACE,
+                   KEY_RIGHTBRACE, KEY_A, KEY_S, KEY_D, KEY_F, KEY_G, KEY_H,
+                   KEY_J, KEY_K, KEY_L, KEY_SEMICOLON, KEY_APOSTROPHE, KEY_GRAVE,
+                   KEY_BACKSLASH, KEY_Z, KEY_X, KEY_C, KEY_V, KEY_B, KEY_N,
+                   KEY_M, KEY_COMMA, KEY_DOT, KEY_SLASH];
+
     HashMap::from_iter(
         // Sort to remove a source of indeterminism in keycode assignment.
         sorted(key_names.into_iter())
-            .zip(util::cycle_count(9..255))
+            .zip(util::cycle_count((9..255).filter(|x| allowed.contains(&(x - 8)))))
             .map(|(name, (code, keymap_idx))| (
                 String::from(name),
                 KeyCode { code, keymap_idx },
@@ -326,13 +338,10 @@ mod tests {
 
     #[test]
     fn test_symbolmap_overflow() {
-        // The 257th key (U1101) is interesting.
         // Use Unicode encoding for being able to use in xkb keymaps.
         let keynames = (0..258).map(|num| format!("U{:04X}", 0x1000 + num));
         let keycodes = generate_keycodes(keynames);
-        
-        // test now
-        let code = keycodes.get("U1101").expect("Did not find the tested keysym");
-        assert_eq!(code.keymap_idx, 1);
+
+        assert_eq!(keycodes.into_iter().filter(|(_name, keycode)| keycode.code > 255).count(), 0);
     }
 }
