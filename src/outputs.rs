@@ -13,6 +13,8 @@ use crate::util::DivCeil;
 // traits
 use ::logging::Warn;
 
+use self::c::Transform;
+
 /// Gathers stuff defined in C or called by C
 pub mod c {
     use super::*;
@@ -158,6 +160,7 @@ pub mod c {
                     },
                     transform,
                 });
+                log_print!(logging::Level::Info, "outputs_handle_geometry, w: {}, height: {}", phys_width, phys_height);
             },
             None => log_print!(
                 logging::Level::Warning,
@@ -409,6 +412,22 @@ impl OutputState {
                 ..
             } => Some(Self::transform_size(phys_size.width, phys_size.height, *transform)),
             _ => None,
+        }
+    }
+
+    pub fn is_landscape(&self) -> bool {
+        match self {
+            OutputState {
+                geometry: Some(Geometry { transform, ..}),
+                ..
+            } => match transform {
+                Transform::Normal
+                | Transform::Rotated180
+                | Transform::Flipped
+                | Transform::FlippedRotated180 => false,
+                _ => true,
+            }
+            _ => true,
         }
     }
 }

@@ -793,7 +793,7 @@ impl LayoutData {
     }
 
     /// Size including margins
-    fn calculate_size(&self) -> Size {
+    pub fn calculate_size(&self) -> Size {
         let inner_size = self.calculate_inner_size();
         Size {
             width: self.margins.left + inner_size.width + self.margins.right,
