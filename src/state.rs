@@ -6,11 +6,13 @@
  * It's driven by the loop defined in the loop module. */
 
 use crate::animation;
+use crate::data::loading;
 use crate::debug;
 use crate::event_loop;
 use crate::event_loop::ActorState;
 use crate::imservice::{ ContentHint, ContentPurpose };
 use crate::layout::ArrangementKind;
+use crate::logging;
 use crate::main;
 use crate::main::Commands;
 use crate::outputs;
@@ -352,80 +354,91 @@ Outcome:
         state
     }
 
-    fn get_preferred_height_and_arrangement(output: &OutputState)
+    fn get_preferred_height_and_arrangement(layout_name: &String, overlay: &Option<String>, output: &OutputState)
         -> Option<(PixelSize, ArrangementKind)>
     {
-        output.get_pixel_size()
-            .map(|px_size| {
-                // Assume isotropy.
-                // Pixels/mm.
-                let density = output.get_physical_size()
-                    .and_then(|size| size.width)
-                    .map(|width| Rational {
-                        numerator: px_size.width as i32,
-                        denominator: width.0 as u32,
-                    })
-                    // Whatever the Librem 5 has,
-                    // as a good default.
-                    .unwrap_or(Rational {
-                        numerator: 720,
-                        denominator: 65,
-                    });
+        let px_size: outputs::Size<u32>;
+        let phys_size: outputs::Size<Millimeter>;
 
-                // Based on what works on the L5.
-                // Exceeding that probably wastes space. Reducing makes typing harder.
-                const IDEAL_TARGET_SIZE: Rational<Millimeter> = Rational {
-                    numerator: Millimeter(948),
-                    denominator: 100,
-                };
+        // Map from resolution to physical size
+        // using ~L5 density as a reference
+        fn def_dim(px: u32) -> Millimeter {
+            const DEFAULT_DENSITY: i32 = 12;
+            Millimeter(px as i32 / DEFAULT_DENSITY)
+        }
 
-                // TODO: calculate based on selected layout
-                const ROW_COUNT: u32 = 4;
+        if let Some(px) = output.get_pixel_size() {
+            px_size = px;
+        } else {
+            return None;
+        };
 
-                let ideal_height = IDEAL_TARGET_SIZE * ROW_COUNT as i32;
-                let ideal_height_px = (ideal_height * density).ceil().0 as u32;
+        phys_size = match output.get_physical_size() {
+            Some(s) =>
+                outputs::Size {
+                    width: s.width.unwrap_or(def_dim(px_size.width)),
+                    height: s.height.unwrap_or(def_dim(px_size.height))},
+            None => outputs::Size {width: def_dim(px_size.width), height: def_dim(px_size.height)},
+        };
 
-                // Reduce height to match what the layout can fill.
-                // For this, we need to guess if normal or wide will be picked up.
-                // This must match `eek_gtk_keyboard.c::get_type`.
-                // TODO: query layout database and choose one directly
-                let abstract_width
-                    = PixelSize {
-                        scale_factor: output.scale as u32,
-                        pixels: px_size.width,
-                    } 
-                    .as_scaled_ceiling();
+        // Assume isotropy.
+        // Pixels/mm.
+        let density = Rational {
+            numerator: px_size.height,
+            denominator: phys_size.height.0 as u32,
+        };
 
-                let (arrangement, height_as_widths) = {
-                    if abstract_width < 540 {(
-                        ArrangementKind::Base,
-                        Rational {
-                            numerator: 210,
-                            denominator: 360,
-                        },
-                    )} else {(
-                        ArrangementKind::Wide,
-                        Rational {
-                            numerator: 172,
-                            denominator: 540,
-                        }
-                    )}
-                };
+        // Map a physical size to number of pixels using
+        // display density
+        // FIXME: maths?
+        let mm_to_px = |mm: Millimeter| {
+            density.numerator / density.denominator * mm.0 as u32
+        };
 
-                let height
-                    = cmp::min(
-                        ideal_height_px,
-                        (height_as_widths * px_size.width as i32).ceil() as u32,
-                    );
+        let arrangement = if (PixelSize {
+                scale_factor: output.scale as u32,
+                pixels: px_size.width,
+            } 
+            .as_scaled_ceiling()) < 540 {ArrangementKind::Base} else {ArrangementKind::Wide};
 
-                (
-                    PixelSize {
-                        scale_factor: output.scale as u32,
-                        pixels: cmp::min(height, px_size.height / 2),
-                    },
-                    arrangement,
-                )
-            })
+        // FIXME: Awful janky loading the layout here, doesn't work properly when the layout is chosen based on input type
+        // and makes a bunch of LAG cuz yeah
+        let layout = loading::load_layout(layout_name, arrangement, ContentPurpose::Alpha, overlay);
+        let layout_size = layout.shape.calculate_size();
+        log_print!(logging::Level::Debug, "layout dimensions: {:?}, phys_size: {:?}", layout_size, phys_size);
+
+        // In landscape, use 50% of the (physical) screen height OR 45mm, whichever is smallest
+        // In portrait, use 40% of the (physical) screen height OR 53mm, whichever is smallest
+        let (height_percent, max_height) = match output.is_landscape() {
+            true => (0.42, 25),
+            false => (0.4, 53),
+        };
+
+        let initial_height = Millimeter((phys_size.height.0 as f32 * height_percent).ceil() as i32);
+
+        // Cap the height
+        // TODO: add some user customisable offset which is applied after this (up to +-5% of phys_size in 2.5% increments?)
+        let max_height_px = match initial_height.0.cmp(&max_height) {
+            cmp::Ordering::Less | cmp::Ordering::Equal => mm_to_px(initial_height),
+            cmp::Ordering::Greater => mm_to_px(Millimeter(max_height)),
+        };
+
+        // The actual height of the keyboard is the smallest of either the height required to make the layout fit or the maximum allowed height
+        // Ideally the layouts should be computed at render time rather than when parsing, as that would allow for much greater flexibility
+        // to dynamically adjust the height by changing the spacing between keys and height of keys. As well as dynamically adjusting the width
+        // so that the keyboard doesn't look stretched in Landscape mode.
+        let actual_height_px = cmp::min((layout_size.height * (px_size.width as f64 / layout_size.width)).ceil() as u32, max_height_px);
+
+        log_print!(logging::Level::Debug, "aiming to use {}%, initial_height: {}mm, max_height: {}px, actual height: {}px",
+            height_percent, initial_height.0 as i32, max_height_px, actual_height_px);
+
+        Some((
+            PixelSize {
+                scale_factor: output.scale as u32,
+                pixels: actual_height_px,
+            },
+            arrangement,
+        ))
     }
     
     /// Returns layout name, overlay name
@@ -457,12 +470,14 @@ impl ActorState for Application {
             panel: match self.preferred_output {
                 None => animation::Outcome::Hidden,
                 Some(output) => {
-                    let (height, arrangement) = Self::get_preferred_height_and_arrangement(self.outputs.get(&output).unwrap())
+                    let (layout_name, overlay) = self.get_layout_names();
+                    let (height, arrangement) =
+                        Self::get_preferred_height_and_arrangement(&layout_name, &overlay,
+                            self.outputs.get(&output).unwrap())
                         .unwrap_or((
                             PixelSize{pixels: 0, scale_factor: 1},
                             ArrangementKind::Base,
                         ));
-                    let (layout_name, overlay) = self.get_layout_names();
         
                     // TODO: Instead of setting size to 0 when the output is invalid,
                     // simply go invisible.
@@ -732,7 +747,7 @@ pub mod test {
     fn size_l5() {
         use crate::outputs::{Mode, Geometry, c, Size};
         assert_eq!(
-            Application::get_preferred_height_and_arrangement(&OutputState {
+            Application::get_preferred_height_and_arrangement(&"us".to_string(), &None, &OutputState {
                 current_mode: Some(Mode {
                     width: 720,
                     height: 1440,
