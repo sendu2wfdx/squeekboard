@@ -9,6 +9,7 @@ use crate::actors::external::debug;
 use crate::animation;
 use crate::event_loop;
 use crate::event_loop::ActorState;
+use crate::float_ord::FloatOrd;
 use crate::imservice::{ ContentHint, ContentPurpose };
 use crate::layout::ArrangementKind;
 use crate::main;
@@ -372,56 +373,54 @@ Outcome:
                         denominator: 65,
                     });
 
-                // Based on what works on the L5.
-                // Exceeding that probably wastes space. Reducing makes typing harder.
-                const IDEAL_TARGET_SIZE: Rational<Millimeter> = Rational {
-                    numerator: Millimeter(948),
-                    denominator: 100,
-                };
+                let display_height = (px_size.height * density.denominator) as f64 / density.numerator as f64;
+                let display_width = (px_size.width * density.denominator) as f64 / density.numerator as f64;
 
+
+                // Based on what works on the L5.
+                // Smallest height that makes keys comfortably pressable
+                const BASE_TARGET_SIZE: f64 = 9.48;
                 // TODO: calculate based on selected layout
                 const ROW_COUNT: u32 = 4;
 
-                let ideal_height = IDEAL_TARGET_SIZE * ROW_COUNT as i32;
-                let ideal_height_px = (ideal_height * density).ceil().0 as u32;
+                let base_height = ROW_COUNT as f64 * BASE_TARGET_SIZE;
+
+                // Determine height using stepwise linear interpolation based on screen size
+                // Interpolation points are given in units of base_height
+                const INT_POINTS: [(f64, f64); 6] = [
+                    (0.0, 0.0), (2.0, 1.0), (2.5, 1.0), (3.5, 1.4), (10.0, 2.5), (f64::INFINITY, 2.5)
+                ];
+                let height_ratio = display_height / base_height;
+                let i = INT_POINTS.iter().position(|x| x.0 > height_ratio).unwrap_or(INT_POINTS.len());
+                let ideal_height = (
+                    INT_POINTS[i - 1].1 + (INT_POINTS[i].1 - INT_POINTS[i - 1].1) * (
+                        height_ratio - INT_POINTS[i - 1].0) / (
+                        INT_POINTS[i].0 - INT_POINTS[i - 1].0)) * base_height;
 
                 // Reduce height to match what the layout can fill.
                 // For this, we need to guess if normal or wide will be picked up.
                 // This must match `eek_gtk_keyboard.c::get_type`.
                 // TODO: query layout database and choose one directly
-                let abstract_width
-                    = PixelSize {
-                        scale_factor: output.scale as u32,
-                        pixels: px_size.width,
-                    } 
-                    .as_scaled_ceiling();
+
+                let base_arrangement_ratio = 210.0 / 360.0;
+                let base_layout_height = base_arrangement_ratio * display_width;
 
                 let (arrangement, height_as_widths) = {
-                    if abstract_width < 540 {(
+                    if ideal_height * 1.35 > base_layout_height {(
                         ArrangementKind::Base,
-                        Rational {
-                            numerator: 210,
-                            denominator: 360,
-                        },
+                        210.0 / 360.0,
                     )} else {(
                         ArrangementKind::Wide,
-                        Rational {
-                            numerator: 172,
-                            denominator: 540,
-                        }
+                        172.0 / 540.0
                     )}
                 };
 
-                let height
-                    = cmp::min(
-                        ideal_height_px,
-                        (height_as_widths * px_size.width as i32).ceil() as u32,
-                    );
+                let height = cmp::min(FloatOrd(ideal_height), FloatOrd(display_width * height_as_widths)).0.ceil();
 
                 (
                     PixelSize {
                         scale_factor: output.scale as u32,
-                        pixels: cmp::min(height, px_size.height / 2),
+                        pixels: (height as u32 * density.numerator as u32 / density.denominator),
                     },
                     arrangement,
                 )
@@ -754,5 +753,51 @@ pub mod test {
                 ArrangementKind::Base,
             )),
         );
+    }
+
+    #[test]
+    fn size_laptop() {
+        use crate::outputs::{Mode, Geometry, c, Size};
+        let res = Application::get_preferred_height_and_arrangement(&OutputState {
+            current_mode: Some(Mode {
+                width: 3000,
+                height: 2000,
+            }),
+            geometry: Some(Geometry{
+                transform: c::Transform::Normal,
+                phys_size: Size {
+                    width: Some(Millimeter(284)),
+                    height: Some(Millimeter(189)),
+                },
+            }),
+            scale: 2,
+        }).unwrap_or((PixelSize { scale_factor: 0, pixels: 0}, ArrangementKind::Base));
+
+        assert_eq!(res.1, ArrangementKind::Wide);
+        assert_eq!(res.0.scale_factor, 2);
+        assert!(600 < res.0.pixels && res.0.pixels < 740)
+    }
+
+    #[test]
+    fn size_netbook() {
+        use crate::outputs::{Mode, Geometry, c, Size};
+        let res = Application::get_preferred_height_and_arrangement(&OutputState {
+            current_mode: Some(Mode {
+                width: 1200,
+                height: 768,
+            }),
+            geometry: Some(Geometry{
+                transform: c::Transform::Normal,
+                phys_size: Size {
+                    width: Some(Millimeter(225)),
+                    height: Some(Millimeter(144)),
+                },
+            }),
+            scale: 1,
+        }).unwrap_or((PixelSize { scale_factor: 0, pixels: 0}, ArrangementKind::Base));
+
+        assert_eq!(res.1, ArrangementKind::Wide);
+        assert_eq!(res.0.scale_factor, 1);
+        assert!(267 < res.0.pixels && res.0.pixels < 320)
     }
 }
