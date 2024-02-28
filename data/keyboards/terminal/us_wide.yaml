@@ -3,6 +3,7 @@ outlines:
     default:   { width: 54,   height: 37 }
     action:    { width: 90,   height: 37 }
     altline:   { width: 81,   height: 37 }
+    large:     { width: 81,   height: 37 }
     wide:      { width: 90,   height: 37 }
     spaceline: { width: 342,  height: 37 }
     special:   { width: 54,   height: 37 }
@@ -30,13 +31,13 @@ views:
         - "1 2 3 4 5 6 7 8 9 0"
         - "* # $ / & MinusWide _ + ( )"
         - "show_symbols   , \" ' colon ; ! ?  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        periodLarge Return"
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° @ { }"
         - "show_numbers_from_symbols   \\ % < > = [ ]  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        periodLarge Return"
     actions:
         - "EscSmall TabSmall Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
@@ -90,8 +91,8 @@ buttons:
             set_view: "actions"
         outline: "altline"
         label: ">_"
-    period:
-        outline: "altline"
+    periodLarge:
+        outline: "large"
         text: "."
     space:
         outline: "spaceline"
