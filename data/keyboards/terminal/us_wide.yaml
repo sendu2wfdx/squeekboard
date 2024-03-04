@@ -3,42 +3,47 @@ outlines:
     default:   { width: 54,   height: 37 }
     action:    { width: 90,   height: 37 }
     altline:   { width: 81,   height: 37 }
+    large:     { width: 81,   height: 37 }
     wide:      { width: 90,   height: 37 }
-    spaceline: { width: 225,  height: 37 }
+    spaceline: { width: 342,  height: 37 }
     special:   { width: 54,   height: 37 }
     small:     { width: 67.4, height: 22 }
+    expandtomiddlelarge:  { width: 108,   height: 37 }
+    expandtomiddlemedium: { width: 81,    height: 37 }
+    expandtomiddlesmall:  { width: 121.4, height: 22 }
+    actionexpandtomiddle: { width: 144,   height: 37 }
 
 views:
     base:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "q w e r t y u i o p"
-        - "a s d f g h j k l"
-        - "Shift_L   z x c v b n m  BackSpace"
+        - "a s d f g h j k l -"
+        - "Shift_L   z x c v b n m . BackSpace"
         - "show_numbers preferences      space        show_actions Return"
     upper:
         - "EscSmall TabSmall Ctrl Alt PgUp PgDn Home End"
         - "Q W E R T Y U I O P"
-        - "A S D F G H J K L"
-        - "Shift_L   Z X C V B N M  BackSpace"
+        - "A S D F G H J K L |"
+        - "Shift_L   Z X C V B N M / BackSpace"
         - "show_numbers preferences      space        show_actions Return"
     numbers:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
-        - "* # $ / & - _ + ( )"
+        - "* # $ / & MinusWide _ + ( )"
         - "show_symbols   , \" ' colon ; ! ?  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        periodLarge Return"
     symbols:
         - "EscSmall TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° @ { }"
         - "show_numbers_from_symbols   \\ % < > = [ ]  BackSpace"
-        - "show_letters preferences         space        period Return"
+        - "show_letters preferences         space        periodLarge Return"
     actions:
         - "EscSmall TabSmall Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
-        - "F7  F8  F9  F10 F11 F12"
+        - "F7  F8  F9 F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
-        - "show_letters Menu Break Left Down Right"
+        - "show_letters_actions Menu Break Left Down Right"
 
 buttons:
     Shift_L:
@@ -59,7 +64,7 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "wide"
+        outline: "altline"
         label: "123"
     show_numbers_from_symbols:
         action:
@@ -67,6 +72,11 @@ buttons:
         outline: "altline"
         label: "123"
     show_letters:
+        action:
+            set_view: "base"
+        outline: "altline"
+        label: "ABC"
+    show_letters_actions:
         action:
             set_view: "base"
         outline: "wide"
@@ -81,8 +91,8 @@ buttons:
             set_view: "actions"
         outline: "altline"
         label: ">_"
-    period:
-        outline: "altline"
+    periodLarge:
+        outline: "large"
         text: "."
     space:
         outline: "spaceline"
@@ -92,6 +102,7 @@ buttons:
         icon: "key-enter"
         keysym: "Return"
     colon:
+        outline: "expandtomiddlelarge"
         text: ":"
     F1:
         outline: "action"
@@ -100,10 +111,10 @@ buttons:
         outline: "action"
         keysym: "F2"
     F3:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "F3"
     F4:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "F4"
     F5:
         outline: "action"
@@ -118,10 +129,10 @@ buttons:
         outline: "action"
         keysym: "F8"
     F9:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "F9"
     F10:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "F10"
     F11:
         outline: "action"
@@ -147,16 +158,16 @@ buttons:
         outline: "action"
         keysym: "Delete"
     Insert:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "Insert"
     Menu:
         outline: "action"
         keysym: "Menu"
     Pause:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "Pause"
     Break:
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "Break"
     Home:
         outline: "small"
@@ -165,13 +176,13 @@ buttons:
         outline: "small"
         keysym: "End"
     PgUp:
-        outline: "small"
+        outline: "expandtomiddlesmall"
         keysym: "Page_Up"
     PgDn:
         outline: "small"
         keysym: "Page_Down"
     "↑":
-        outline: "small"
+        outline: "expandtomiddlesmall"
         keysym: "Up"
     "↓":
         outline: "small"
@@ -188,7 +199,7 @@ buttons:
         keysym: "Up"
     Left:
         label: "←"
-        outline: "action"
+        outline: "actionexpandtomiddle"
         keysym: "Left"
     Down:
         label: "↓"
@@ -204,5 +215,52 @@ buttons:
         label: "Ctrl"
     Alt:
         modifier: "Alt"
-        outline: "small"
+        outline: "expandtomiddlesmall"
         label: "Alt"
+    t:
+        outline: "expandtomiddlelarge"
+    y:
+        outline: "expandtomiddlelarge"
+    g:
+        outline: "expandtomiddlelarge"
+    h:
+        outline: "expandtomiddlelarge"
+    v:
+        outline: "expandtomiddlemedium"
+    b:
+        outline: "expandtomiddlemedium"
+    T:
+        outline: "expandtomiddlelarge"
+    Y:
+        outline: "expandtomiddlelarge"
+    G:
+        outline: "expandtomiddlelarge"
+    H:
+        outline: "expandtomiddlelarge"
+    V:
+        outline: "expandtomiddlemedium"
+    B:
+        outline: "expandtomiddlemedium"
+    5:
+        outline: "expandtomiddlelarge"
+    6:
+        outline: "expandtomiddlelarge"
+    "&":
+        outline: "expandtomiddlelarge"
+    MinusWide:
+        outline: "expandtomiddlelarge"
+        text: "-"
+    "'":
+        outline: "expandtomiddlelarge"
+    ¥:
+        outline: "expandtomiddlelarge"
+    ^:
+        outline: "expandtomiddlelarge"
+    √:
+        outline: "expandtomiddlelarge"
+    π:
+        outline: "expandtomiddlelarge"
+    "<":
+        outline: "expandtomiddlelarge"
+    ">":
+        outline: "expandtomiddlelarge"
