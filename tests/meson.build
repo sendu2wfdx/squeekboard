@@ -84,6 +84,7 @@ foreach layout : [
     'hu', 'hu_wide',
     'il',
     'ir',
+    'isv',
     'it',
     'it+fur',
     'jp+kana','jp+kana_wide',
