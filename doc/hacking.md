@@ -100,12 +100,15 @@ busctl set-property --user sm.puri.SqueekDebug /sm/puri/SqueekDebug sm.puri.Sque
 
 ### Environment Variables
 
-Besides the environment variables supported by GTK and [GLib](https://docs.gtk.org/glib/running.html) applications
-squeekboard honors the `SQUEEKBOARD_DEBUG` environment variable which can
-contain a comma separated list of:
+Besides the environment variables supported by GTK and [GLib](https://docs.gtk.org/glib/running.html) applications,
+squeekboard honors the following environment variables:
 
-- `force-show` : Show squeekboard on startup independent of any gsettings or compositor requests
-- `gtk-inspector`: Spawn [gtk-inspector](https://wiki.gnome.org/Projects/GTK/Inspector)
+- `SQUEEKBOARD_DEBUG` which can contain a comma separated list of:
+
+  - `force-show`: Show squeekboard on startup independent of any gsettings or compositor requests
+  - `gtk-inspector`: Spawn [gtk-inspector](https://wiki.gnome.org/Projects/GTK/Inspector)
+
+- `SQUEEKBOARD_HEIGHT_PX` for setting a specific height in pixels
 
 Coding
 ------
