@@ -300,8 +300,8 @@ mod tests {
 
         let state = xkb::State::new(&keymap);
 
-        assert_eq!(state.key_get_one_sym(9), xkb::KEY_a);
-        assert_eq!(state.key_get_one_sym(10), xkb::KEY_c);
+        assert_eq!(state.key_get_one_sym(9u32.into()), xkb::keysyms::KEY_a.into());
+        assert_eq!(state.key_get_one_sym(10u32.into()), xkb::keysyms::KEY_c.into());
     }
 
     #[test]
@@ -321,7 +321,7 @@ mod tests {
 
         let state = xkb::State::new(&keymap);
 
-        assert_eq!(state.key_get_one_sym(9), xkb::KEY_a);
+        assert_eq!(state.key_get_one_sym(9u32.into()), xkb::keysyms::KEY_a.into());
     }
 
     #[test]

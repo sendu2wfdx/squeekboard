@@ -42,12 +42,12 @@ pub fn check_layout_file(path: &str) {
 
 fn check_sym_in_keymap(state: &xkb::State, sym_name: &str) -> bool {
     let sym = xkb::keysym_from_name(sym_name, xkb::KEYSYM_NO_FLAGS);
-    if sym == xkb::KEY_NoSymbol {
+    if sym.raw() == xkb::keysyms::KEY_NoSymbol {
         panic!("Entered invalid keysym: {}", sym_name);
     }
     let map = state.get_keymap();
-    let range = map.min_keycode()..=map.max_keycode();
-    range.flat_map(|code| state.key_get_syms(code))
+    let range = map.min_keycode().raw()..=map.max_keycode().raw();
+    range.flat_map(|code| state.key_get_syms(code.into()))
         .find(|s| **s == sym)
         .is_some()
 }
@@ -110,8 +110,8 @@ fn check_layout(layout: Layout, allow_missing_return: bool) {
         for (_y, row) in view.get_rows() {
             for (_x, button) in row.get_buttons() {
                 for keycode in &button.keycodes {
-                    match xkb_states[keycode.keymap_idx].key_get_one_sym(keycode.code) {
-                        xkb::KEY_NoSymbol => {
+                    match xkb_states[keycode.keymap_idx].key_get_one_sym(keycode.code.into()).raw() {
+                        xkb::keysyms::KEY_NoSymbol => {
                             eprintln!(
                                 "keymap {}: {}",
                                 keycode.keymap_idx,
