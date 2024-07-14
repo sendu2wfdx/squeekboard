@@ -35,12 +35,17 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("ca", include_str!("../data/keyboards/ca.yaml")),
     ("ca_wide", include_str!("../data/keyboards/ca_wide.yaml")),
     
-    ("ch+fr", include_str!("../data/keyboards/ch+fr.yaml")),
-    ("ch+fr_wide", include_str!("../data/keyboards/ch+fr_wide.yaml")),
-    ("ch+de", include_str!("../data/keyboards/ch+de.yaml")),
-    ("ch+de_wide", include_str!("../data/keyboards/ch+de_wide.yaml")),
     ("ch", include_str!("../data/keyboards/ch.yaml")),
     ("ch_wide", include_str!("../data/keyboards/ch_wide.yaml")),
+    ("ch+de", include_str!("../data/keyboards/ch+de.yaml")),
+    ("ch+de_wide", include_str!("../data/keyboards/ch+de_wide.yaml")),
+    ("ch+fr", include_str!("../data/keyboards/ch+fr.yaml")),
+    ("ch+fr_wide", include_str!("../data/keyboards/ch+fr_wide.yaml")),
+
+    ("cz", include_str!("../data/keyboards/cz.yaml")),
+    ("cz_wide", include_str!("../data/keyboards/cz_wide.yaml")),
+    ("cz+qwerty", include_str!("../data/keyboards/cz+qwerty.yaml")),
+    ("cz+qwerty_wide", include_str!("../data/keyboards/cz+qwerty_wide.yaml")),
 
     ("de", include_str!("../data/keyboards/de.yaml")),
     ("de_wide", include_str!("../data/keyboards/de_wide.yaml")),
@@ -48,12 +53,6 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("de+bone_wide", include_str!("../data/keyboards/de+bone_wide.yaml")),
     ("de+neo", include_str!("../data/keyboards/de+neo.yaml")),
     ("de+neo_wide", include_str!("../data/keyboards/de+neo_wide.yaml")),
-
-    ("cz", include_str!("../data/keyboards/cz.yaml")),
-    ("cz_wide", include_str!("../data/keyboards/cz_wide.yaml")),
-
-    ("cz+qwerty", include_str!("../data/keyboards/cz+qwerty.yaml")),
-    ("cz+qwerty_wide", include_str!("../data/keyboards/cz+qwerty_wide.yaml")),
 
     ("dk", include_str!("../data/keyboards/dk.yaml")),
     ("dk_wide", include_str!("../data/keyboards/dk_wide.yaml")),
@@ -133,7 +132,6 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
 
     ("us+colemak", include_str!("../data/keyboards/us+colemak.yaml")),
     ("us+colemak_wide", include_str!("../data/keyboards/us+colemak_wide.yaml")),
-
     ("us+dvorak", include_str!("../data/keyboards/us+dvorak.yaml")),
     ("us+dvorak_wide", include_str!("../data/keyboards/us+dvorak_wide.yaml")),
 
