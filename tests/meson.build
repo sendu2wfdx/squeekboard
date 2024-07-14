@@ -72,6 +72,8 @@ foreach layout : [
     'cz', 'cz_wide',
     'cz+qwerty', 'cz+qwerty_wide',
     'de', 'de_wide',
+    'de+bone', 'de+bone_wide',
+    'de+neo', 'de+neo_wide',
     'dk', 'dk_wide',
     'epo', 'epo_wide',
     'es', 'es_wide',
