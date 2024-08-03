@@ -5,21 +5,21 @@ edition = "2021"
 
 [lib]
 name = "rs"
-path = "@path@/src/lib.rs"
+path = "src/lib.rs"
 crate-type = ["staticlib", "rlib"]
 
 # Cargo can't do autodiscovery if Cargo.toml is not in the root.
 [[bin]]
 name = "test_layout"
-path = "@path@/src/bin/test_layout.rs"
+path = "src/bin/test_layout.rs"
 
 [[example]]
 name = "test_layout"
-path = "@path@/examples/test_layout.rs"
+path = "examples/test_layout.rs"
 
 [[example]]
 name = "find_orphan_layouts"
-path = "@path@/examples/find_orphan_layouts.rs"
+path = "examples/find_orphan_layouts.rs"
 
 [features]
 zbus_v1_5 = []
