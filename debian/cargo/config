@@ -8,4 +8,7 @@ registry = 'https://github.com/rust-lang/crates.io-index'
 replace-with = 'vendored-sources'
 
 [source.vendored-sources]
-directory = '/usr/share/cargo/registry'
+# TODO: Use this instead of `../vendor`,
+# after Squeekboard can also be built with Debian packages only.
+# directory = '/usr/share/cargo/registry'
+directory = '../vendor'

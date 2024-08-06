@@ -26,3 +26,7 @@ export RUSTFLAGS = --remap-path-prefix=$(CURDIR)=/remap-pwd $(xgot)
 
 %:
 	dh $@ --builddirectory=_build --buildsystem=meson
+
+# TODO: Remove this, after Squeekboard can also be built with Debian packages only.
+execute_before_dh_auto_configure:
+	cargo vendor
