@@ -58,12 +58,6 @@ $ sudo apt-get -y build-dep .
 
 For an explicit list of dependencies check the `Build-Depends` entry in the [`debian/control`](debian/control) file.
 
-Note: Some build-dependencies are currently unavailable in Debian Testing.
-To be able to install the build-dependencies with the previously mentioned commands anyway,
-rename `control` in the `debian`-folder to `control.original`,
-and `control.debian-testing` to `control` before using those commands.
-The remaining dependencies will then be downloaded by `cargo` when building Squeekboard.
-
 Testing
 -------
 
