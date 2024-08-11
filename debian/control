@@ -16,11 +16,16 @@ Build-Depends:
  librust-aho-corasick-dev,
  librust-bitflags-1-dev (>= 1.0),
  librust-clap-4+std-dev (>= 4.0),
- librust-gio+v2-58-dev (>= 0.18),
- librust-glib+v2-58-dev (>= 0.18),
- librust-glib-sys-dev (>= 0.18),
- librust-gtk+v3-24-dev (>= 0.18),
- librust-gtk-sys-dev (>= 0.18),
+# TODO: Port to GTK4/GTK4-layer-shell
+# https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/64
+# These dependencies have been removed from Debian.
+# Building with dependencies from "crates.io", which will be
+# downloaded by `cargo` during the build, still works without these.
+# librust-gio+v2-58-dev (>= 0.18),
+# librust-glib+v2-58-dev (>= 0.18),
+# librust-glib-sys-dev (>= 0.18),
+# librust-gtk+v3-24-dev (>= 0.18),
+# librust-gtk-sys-dev (>= 0.18),
  librust-maplit-1-dev (>= 1.0),
  librust-serde-derive-1-dev (>= 1.0),
  librust-serde-yaml-0.9-dev (>= 0.9),

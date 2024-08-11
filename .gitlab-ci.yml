@@ -23,9 +23,6 @@ stages:
   - deploy
 
 before_script:
-# Workaround for unavailable dependencies
-  - mv debian/control.debian-testing debian/control
-# End of workaround for unavailable dependencies
   - apt-get -y update
   - apt-get -y install ca-certificates
 
@@ -65,17 +62,6 @@ build_deb:
       - '*.deb'
   script:
     - rm -f ../*.deb
-# Workaround for unavailable dependencies
-# TODO: Port Squeekboard to GTK4/GTK4-layer-shell
-# https://gitlab.gnome.org/World/Phosh/squeekboard/-/issues/64
-    - echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
-    - echo "deb http://deb.debian.org/debian/ experimental main" > /etc/apt/sources.list.d/experimental.list
-    - echo "APT::Default-Release \"trixie\";" > /etc/apt/apt.conf.d/default-release
-    - apt-get -y update
-    - apt-get -y --no-upgrade install librust-gio-dev librust-glib-dev librust-glib-sys-dev
-      librust-gtk-dev librust-gtk-sys-dev
-    - apt-get -y --no-upgrade install -t experimental librust-serde-yaml-dev
-# End of workaround for unavailable dependencies
     - apt-get -y build-dep .
     - apt-get -y install devscripts
     - REV=$(git log -1 --format=%h)
