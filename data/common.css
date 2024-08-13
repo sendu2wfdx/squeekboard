@@ -11,6 +11,10 @@ sq_view.gr_polytonic {
     font-size: 2em;
 }
 
+sq_view.in_mal {
+    font-size: 1em;
+}
+
 sq_view.ir_azb {
     font-size: 1.368em;
 }

@@ -8,6 +8,8 @@
    <file>icons/key-enter.svg</file>
    <file>icons/key-shift.svg</file>
    <file>icons/keyboard-mode-symbolic.svg</file>
+   <file>icons/zwj.svg</file>
    <file>icons/zwnj.svg</file>
+   <file>icons/zwsp.svg</file>
   </gresource>
 </gresources>
