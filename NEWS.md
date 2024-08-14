@@ -1,4 +1,16 @@
-1.39.0
+squeekboard 1.41.0
+------------------
+
+New layouts:
+ - Malayalam
+ - German (Bone)
+ - German (Neo 2)
+
+New icons:
+ - zwsp (zero-width-space)
+ - zwj (zero-width-joiner)
+
+squeekboard 1.39.0
 ------------------
 
 New button-styles:
@@ -27,7 +39,7 @@ Changes:
 Development:
  - Scaling-tests for many display-types have been added.
 
-1.38.0
+squeekboard 1.38.0
 ------------------
 
 Changes:
@@ -45,13 +57,13 @@ Development:
 - Squeekboard's main development-platform is now Debian Testing
 - The layout-files have been cleaned up, so that those are easier to understand and edit
 
-1.24.0
+squeekboard 1.24.0
 ------------------
 
 Changes:
 - The emoji-layout has been replaced with a new one, which offers many more emojis to choose from.
 
-1.23.0
+squeekboard 1.23.0
 ------------------
 
 New or updated translations:
@@ -68,7 +80,7 @@ Changes:
 - Fixed various small style-issues in many layouts
 - Improved the US-terminal-layout
 
-1.22.0 "Superposition"
+squeekboard 1.22.0 "Superposition"
 ------------------
 
 New or updated translations:
@@ -79,7 +91,7 @@ Changes:
 - fixed panel sizing when rotating
 - fixed Dvorak terminal layout
 
-1.21.0 "Expected value"
+squeekboard 1.21.0 "Expected value"
 ------------------
 
 New or updated translations:
@@ -97,7 +109,7 @@ Changes:
 - fixed panel sizing when rotating
 - internal improvements.
 
-1.20.0 "PID controller"
+squeekboard 1.20.0 "PID controller"
 ------------------
 
 New translations:
