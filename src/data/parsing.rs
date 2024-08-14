@@ -299,7 +299,7 @@ fn create_action<H: logging::Handler>(
         .unwrap_or(&default_meta);
 
     fn keysym_valid(name: &str) -> bool {
-        xkb::keysym_from_name(name, xkb::KEYSYM_NO_FLAGS) != xkb::KEY_NoSymbol
+        xkb::keysym_from_name(name, xkb::KEYSYM_NO_FLAGS).raw() != xkb::keysyms::KEY_NoSymbol
     }
     
     enum SubmitData {
