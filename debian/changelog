@@ -1,3 +1,22 @@
+squeekboard (1.41.0) experimental; urgency=medium
+
+  [ MoonlightWave-12 ]
+  * Layouts: Add ergonomic German layouts
+  * resources.rs: Correct sorting of layouts
+  * Build: Use meson_Cargo.toml.in for setting up the build
+  * .gitignore: Ignore more files
+  * Build/CI: Remove workaround that does not work any more
+  * Build: Use vendored dependencies for building .deb packages
+  * debian/cargo/config: Rename to config.toml
+  * data/icons: Add zwsp and zwj
+  * Layouts: Add Malayalam layout
+  * Cargo.lock: Update dependencies
+
+  [ marcin ]
+  * Port to crate xkbcommon 0.7
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Wed, 14 Aug 2024 18:27:39 +0200
+
 squeekboard (1.39.0) experimental; urgency=medium
 
   [ MoonlightWave-12 ]
