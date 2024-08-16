@@ -88,8 +88,8 @@ message('\n'.join(summary))
 # 'rust-analyzer' does not work correctly, when the paths in 'Cargo.toml' have '@path@' in them.
 cp = find_program('cp')
 sed = find_program('sed')
-copy_cargo_toml = run_command('cp', 'Cargo.toml', 'meson_Cargo.toml.in')
-prepare_cargo_toml = run_command('sed', '-i', 's/path = "/path = "@path@\//', 'meson_Cargo.toml.in')
+copy_cargo_toml = run_command('cp', 'Cargo.toml', 'meson_Cargo.toml.in', check: true)
+prepare_cargo_toml = run_command('sed', '-i', 's/path = "/path = "@path@\//', 'meson_Cargo.toml.in', check: true)
 
 path_data = configuration_data()
 path_data.set('path', meson.source_root())
