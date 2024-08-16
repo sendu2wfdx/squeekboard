@@ -1,4 +1,4 @@
 tools/squeekboard-restyled usr/bin
 usr/bin/squeekboard /usr/bin
-usr/share/applications/
+usr/share/applications/*.desktop usr/share/squeekboard/
 usr/share/locale/
