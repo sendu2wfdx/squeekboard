@@ -1,4 +1,5 @@
 _build/
+debian/*.debhelper
 debian/.debhelper/
 debian/cargo/registry/
 debian/cargo/.*cache*
