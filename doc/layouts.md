@@ -3,7 +3,9 @@ Layouts
 
 Squeekboard is composed of multiple layouts, several for each language, multiplied by each hint.
 
-Layouts live in the "keyboards" directory.
+The available layouts are in the "data/keyboards/" directory.
+
+For creating new layouts, reading the [tutorial](tutorial.md) can be useful.
 
 Hints
 -----
@@ -40,6 +42,29 @@ Layout-size
 ### Aspect-ratios
 - Basic/compact shape: 12:7
 - Wide shape: 16:5
+
+### Recommended settings for creating layouts while using Phoc
+
+For testing the basic/compact shape:
+
+```sh
+[output:WL-1]
+mode = 360x720
+```
+
+For testing the wide shape:
+
+```sh
+[output:WL-1]
+mode = 1280x800
+```
+Make sure there is no `phys_height` or `phys_width` set.
+
+### Layout-stretching
+
+Squeekboard may slightly stretch layouts horizontally (up to 5.5%) before showing them.
+For creating layouts with precise sizes, it can be useful to disable this.
+This can be done by changing the value `1.055` in the line `let scale_x = if (h_scale / v_scale) < 1.055 { h_scale } else { v_scale };` of the `calculate_transformation` function in `src/layout.rs` to `1.0`, before building Squeekboard.
 
 Layout syntax
 -------------

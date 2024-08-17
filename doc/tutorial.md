@@ -3,13 +3,13 @@ A guide to creating layouts
 
 This guide is based on the original Kareema's [forum post](https://forums.puri.sm/t/translations-and-virtual-touch-keyboards-tracking-localization/7669/48).
 
-It’s long overdue to write a comprehensive guide how to add a keyboard layout from start. But unfortunately, I don’t have much time left ATM. A lot of information can be found in [this](https://forums.puri.sm/t/using-non-latin-language-on-librem-5/7103/5) thread.
+A lot of information can be found in [this](https://forums.puri.sm/t/using-non-latin-language-on-librem-5/7103/5) thread.
 
-So at least I will try to start writing a short how-to here and edit this post as I find the time. Hope this helps a bit - comments and corrections [welcome](https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/)
+Comments and corrections [welcome](https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/).
 
 ## Creating a new layout
 
-Creating a layout is easy. You don't need to recompile things, just edit and test. It's easiest to start with an existing layout, with the [layouts](layouts.md) documentation in hand.
+Creating a layout is easy. You do not need to recompile things, just edit and test. It is easiest to start with an existing layout, with the [layouts](layouts.md) documentation at hand.
 
 ### Get one of the existing keyboard layouts
 

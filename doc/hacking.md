@@ -45,8 +45,6 @@ Development environment
 
 *Squeekboard* is regularly built and tested on [Debian Testing](https://www.debian.org/releases/testing/) and [Mobian Testing](https://mobian.org/).
 
-For testing Squeekboard on a PC as if it was used on a smartphone, one can use an emulator. Instructions for that can be found in the [documentation for setting up a development-environment for the Librem 5](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html).
-
 ### Dependencies
 
 On a Debian based system run
@@ -58,20 +56,67 @@ $ sudo apt-get -y build-dep .
 
 For an explicit list of dependencies check the `Build-Depends` entry in the [`debian/control`](debian/control) file.
 
+### Building Squeekboard
+
+```sh
+$ meson setup _build
+$ ninja -C _build
+```
+
+### Some recommended software for development
+
+- [rust-analyzer](https://rust-analyzer.github.io/) - Can offer additional information about code in an IDE (for example: in GNOME Builder).
+- [phoc](https://gitlab.gnome.org/World/Phosh/phoc) - To run Squeekboard in a [nested session](https://phosh.mobi/posts/phosh-dev-part-0/) (for example: while in a GNOME session).
+
+For testing Squeekboard on a PC as if it was used on a smartphone, one can also use an emulator. Instructions for that can be found in the [documentation for setting up a development-environment for the Librem 5](https://developer.puri.sm/Librem5/Development_Environment/Boards/emulators.html).
+
 Testing
 -------
 
-Most common testing is done in CI. Occasionally, and for each release, do perform manual tests to make sure that
+Most common testing is done in CI. Occasionally, and for each release, do perform manual tests to make sure that:
 
 - the application draws correctly
 - it shows when relevant
 - it changes layouts
 - it changes views
 
+#### Setting up for manual testing
+
+While one can simply use a computer which uses Squeekboard already, it may be necessary to restart the session for actually testing the changes.
+A more convenient way, is to use Phoc to run Squeekboard in a nested session ([more information](https://phosh.mobi/posts/phosh-dev-part-0/)), while in another session (for example: GNOME, or KDE Plasma):
+
+First, install Phoc, either with `sudo apt install phoc` (on Debian-based distributions), or from the [source-code](https://gitlab.gnome.org/World/Phosh/phoc).
+Then prepare a config-file (`phoc.ini`) for Phoc, to ensure that Squeekboard will be shown how it would be shown on an actual device (though, the size of the window will probably be different than the size of the display).
+
+Example of a `phoc.ini` matching the PinePhone Pro:
+
+```ini
+[output:WL-1]
+# Resolution in px. Swap the values to change between vertical or horizontal orientation.
+mode = 720x1440
+# Width and height in mm.
+phys_width = 68
+phys_height = 136
+```
+
+Then (after Squeekboard has been built) use a command like the following, to start `phoc` together with Squeekboard:
+
+```sh
+$ SQUEEKBOARD_DEBUG=force_show GTK_THEME=Adwaita:dark phoc --config 'path-to/phoc.ini' --exec '_build/src/squeekboard'
+```
+You can move the window of Phoc, by pressing down the Super-key while clicking and dragging the window.
+It can also be set to be always on top, by pressing the Super-key, doing a right-click on the window, and then selecting the option for that.
+
 #### Testing with an application
 
 ```sh
 $ python3 tools/entry.py
+```
+
+To test an application with Squeekboard in a nested session, one can use the environment-variable `WAYLAND_DISPLAY`, to open the application in that session. For example:
+
+```sh
+$ WAYLAND_DISPLAY=wayland-1 python3 tools/entry.py
 ```
 
 #### Testing visibility
@@ -88,7 +133,7 @@ Available Layouts can be selected by using the GNOME Settings application.
 Those can also be set with `gsettings`:
 
 ```sh
-# define all available layouts. First one is currently selected.
+# Define all available layouts. First one is currently selected.
 $ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'de')]"
 ```
 
@@ -219,19 +264,17 @@ $ sh /source_path/cargo.sh test
 
 All Cargo dependencies must be selected in the version available in Debian Testing, and added to the file `debian/control`. Please check with the [Debian package search](https://www.debian.org/distrib/packages).
 
-Dependencies must be specified in `Cargo.toml` with 2 numbers: "major.minor". Since bugfix version number is meant to not affect the interface, this allows for safe updates.
+Dependencies must be specified in `Cargo.toml` with 2 numbers: "major.minor". Since the bugfix version number is meant to not affect the interface, this allows for safe updates.
 
 Releases
 --------
 
-Feature-releases should me made in time for new [Phosh releases](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases) (which is currently about once a month), so that the release-notes can contain the news about Squeekboard.
+Feature-releases should me made in time for new [Phosh releases](https://gitlab.gnome.org/World/Phosh/phosh/-/wikis/Releases) (which is currently about once in one and a half months), so that the release-notes can contain the news about Squeekboard.
 However, it is not necessary to make a new release of Squeekboard for every release of Phosh.
 
 Bug-fix-releases should be made more often, preferably directly after important bug-fixes have been made.
 
 ### 1. Update `Cargo.lock`
-
-While the file is not actually used, it's a good idea to save the config in case some rare bug appears in dependencies.
 
 ```sh
 $ cd squeekboard-build
@@ -275,7 +318,7 @@ Add the updated `debian/changelog` to the commit. The commit message should cont
 Summarize the changes since the last release in the NEWS file. Use the Markdown syntax, e.g.
 
 ```
-1.22.0 "Superposition"
+squeekboard 1.22.0 "Superposition"
 -----------------------------
 
 Changes:

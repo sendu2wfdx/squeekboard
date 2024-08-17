@@ -1,7 +1,7 @@
 *squeekboard* - a Wayland on-screen keyboard
 ========================================
 
-*Squeekboard* is the on-screen keyboard for Phosh. It is primarily designed for smartphones, tablet-PCs, and other devices with touchscreens.
+*Squeekboard* is the on-screen-keyboard input-method for Phosh. It is primarily designed for smartphones, tablet-PCs, and other devices with touchscreens.
 
 It squeaks because some Rust got inside.
 
@@ -30,6 +30,12 @@ Creating layouts
 
 If you want to work on layouts, check out the [guide](doc/tutorial.md).
 
+Nightly builds
+--------------
+
+For testing the latest commits of the `main`-branch, one can install the nightly builds of Squeekboard.
+For more information about the nightly builds, read the ["Phosh Nightly Package Builds"-blog-post](https://phosh.mobi/posts/phosh-nightly/).
+
 Building
 --------
 
@@ -43,7 +49,7 @@ See `.gitlab-ci.yml` or run `apt-get build-dep .`
 $ git clone https://gitlab.gnome.org/World/Phosh/squeekboard.git
 $ cd squeekboard
 $ mkdir _build
-$ meson _build/
+$ meson setup _build/
 $ cd _build
 $ ninja
 ```
@@ -54,9 +60,13 @@ Running
 -------
 
 ```sh
-$ phoc # if no compatible Wayland compositor is running yet
 $ cd ../build/
 $ src/squeekboard
+```
+If no compatible Wayland compositor is running yet, you can use Phoc (after installing it):
+
+```sh
+$ phoc --exec 'src/squeekboard'
 ```
 
 Squeekboard's panel will appear whenever a compatible application requests an input method. Click a text field in any GTK application, like `python3 ./tools/entry.py`.
@@ -72,6 +82,7 @@ Alternatively, force panel visibility manually with:
 ```sh
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 ```
+or by using the environment-variable `SQUEEKBOARD_DEBUG=force_show`.
 
 ### What the compositor has to support
 
