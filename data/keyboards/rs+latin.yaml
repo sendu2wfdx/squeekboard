@@ -1,0 +1,87 @@
+---
+outlines:
+    default:       { width: 32.42, height: 52 }
+    fill:          { width: 64.84, height: 52 }
+    altline:       { width: 32.42, height: 52 }
+    wide:          { width: 48.63, height: 52 }
+    change-view:   { width: 32.42, height: 52 }
+    change-view-2: { width: 48.63, height: 52 }
+    spaceline:     { width: 162.1, height: 52 }
+    special:       { width: 32.42, height: 52 }
+    placeholder:   { width: 32.42, height: 52 }
+
+views:
+    base:
+        - "q w e r t z u i o p š"
+        - "a s d f g h j k l č ć"
+        - "Shift_L    y x c v b n m đ ž BackSpace"
+        - "show_numbers preferences     space    , . Return"
+    upper:
+        - "Q W E R T Z U I O P Š"
+        - "A S D F G H J K L Č Ć"
+        - "Shift_L    Y X C V B N M Đ Ž BackSpace"
+        - "show_numbers preferences     space    ! ? Return"
+    numbers:
+        - "1 2 3 4 5 6 7 8 9 0"
+        - "@ # $ % & - _ + ( )"
+        - "show_symbols    , \" ' : ; ! ? -- BackSpace-wide"
+        - "show_letters preferences     space    , . Return"
+    symbols:
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ € ¥ ^ ° * { }"
+        - "show_numbers    \\ / < > = [ ] -- BackSpace-wide"
+        - "show_letters preferences     space    , . Return"
+
+buttons:
+    Shift_L:
+        action:
+            locking:
+                lock_view: "upper"
+                unlock_view: "base"
+        outline: "change-view"
+        icon: "key-shift"
+    BackSpace:
+        outline: "altline"
+        icon: "edit-clear-symbolic"
+        action: "erase"
+    BackSpace-wide:
+        outline: "wide"
+        icon: "edit-clear-symbolic"
+        action: "erase"
+    preferences:
+        action: "show_prefs"
+        outline: "special"
+        icon: "keyboard-mode-symbolic"
+    show_numbers:
+        action:
+            set_view: "numbers"
+        outline: "change-view-2"
+        label: "123"
+    show_letters:
+        action:
+            set_view: "base"
+        outline: "change-view-2"
+        label: "ABC"
+    show_symbols:
+        action:
+            set_view: "symbols"
+        outline: "change-view-2"
+        label: "*/="
+    space:
+        outline: "spaceline"
+        text: " "
+    Return:
+        outline: "wide"
+        icon: "key-enter"
+        keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill"
+    "&":
+        outline: "fill"
+    √:
+        outline: "fill"
+    ¥:
+        outline: "fill"

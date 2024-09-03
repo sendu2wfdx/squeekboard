@@ -1,0 +1,90 @@
+---
+outlines:
+    default:     { width: 48.87,  height: 42 }
+    fill:        { width: 73.31,  height: 42 }
+    altline:     { width: 73.31,  height: 42 }
+    wide:        { width: 73.31,  height: 42 }
+    change-view: { width: 73.31,  height: 42 }
+    spaceline:   { width: 244.35, height: 42 }
+    special:     { width: 48.87,  height: 42 }
+    placeholder: { width: 48.87,  height: 42 }
+
+views:
+    base:
+        - "љ њ е р т з у и о п ш"
+        - "а с д ф г х ј к л ч ћ"
+        - "Shift_L  џ ц в б н м ђ ж BackSpace"
+        - "show_numbers preferences     space    , . Return"
+    upper:
+        - "Љ Њ Е Р Т З У И О П Ш"
+        - "А С Д Ф Г Х Ј К Л Ч Ћ"
+        - "Shift_L   Џ Ц В Б Н М Ђ Ж BackSpace"
+        - "show_numbers preferences     space    ! ? Return"
+    numbers:
+        - "1 2 3 4 5 6 7 8 9 0"
+        - "@ # $ % & - _ + ( )"
+        - "show_symbols    , \" ' : ; ! ? -- BackSpace"
+        - "show_letters preferences     space    , . Return"
+    symbols:
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® £ € ¥ ^ ° * { }"
+        - "show_numbers    \\ / < > = [ ] -- BackSpace"
+        - "show_letters preferences     space    , . Return"
+
+buttons:
+    Shift_L:
+        action:
+            locking:
+                lock_view: "upper"
+                unlock_view: "base"
+        outline: "change-view"
+        icon: "key-shift"
+    BackSpace:
+        outline: "altline"
+        icon: "edit-clear-symbolic"
+        action: "erase"
+    preferences:
+        action: "show_prefs"
+        outline: "special"
+        icon: "keyboard-mode-symbolic"
+    show_numbers:
+        action:
+            set_view: "numbers"
+        outline: "change-view"
+        label: "123"
+    show_letters:
+        action:
+            set_view: "base"
+        outline: "change-view"
+        label: "ABC"
+    show_symbols:
+        action:
+            set_view: "symbols"
+        outline: "change-view"
+        label: "*/="
+    space:
+        outline: "spaceline"
+        text: " "
+    Return:
+        outline: "wide"
+        icon: "key-enter"
+        keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill"
+    6:
+        outline: "fill"
+    "&":
+        outline: "fill"
+    -:
+        outline: "fill"
+    √:
+        outline: "fill"
+    π:
+        outline: "fill"
+    ¥:
+        outline: "fill"
+    ^:
+        outline: "fill"
