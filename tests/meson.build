@@ -65,6 +65,7 @@ foreach layout : [
     'bg', 'bg_wide',
     'bg+phonetic', 'bg+phonetic_wide',
     'br', 'br_wide',
+    'by', 'by_wide',
     'ca', 'ca_wide',
     'ch+fr', 'ch+fr_wide',
     'ch+de', 'ch+de_wide',
