@@ -182,6 +182,23 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     // Overlays
     ("emoji/us", include_str!("../data/keyboards/emoji/us.yaml")),
     ("emoji/us_wide", include_str!("../data/keyboards/emoji/us_wide.yaml")),
+
+    // Workaround: Fallback to more appropriate layouts than US-English.
+    // TODO: Consider creating layouts for these, if these are supposed to be different.
+    ("at", include_str!("../data/keyboards/de.yaml")),
+    ("at_wide", include_str!("../data/keyboards/de_wide.yaml")),
+
+    ("latam", include_str!("../data/keyboards/es.yaml")),
+    ("latam_wide", include_str!("../data/keyboards/es_wide.yaml")),
+
+    ("terminal/at", include_str!("../data/keyboards/terminal/de.yaml")),
+    ("terminal/at_wide",   include_str!("../data/keyboards/terminal/de_wide.yaml")),
+
+    ("terminal/latam", include_str!("../data/keyboards/terminal/es.yaml")),
+    ("terminal/latam_wide",   include_str!("../data/keyboards/terminal/es_wide.yaml")),
+
+    ("terminal/ch+fr", include_str!("../data/keyboards/terminal/de.yaml")),
+    ("terminal/ch+fr_wide", include_str!("../data/keyboards/terminal/de_wide.yaml")),
 ];
 
 pub fn get_keyboard(needle: &str) -> Option<&'static str> {
