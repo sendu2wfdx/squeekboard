@@ -91,6 +91,7 @@ foreach layout : [
     'ir', 'ir_wide',
     'it', 'it_wide',
     'it+fur', 'it+fur_wide',
+    'jp','jp_wide',
     'jp+kana','jp+kana_wide',
     'no', 'no_wide',
     'pt', 'pt_wide',

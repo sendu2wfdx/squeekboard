@@ -23,6 +23,10 @@ sq_view.ir_azb {
     font-size: 1.368em;
 }
 
+sq_view.wide.jp {
+    font-size: 1.15em;
+}
+
 sq_button {
     border-radius: 4px;
     margin: 2px;

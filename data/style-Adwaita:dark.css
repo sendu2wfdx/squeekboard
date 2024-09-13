@@ -40,7 +40,8 @@ sq_button.character-group:active {
 }
 
 sq_button.change-view,
-sq_button.change-view-2 {
+sq_button.change-view-2,
+sq_button.change-view-3 {
     background: #2b292f;
     border-bottom: 0.4999px;
     border-style: solid;
@@ -48,7 +49,8 @@ sq_button.change-view-2 {
 }
 
 sq_button.change-view:active,
-sq_button.change-view-2:active {
+sq_button.change-view-2:active,
+sq_button.change-view-3:active {
     background: #747077;
     border-bottom: 0.4999px;
     border-style: solid;
@@ -68,12 +70,16 @@ sq_button.placeholder-2:active {
 
 sq_button.altline,
 sq_button.special,
+sq_button.special-2,
+sq_button.special-3,
 sq_button.wide {
     background: #2b292f;
 }
 
 sq_button.altline:active,
 sq_button.special:active,
+sq_button.special-2:active,
+sq_button.special-3:active,
 sq_button.wide:active {
     background: #37353c;
 }
