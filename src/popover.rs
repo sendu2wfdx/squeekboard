@@ -348,7 +348,7 @@ pub fn show(
     let settings_action = gio::SimpleAction::new("settings", None);
     settings_action.set_enabled(popover.settings_active);
     settings_action.connect_activate(move |_, _| {
-        let s = CString::new("region").unwrap();
+        let s = CString::new("keyboard").unwrap();
         unsafe { c::popover_open_settings_panel(s.as_ptr()) };
     });
     action_group.add_action(&settings_action);
