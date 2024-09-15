@@ -321,8 +321,8 @@ Summarize the changes since the last release in the NEWS file. Use the Markdown 
 squeekboard 1.22.0 "Superposition"
 -----------------------------
 
-Changes:
-- Fixed panel sizing when scaling
+* Changes:
+    * Fixed panel sizing when scaling
 ...
 ```
 
