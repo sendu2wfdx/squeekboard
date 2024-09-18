@@ -322,7 +322,7 @@ pub struct Mode {
     pub height: i32,
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Millimeter(pub i32);
 
 impl DivCeil<i32> for Millimeter {
