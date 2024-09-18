@@ -358,52 +358,51 @@ Outcome:
         output.get_pixel_size()
             .map(|px_size| {
                 // Assume isotropy.
-                // Pixels/mm.
-                let density = output.get_physical_size()
+                // Pixel / Millimeter
+                let pixel_density = output.get_physical_size()
                     .and_then(|size| size.width)
                     .map(|width| Rational {
-                        numerator: px_size.width as i32,
-                        denominator: width.0 as u32,
+                        numerator: px_size.width as i32, // Pixel
+                        denominator: width.0 as u32, // Millimeter
                     })
-                    // Whatever the Librem 5 has,
-                    // as a good default.
+                    // Default to the pixel-density of the Librem 5 (~281 DPI).
                     .unwrap_or(Rational {
-                        numerator: 720,
-                        denominator: 65,
+                        numerator: 720, // Pixel
+                        denominator: 65, // Millimeter
                     });
 
-                // Based on what works on the L5.
-                // Exceeding that probably wastes space. Reducing makes typing harder.
-                const IDEAL_TARGET_SIZE: Rational<Millimeter> = Rational {
-                    numerator: Millimeter(948),
-                    denominator: 100,
+                // Based on what works well on the Librem 5.
+                // Exceeding that, probably wastes space. Reducing it, makes typing harder.
+                const IDEAL_BUTTON_SIZE: Rational<Millimeter> = Rational {
+                    numerator: Millimeter(948), // 9.48 mm, actually.
+                    denominator: 100, // Increase precision to 0.01 mm.
                 };
 
-                // TODO: calculate based on selected layout
+                // TODO: Calculate this, based on the selected layout.
                 const ROW_COUNT: u32 = 4;
 
-                let ideal_height = IDEAL_TARGET_SIZE * ROW_COUNT as i32;
-                let ideal_height_px = (ideal_height * density).ceil().0 as u32;
+                let ideal_panel_height = IDEAL_BUTTON_SIZE * ROW_COUNT as i32;
+                let ideal_panel_height_px = (ideal_panel_height * pixel_density).ceil().0 as u32;
 
                 // Changes the point at which the layout-shape is changed to the wide shape.
                 // Slightly higher aspect-ratio (16:5.1) than the expected aspect-ratio of the wide shape (16:5).
                 // 5.1/16 = 1/3.14 = 172/540 (rounded, height / width)
                 // FIXME: This should be 172/540, but it is currently used as a workaround to improve shape-selection.
                 // For more information about that, read https://gitlab.gnome.org/World/Phosh/squeekboard/-/merge_requests/639 .
-                let max_wide_height = Rational {
+                let aspect_ratio_wide = Rational {
                     numerator: 188,
                     denominator: 540,
                 };
-                let ideal_panel_height = Rational {
-                    numerator: ideal_height_px as i32,
+                let ideal_aspect_ratio = Rational {
+                    numerator: ideal_panel_height_px as i32,
                     denominator: px_size.width,
                 };
-                // Reduce height to match what the layout can fill.
+                // Reduce height, to match what the layout can fill.
                 // For this, we need to guess if normal or wide will be picked.
                 // This must match `eek_gtk_keyboard.c::get_type`.
                 // TODO: query layout database and choose one directly
-                let (arrangement, height_as_widths) = {
-                    if max_wide_height < ideal_panel_height {(
+                let (arrangement, layout_aspect_ratio) = {
+                    if aspect_ratio_wide < ideal_aspect_ratio {(
                         ArrangementKind::Base,
                         Rational {
                             numerator: 210,
@@ -411,20 +410,20 @@ Outcome:
                         },
                     )} else {(
                         ArrangementKind::Wide,
-                        max_wide_height,
+                        aspect_ratio_wide,
                     )}
                 };
                 // Set the height of the space available for Squeekboard
-                let height
+                let panel_height
                     = cmp::min(
-                        ideal_height_px,
-                        (height_as_widths * px_size.width as i32).ceil() as u32,
+                        ideal_panel_height_px,
+                        (layout_aspect_ratio * px_size.width as i32).ceil() as u32,
                     );
 
                 (
                     PixelSize {
                         scale_factor: output.scale as u32,
-                        pixels: cmp::min(height, px_size.height / 2),
+                        pixels: cmp::min(panel_height, px_size.height / 2),
                     },
                     arrangement,
                 )
@@ -949,8 +948,6 @@ pub mod test {
     #[test]
     fn size_galaxy_tab_a_8_0_horizontal() {scaling_test_wide(1024, 768, 163, 122, 1, 239)}
 
-
-
     #[test]
     fn size_galaxy_tab_s2_9_7() {scaling_test_wide(1536, 2048, 148, 197, 2, 394)}
     #[test]
@@ -1082,3 +1079,4 @@ pub mod test {
     #[test]
     fn size_ultrawide_monitor_horizontal() {scaling_test_wide(5120, 1440, 1198, 337, 1, 163)}
 }
+
