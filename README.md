@@ -63,6 +63,7 @@ Running
 $ cd ../build/
 $ src/squeekboard
 ```
+
 If no compatible Wayland compositor is running yet, you can use Phoc (after installing it):
 
 ```sh
@@ -82,6 +83,7 @@ Alternatively, force panel visibility manually with:
 ```sh
 $ busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
 ```
+
 or by using the environment-variable `SQUEEKBOARD_DEBUG=force_show`.
 
 ### What the compositor has to support
@@ -94,6 +96,18 @@ A compatible compositor has to support the protocols:
 It's strongly recommended to support:
 
 - input-method-v2
+
+Settings
+--------
+
+To see a list of available settings, use the following command:
+
+```sh
+$ gsettings list-keys sm.puri.Squeekboard
+```
+
+Note: If the keyboard is open when the settings for the panel-height are changed, the height of the keyboard will not change until it is opened again, or the layout is changed.
+While using Phosh, one can long-click/long-tap the home-bar at the bottom, to open and close the keyboard.
 
 Developing
 ----------

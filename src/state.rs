@@ -19,6 +19,8 @@ use crate::panel;
 use crate::panel::PixelSize;
 use crate::popover;
 use crate::util::Rational;
+use gio::Settings;
+use gdk::prelude::SettingsExt;
 use std::cmp;
 use std::collections::HashMap;
 use std::time::Instant;
@@ -390,6 +392,10 @@ Outcome:
 
                 let screen_aspect_ratio = {px_size.height as f64 / px_size.width as f64};
 
+                let gsettings = Settings::new("sm.puri.Squeekboard");
+                let scale_setting_horizontal = gsettings.double("scale-in-horizontal-screen-orientation");
+                let scale_setting_vertical = gsettings.double("scale-in-vertical-screen-orientation");
+
                 // Reduce height, to match what the layout can fill.
                 // For this, we need to guess if normal or wide will be picked.
                 // This must match `eek_gtk_keyboard.c::get_type`.
@@ -417,17 +423,28 @@ Outcome:
                         (layout_aspect_ratio * px_size.width as i32).ceil() as u32,
                     );
 
-                (
-                    PixelSize {
-                        scale_factor: output.scale as u32,
-                        // Set the height of the panel for the layout.
-                        pixels: if arrangement == ArrangementKind::Base && screen_width < screen_height {
+                      let panel_height = {
+                                if arrangement == ArrangementKind::Base && screen_width < screen_height {
                             cmp::min((px_size.height as f64 / (screen_aspect_ratio / (7.0 / 12.0))) as u32, px_size.height / 2)}
                            else if arrangement == ArrangementKind::Wide && screen_width < screen_height {
                             cmp::min((px_size.height as f64 / (screen_aspect_ratio / (5.0 / 16.0))) as u32, px_size.height / 2)}
                            else if arrangement == ArrangementKind::Wide {
                             cmp::min(cmp::max(px_size.height / 3 as u32, recommended_panel_height), px_size.height / 2)}
-                           else {px_size.height / 2},
+                           else {px_size.height / 2}
+                           };
+
+                (
+                    PixelSize {
+                        scale_factor: output.scale as u32,
+                        // Set the height of the panel for the layout.
+                        pixels: if screen_width < screen_height {
+                                 cmp::min((panel_height as f64 * scale_setting_vertical) as u32,
+                                        (px_size.height as f64 * (2.0 / 3.0)) as u32)
+                                        }
+                                else {
+                                 cmp::min((panel_height as f64 * scale_setting_horizontal) as u32,
+                                        (px_size.height as f64 * (2.0 / 3.0)) as u32)
+                                        },
                     },
                     arrangement,
                 )
@@ -737,6 +754,11 @@ pub mod test {
 // scaling-tests
     fn scaling_test_base(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
+
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-orientation");
+        let scale_setting_vertical = gsettings.double("scale-in-vertical-orientation");
+
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
                 current_mode: Some(Mode {
@@ -755,7 +777,14 @@ pub mod test {
             Some((
                 PixelSize {
                     scale_factor: scale as u32,
-                    pixels: expected_pixel_height,
+                    pixels: if pixel_width < pixel_height {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_vertical) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               }
+                          else {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_horizontal) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               },
                 },
                 ArrangementKind::Base,
             )),
@@ -764,6 +793,11 @@ pub mod test {
 
     fn scaling_test_wide(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
+
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-orientation");
+        let scale_setting_vertical = gsettings.double("scale-in-vertical-orientation");
+
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
                 current_mode: Some(Mode {
@@ -782,7 +816,14 @@ pub mod test {
             Some((
                 PixelSize {
                     scale_factor: scale as u32,
-                    pixels: expected_pixel_height,
+                    pixels: if pixel_width < pixel_height {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_vertical) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               }
+                          else {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_horizontal) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               },
                 },
                 ArrangementKind::Wide,
             )),

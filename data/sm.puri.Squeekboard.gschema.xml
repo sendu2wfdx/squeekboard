@@ -1,0 +1,32 @@
+<schemalist>
+  <schema id="sm.puri.Squeekboard"
+          path="/sm/puri/Squeekboard/" >
+    <key name='scale-in-horizontal-screen-orientation' type='d'>
+      <range min="0.50" max="2.00"/>
+      <default>1.00</default>
+      <summary>The multiplier for the height of the panel while the screen is in landscape-orientation</summary>
+      <description>
+        The height of the panel for the layout is multiplied by this value,
+        while the screen is in landscape-orientation.
+        Changing this is currently mostly useful for custom layouts,
+        or to work around scaling-issues, because the layout-aspect-ratio is fixed.
+        There is an upper limit of 2/3 of the screen.
+        For square screens, the setting for screens in landscape-orientation is used.
+      </description>
+    </key>
+    <key name='scale-in-vertical-screen-orientation' type='d'>
+      <range min="0.50" max="2.00"/>
+      <default>1.00</default>
+      <summary>The multiplier for the height of the panel while the screen is in portrait-orientation</summary>
+      <description>
+        The height of the panel for the layout is multiplied by this value,
+        while the screen is in portrait-orientation.
+        Changing this is currently mostly useful for custom layouts,
+        or to work around scaling-issues, because the layout-aspect-ratio is fixed.
+        There is an upper limit of 2/3 of the screen.
+        For square screens, the setting for screens in landscape-orientation is used.
+      </description>
+    </key>
+  </schema>
+</schemalist>
+
