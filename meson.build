@@ -3,7 +3,7 @@ project(
     'c', 'rust',
     version: '1.41.0',
     license: 'GPLv3',
-    meson_version: '>=0.51.0',
+    meson_version: '>=1.0.0',
     default_options: [
         'warning_level=1',
         'buildtype=debugoptimized',
