@@ -752,12 +752,23 @@ pub mod test {
     }
 
 // scaling-tests
+    // TODO: Combine `scaling_test_base` and `scaling_test_wide` into a single function.
     fn scaling_test_base(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
 
+        // TODO: Test with different settings for the scaling; at least the default (1.0), and another value.
+        // Currently, this uses the value set on the system.
+        // One can use the environment-variable `GSETTINGS_BACKEND=memory` to use the default-settings.
         let gsettings = Settings::new("sm.puri.Squeekboard");
-        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-orientation");
-        let scale_setting_vertical = gsettings.double("scale-in-vertical-orientation");
+        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-screen-orientation");
+        let scale_setting_vertical = gsettings.double("scale-in-vertical-screen-orientation");
+
+        let (log_message_about_scaling, value_of_scaling_setting_for_log) =
+              if scale_setting_vertical != 1.0 && pixel_width < pixel_height {
+                 (" Current scaling-multiplier in vertical orientation: ", scale_setting_vertical.to_string())}
+         else if scale_setting_horizontal != 1.0 {
+                 (" Current scaling-multiplier in horizontal orientation: ", scale_setting_horizontal.to_string())}
+         else {("", "".to_string())};
 
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
@@ -787,16 +798,26 @@ pub mod test {
                                                },
                 },
                 ArrangementKind::Base,
-            )),
+            )), "Height of the panel is different.{}{}", log_message_about_scaling, value_of_scaling_setting_for_log
         );
     }
 
     fn scaling_test_wide(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
 
+        // TODO: Test with different settings for the scaling; at least the default (1.0), and another value.
+        // Currently, this uses the value set on the system.
+        // One can use the environment-variable `GSETTINGS_BACKEND=memory` to use the default-settings.
         let gsettings = Settings::new("sm.puri.Squeekboard");
-        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-orientation");
-        let scale_setting_vertical = gsettings.double("scale-in-vertical-orientation");
+        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-screen-orientation");
+        let scale_setting_vertical = gsettings.double("scale-in-vertical-screen-orientation");
+
+        let (log_message_about_scaling, value_of_scaling_setting_for_log) =
+              if scale_setting_vertical != 1.0 && pixel_width < pixel_height {
+                 (" Current scaling-multiplier in vertical orientation: ", scale_setting_vertical.to_string())}
+         else if scale_setting_horizontal != 1.0 {
+                 (" Current scaling-multiplier in horizontal orientation: ", scale_setting_horizontal.to_string())}
+         else {("", "".to_string())};
 
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
@@ -826,7 +847,7 @@ pub mod test {
                                                },
                 },
                 ArrangementKind::Wide,
-            )),
+            )), "Height of the panel is different.{}{}", log_message_about_scaling, value_of_scaling_setting_for_log
         );
     }
 
