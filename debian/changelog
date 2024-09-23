@@ -1,3 +1,39 @@
+squeekboard (1.42.0~rc1) experimental; urgency=medium
+
+  [ MoonlightWave-12 ]
+  * meson.build: Check the exit-status-code of `run_command()`
+  * debian: Support using `update-alternatives`
+  * documentation: Improve documentation
+  * .gitignore: Add debian/*.debhelper
+  * layouts: Add Serbian layouts
+  * layouts: Increase the font-size of the wide shape of the Malayalam layout
+  * layouts: Add English language-names to layout-files
+  * Layouts: Add Belarusian layout
+  * Layouts: Add Japanese (jp) layout based on japanese keyboards
+  * Layouts: Fallback to more appropriate layouts
+  * popover.rs: Open correct panel in GNOME Settings
+  * layouts: Add a placeholder to the emoji-layout
+  * NEWS.md: Rename to `NEWS` and Change `-` to `*` in lists
+  * Cargo.toml: Simplify versions
+  * Cargo.toml: Change accepted version-range to SemVer-compatible versions
+  * Cargo.toml: Update dependencies
+  * state.rs: Make `get_preferred_height_and_arrangement` easier to understand
+  * scaling: Improve scaling
+  * dependencies: Require at least version 1.0.0 of Meson
+  * scaling: Add GSettings for adjusting the height of the panel
+  * testing: Mention non-default scaling-settings during scaling-tests
+  * Cargo.lock: Update dependencies
+  * README.md: Improve the information about using the settings
+  * hacking.md: Simplify `gbp dch …`-command
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+
+  [ Guido Günther ]
+  * dbus: Update OSK0 protocol from phosh
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Mon, 23 Sep 2024 14:42:26 +0200
+
 squeekboard (1.41.0) experimental; urgency=medium
 
   [ MoonlightWave-12 ]
