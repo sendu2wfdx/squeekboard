@@ -19,6 +19,8 @@ use crate::panel;
 use crate::panel::PixelSize;
 use crate::popover;
 use crate::util::Rational;
+use gio::Settings;
+use gdk::prelude::SettingsExt;
 use std::cmp;
 use std::collections::HashMap;
 use std::time::Instant;
@@ -390,6 +392,10 @@ Outcome:
 
                 let screen_aspect_ratio = {px_size.height as f64 / px_size.width as f64};
 
+                let gsettings = Settings::new("sm.puri.Squeekboard");
+                let scale_setting_horizontal = gsettings.double("scale-in-horizontal-screen-orientation");
+                let scale_setting_vertical = gsettings.double("scale-in-vertical-screen-orientation");
+
                 // Reduce height, to match what the layout can fill.
                 // For this, we need to guess if normal or wide will be picked.
                 // This must match `eek_gtk_keyboard.c::get_type`.
@@ -417,17 +423,28 @@ Outcome:
                         (layout_aspect_ratio * px_size.width as i32).ceil() as u32,
                     );
 
-                (
-                    PixelSize {
-                        scale_factor: output.scale as u32,
-                        // Set the height of the panel for the layout.
-                        pixels: if arrangement == ArrangementKind::Base && screen_width < screen_height {
+                      let panel_height = {
+                                if arrangement == ArrangementKind::Base && screen_width < screen_height {
                             cmp::min((px_size.height as f64 / (screen_aspect_ratio / (7.0 / 12.0))) as u32, px_size.height / 2)}
                            else if arrangement == ArrangementKind::Wide && screen_width < screen_height {
                             cmp::min((px_size.height as f64 / (screen_aspect_ratio / (5.0 / 16.0))) as u32, px_size.height / 2)}
                            else if arrangement == ArrangementKind::Wide {
                             cmp::min(cmp::max(px_size.height / 3 as u32, recommended_panel_height), px_size.height / 2)}
-                           else {px_size.height / 2},
+                           else {px_size.height / 2}
+                           };
+
+                (
+                    PixelSize {
+                        scale_factor: output.scale as u32,
+                        // Set the height of the panel for the layout.
+                        pixels: if screen_width < screen_height {
+                                 cmp::min((panel_height as f64 * scale_setting_vertical) as u32,
+                                        (px_size.height as f64 * (2.0 / 3.0)) as u32)
+                                        }
+                                else {
+                                 cmp::min((panel_height as f64 * scale_setting_horizontal) as u32,
+                                        (px_size.height as f64 * (2.0 / 3.0)) as u32)
+                                        },
                     },
                     arrangement,
                 )
@@ -735,8 +752,24 @@ pub mod test {
     }
 
 // scaling-tests
+    // TODO: Combine `scaling_test_base` and `scaling_test_wide` into a single function.
     fn scaling_test_base(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
+
+        // TODO: Test with different settings for the scaling; at least the default (1.0), and another value.
+        // Currently, this uses the value set on the system.
+        // One can use the environment-variable `GSETTINGS_BACKEND=memory` to use the default-settings.
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-screen-orientation");
+        let scale_setting_vertical = gsettings.double("scale-in-vertical-screen-orientation");
+
+        let (log_message_about_scaling, value_of_scaling_setting_for_log) =
+              if scale_setting_vertical != 1.0 && pixel_width < pixel_height {
+                 (" Current scaling-multiplier in vertical orientation: ", scale_setting_vertical.to_string())}
+         else if scale_setting_horizontal != 1.0 {
+                 (" Current scaling-multiplier in horizontal orientation: ", scale_setting_horizontal.to_string())}
+         else {("", "".to_string())};
+
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
                 current_mode: Some(Mode {
@@ -755,15 +788,37 @@ pub mod test {
             Some((
                 PixelSize {
                     scale_factor: scale as u32,
-                    pixels: expected_pixel_height,
+                    pixels: if pixel_width < pixel_height {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_vertical) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               }
+                          else {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_horizontal) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               },
                 },
                 ArrangementKind::Base,
-            )),
+            )), "Height of the panel is different.{}{}", log_message_about_scaling, value_of_scaling_setting_for_log
         );
     }
 
     fn scaling_test_wide(pixel_width: i32, pixel_height: i32, physical_width: i32, physical_height: i32, scale: i32, expected_pixel_height: u32) {
         use crate::outputs::{Mode, Geometry, c, Size};
+
+        // TODO: Test with different settings for the scaling; at least the default (1.0), and another value.
+        // Currently, this uses the value set on the system.
+        // One can use the environment-variable `GSETTINGS_BACKEND=memory` to use the default-settings.
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let scale_setting_horizontal = gsettings.double("scale-in-horizontal-screen-orientation");
+        let scale_setting_vertical = gsettings.double("scale-in-vertical-screen-orientation");
+
+        let (log_message_about_scaling, value_of_scaling_setting_for_log) =
+              if scale_setting_vertical != 1.0 && pixel_width < pixel_height {
+                 (" Current scaling-multiplier in vertical orientation: ", scale_setting_vertical.to_string())}
+         else if scale_setting_horizontal != 1.0 {
+                 (" Current scaling-multiplier in horizontal orientation: ", scale_setting_horizontal.to_string())}
+         else {("", "".to_string())};
+
         assert_eq!(
             Application::get_preferred_height_and_arrangement(&OutputState {
                 current_mode: Some(Mode {
@@ -782,10 +837,17 @@ pub mod test {
             Some((
                 PixelSize {
                     scale_factor: scale as u32,
-                    pixels: expected_pixel_height,
+                    pixels: if pixel_width < pixel_height {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_vertical) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               }
+                          else {
+                             cmp::min((expected_pixel_height as f64 * scale_setting_horizontal) as u32,
+                                               (pixel_height as f64 * (2.0 / 3.0)) as u32)
+                                               },
                 },
                 ArrangementKind::Wide,
-            )),
+            )), "Height of the panel is different.{}{}", log_message_about_scaling, value_of_scaling_setting_for_log
         );
     }
 

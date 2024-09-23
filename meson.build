@@ -3,7 +3,7 @@ project(
     'c', 'rust',
     version: '1.41.0',
     license: 'GPLv3',
-    meson_version: '>=0.51.0',
+    meson_version: '>=1.0.0',
     default_options: [
         'warning_level=1',
         'buildtype=debugoptimized',
@@ -70,6 +70,7 @@ else
   depdatadir = get_option('depdatadir')
 endif
 dbusdir = join_paths(depdatadir, 'dbus-1/interfaces')
+schemasdir = datadir / 'glib-2.0' / 'schemas'
 
 conf_data = configuration_data()
 conf_data.set_quoted('GETTEXT_PACKAGE', 'squeekboard')
@@ -111,3 +112,7 @@ subdir('protocols')
 subdir('src')
 subdir('tools')
 subdir('tests')
+
+gnome.post_install(
+    glib_compile_schemas: true,
+)

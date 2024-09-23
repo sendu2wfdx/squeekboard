@@ -12,6 +12,9 @@ SOURCE_DIR="$(dirname "$SCRIPT_PATH")"
 CARGO_TARGET_DIR="$(pwd)"
 export CARGO_TARGET_DIR
 
+GSETTINGS_SCHEMA_DIR="${CARGO_TARGET_DIR}/data:${GSETTINGS_SCHEMA_DIR}"
+export GSETTINGS_SCHEMA_DIR
+
 cd "$SOURCE_DIR"
 
 # the 'run" command takes arguments at the end,
