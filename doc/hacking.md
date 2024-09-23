@@ -300,7 +300,7 @@ Packaging is in the `debian/` directory, and creates builds that can be quickly 
 
 ```sh
 $ cd squeekboard-source
-$ EMAIL=my_address@example.com gbp dch --multimaint-merge --ignore-branch --git-author --distribution=experimental --new-version=x.y.z
+$ EMAIL=my_address@example.com gbp dch --multimaint-merge --ignore-branch --git-author --release --new-version=x.y.z
 ```
 
 Inspect `debian/changelog`, and make sure the first line contains the correct version number and suite. For example:
