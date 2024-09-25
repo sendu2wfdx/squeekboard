@@ -56,11 +56,18 @@ render_outline (cairo_t     *cr,
         position.x, position.y, position.width, position.height);
 }
 
-float get_scale(cairo_t *cr) {
+double get_scale_width(cairo_t *cr) {
     double width = 1;
     double height = 1;
     cairo_user_to_device_distance (cr, &width, &height);
     return width;
+}
+
+double get_scale_height(cairo_t *cr) {
+    double width = 1;
+    double height = 1;
+    cairo_user_to_device_distance (cr, &width, &height);
+    return height;
 }
 
 /// Rust interface
@@ -79,11 +86,15 @@ void eek_render_button_in_context(uint32_t scale_factor,
 
     /* render icon (if any) */
     if (icon_name) {
-        int context_scale = ceil (get_scale (cr));
+        int context_scale = ceil (get_scale_width (cr));
+
+        double scale_x = get_scale_width (cr);
+        double scale_y = get_scale_height (cr);
+
         cairo_surface_t *icon_surface =
             eek_renderer_get_icon_surface (icon_name, 16, scale_factor * context_scale);
         if (icon_surface) {
-            double width = cairo_image_surface_get_width (icon_surface);
+            double width = cairo_image_surface_get_width (icon_surface) * scale_y / scale_x ;
             double height = cairo_image_surface_get_height (icon_surface);
 
             cairo_save (cr);
@@ -95,6 +106,9 @@ void eek_render_button_in_context(uint32_t scale_factor,
             /* Draw the shape of the icon using the foreground color */
             GdkRGBA color = {0};
             gtk_style_context_get_color (ctx, GTK_STATE_FLAG_NORMAL, &color);
+
+            // Unstretch icons, when the layout is stretched.
+            cairo_scale (cr, scale_y / scale_x, 1.0);
 
             cairo_set_source_rgba (cr, color.red,
                                        color.green,
@@ -189,6 +203,13 @@ render_button_label (cairo_t     *cr,
 
     GdkRGBA color = {0};
     gtk_style_context_get_color (ctx, GTK_STATE_FLAG_NORMAL, &color);
+
+    double scale_x = get_scale_width (cr);
+    double scale_y = get_scale_height (cr);
+
+    // Unstretch labels, when the layout is stretched.
+    cairo_scale (cr, scale_y / scale_x, 1.0);
+    pango_cairo_update_layout (cr, layout);
 
     cairo_set_source_rgba (cr,
                            color.red,
