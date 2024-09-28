@@ -136,7 +136,7 @@ foreach layout : [
             + ['--example', 'test_layout', '--', layout]
             + extra,
         timeout: timeout,
-        workdir: meson.build_root(),
+        workdir: meson.project_build_root(),
     )
 endforeach
 
@@ -147,8 +147,8 @@ if get_option('find_orphans')
         cargo_script,
         args: ['run'] + cargo_build_flags
             + ['--example', 'find_orphan_layouts',
-                '--', meson.source_root() + '/data/keyboards/'],
+                '--', meson.project_source_root() + '/data/keyboards/'],
         timeout: timeout,
-        workdir: meson.build_root(),
+        workdir: meson.project_build_root(),
     )
 endif

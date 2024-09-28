@@ -93,7 +93,7 @@ copy_cargo_toml = run_command('cp', 'Cargo.toml', 'meson_Cargo.toml.in', check: 
 prepare_cargo_toml = run_command('sed', '-i', 's/path = "/path = "@path@\//', 'meson_Cargo.toml.in', check: true)
 
 path_data = configuration_data()
-path_data.set('path', meson.source_root())
+path_data.set('path', meson.project_source_root())
 cargo_toml = configure_file(
     input: 'meson_Cargo.toml.in',
     output: 'Cargo.toml',

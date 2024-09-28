@@ -1,7 +1,7 @@
 gnome = import('gnome')
 dbus_src = gnome.gdbus_codegen(
     'sm.puri.OSK0',
-    join_paths(meson.source_root() / 'data' / 'dbus', 'sm.puri.OSK0.xml')
+    join_paths(meson.project_source_root() / 'data' / 'dbus', 'sm.puri.OSK0.xml')
 )
 
 config_h = configure_file(
@@ -83,7 +83,7 @@ test(
     'rstest',
     cargo_script,
     args: ['test'] + cargo_build_flags,
-    env: ['SOURCE_DIR=' + meson.source_root()],
+    env: ['SOURCE_DIR=' + meson.project_source_root()],
     # This is a whole Cargo-based test suite, let it run for a while
     timeout: 900,
     depends: [build_rstests],
