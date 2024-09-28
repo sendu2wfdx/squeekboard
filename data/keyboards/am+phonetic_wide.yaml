@@ -19,13 +19,13 @@ views:
         - "՝ է թ փ ձ ջ ւ և ռ չ ճ ֊ ժ"
         - "ք ո ե ր տ ը ւ ի օ պ խ ծ շ"
         - "-- -- ա ս դ ֆ գ հ յ կ լ ․ --"
-        - "Shift_L -- զ ղ ց վ բ ն մ ՛ -- BackSpace"
+        - "show_upper -- զ ղ ց վ բ ն մ ՛ -- BackSpace"
         - "show_numbers preferences         space        . Return"
     upper:
         - "՝ Է Թ Փ Ձ Ջ Ւ և Ռ Չ Ճ — Ժ"
         - "Ք Ո Ե Ր Տ Ը Ւ Ի Օ Պ Խ Ծ Շ"
         - "-- -- Ա Ս Դ Ֆ Գ Հ Յ Կ Լ ։ --"
-        - "Shift_L -- Զ Ղ Ց Վ Բ Ն Մ ՞ -- BackSpace"
+        - "show_upper -- Զ Ղ Ց Վ Բ Ն Մ ՞ -- BackSpace"
         - "show_numbers preferences         space        . Return"
     numbers:
         - "-- -- -- -- -- -- -- -- --"
@@ -41,7 +41,7 @@ views:
         - "show_letters preferences         space        . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

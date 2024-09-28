@@ -16,12 +16,12 @@ views:
     base:
         - "; ς ε ρ τ υ θ ι ο π-fill"
         - "α σ δ φ γ η ξ κ λ show_accented"
-        - "Shift_L ζ χ ψ ω β ν μ BackSpace"
+        - "show_upper ζ χ ψ ω β ν μ BackSpace"
         - "show_numbers preferences space . ,-subtle-highlight Return"
     upper:
         - ": ! Ε Ρ Τ Υ Θ Ι Ο Π"
         - "Α Σ Δ Φ Γ Η Ξ Κ Λ show_accented"
-        - "Shift_L Ζ Χ Ψ Ω Β Ν Μ BackSpace"
+        - "show_upper Ζ Χ Ψ Ω Β Ν Μ BackSpace"
         - "show_numbers preferences space ·-subtle-highlight ᾿ Return"
     accented:
         - "ά έ ή ί ϊ ΐ ό ύ ϋ ώ"
@@ -39,7 +39,7 @@ views:
         - "show_numbers \\ / < > = [ ]  BackSpace"
         - "show_letters preferences space . ,-subtle-highlight Return"
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

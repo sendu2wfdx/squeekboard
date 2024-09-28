@@ -17,13 +17,13 @@ views:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "a z e r t y u i o p"
         - "q s d f g h j k l m"
-        - "Shift_L   w x c v b n .   BackSpace"
+        - "show_upper   w x c v b n .   BackSpace"
         - "show_numbers show_eschars preferences        space         show_actions Return"
     upper:
         - "TabSmall Ctrl Alt PageUp PageDown Home End"
         - "A Z E R T Y U I O P"
         - "Q S D F G H J K L M"
-        - "Shift_L   W X C V B N ,  BackSpace"
+        - "show_upper   W X C V B N ,  BackSpace"
         - "show_numbers show_eschars preferences        space         show_actions Return"
     numbers:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
@@ -174,7 +174,7 @@ buttons:
             set_view: "actions"
         outline: "change-view"
         label: ">_"
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

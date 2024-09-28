@@ -14,12 +14,12 @@ views:
     base:
         - "љ њ е р т з у и о п ш"
         - "а с д ф г х ј к л ч ћ"
-        - "Shift_L  џ ц в б н м ђ ж BackSpace"
+        - "show_upper  џ ц в б н м ђ ж BackSpace"
         - "show_numbers preferences     space    , . Return"
     upper:
         - "Љ Њ Е Р Т З У И О П Ш"
         - "А С Д Ф Г Х Ј К Л Ч Ћ"
-        - "Shift_L   Џ Ц В Б Н М Ђ Ж BackSpace"
+        - "show_upper   Џ Ц В Б Н М Ђ Ж BackSpace"
         - "show_numbers preferences     space    ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
@@ -33,7 +33,7 @@ views:
         - "show_letters preferences     space    , . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

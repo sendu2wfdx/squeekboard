@@ -15,12 +15,12 @@ views:
     base:
         - "x v l c w k h g f q ß"
         - "u i a e o s n r t d y"
-        - "Shift_L   ü ö ä p z b m j BackSpace"
+        - "show_upper   ü ö ä p z b m j BackSpace"
         - "show_numbers show_eschars preferences         space        , . Return"
     upper:
         - "X V L C W K H G F Q ẞ"
         - "U I A E O S N R T D Y"
-        - "Shift_L   Ü Ö Ä P Z B M J BackSpace"
+        - "show_upper   Ü Ö Ä P Z B M J BackSpace"
         - "show_numbers show_eschars preferences         space        ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
@@ -39,7 +39,7 @@ views:
         - "show_letters show_eschars preferences         space        „ “ Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

@@ -13,13 +13,13 @@ views:
         - " ൊ ൧ ൨ ൩ ൪ ൫ ൬ ൭ ൮ ൯ ൦ - ൃ "
         - " ൗ ൈ ാ ീ ൂ ബ ഹ ഗ ദ ജ ഡ zwj zwnj "
         - " -- ോ േ ് ി ു പ ര ക ത ച ട zwsp "
-        - "Shift_L െ ം മ ന വ ല സ യ -- BackSpace"
+        - "show_upper െ ം മ ന വ ല സ യ -- BackSpace"
         - "show_numbers  preferences         space        Return"
     upper:
         - " ഒ ! @ # ₹ % ^ & ൾ ( ) ഃ ഋ "
         - " ഔ ഐ ആ ഈ ഊ ഭ ങ ഘ ധ ഝ ഢ ഞ ർ "
         - " -- ഓ ഏ അ ഇ ഉ ഫ റ ഖ ഥ ഛ ഠ -- "
-        - "Shift_L എ ൺ ണ ൻ ഴ ള ശ ഷ ൽ BackSpace"
+        - "show_upper എ ൺ ണ ൻ ഴ ള ശ ഷ ൽ BackSpace"
         - "show_numbers  preferences         space        Return"
     numbers:
         - " -- ൧ ൨ ൩ ൪ ൫ ൬ ൭ ൮ ൯ ൦ -- -- "
@@ -35,7 +35,7 @@ views:
         - "show_letters  preferences         space        Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

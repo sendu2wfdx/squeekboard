@@ -14,12 +14,12 @@ views:
     base:
         - "q w e r t z u i o p"
         - "a s d f g h j k l č"
-        - "Shift_L    y x c v b n m    BackSpace"
+        - "show_upper    y x c v b n m    BackSpace"
         - "show_numbers show_accents preferences     space    , . Return"
     upper:
         - "Q W E R T Z U I O P"
         - "A S D F G H J K L Č"
-        - "Shift_L    Y X C V B N M    BackSpace"
+        - "show_upper    Y X C V B N M    BackSpace"
         - "show_numbers show_upper_accents preferences     space    ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
@@ -34,23 +34,23 @@ views:
     accents:
         - "á é ẹ́  í ó ọ́  ú ŕ š đ"
         - "ȃ ȇ ẹ̑  ȋ ȏ ọ̑  ȗ ȓ ć ž"
-        - "accents_Shift_L à è ì ò ù ö ü BackSpace"
+        - "accents_show_upper à è ì ò ù ö ü BackSpace"
         - "show_letters show_accents preferences     space    ĺ ł Return"
     upper_accents:
         - "Á É Ẹ́  Í Ó Ọ́  Ú Ŕ Š Đ"
         - "Ȃ Ȇ Ẹ̑  Ȋ Ȏ Ọ̑  Ȗ Ȓ Ć Ž"
-        - "accents_Shift_L À È Ì Ò Ù Ö Ü BackSpace"
+        - "accents_show_upper À È Ì Ò Ù Ö Ü BackSpace"
         - "show_letters show_upper_accents preferences     space    Ĺ Ł Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
         outline: "change-view"
         icon: "key-shift"
-    accents_Shift_L:
+    accents_show_upper:
         action:
             locking:
                 lock_view: "upper_accents"

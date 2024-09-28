@@ -14,12 +14,12 @@ views:
     base:
         - "ض ص ث ق ف غ ع ه خ ح ج"
         - "ش س ی ب ل ا ت ن م ک گ"
-        - "Shift_L  ظ ط ز ر ذ د پ و  BackSpace"
+        - "show_upper  ظ ط ز ر ذ د پ و  BackSpace"
         - "show_numbers preferences         space     zwnj . Return"
     upper:
         - "  ْ  ٌ  ٍ  ً  ُ  ِ  َ  ّ # @ چ"
         - "_ ئ ي إ أ آ ة » « : ؛"
-        - "Shift_L ك  ٓ ژ  ٔ ء > < ؟ BackSpace"
+        - "show_upper ك  ٓ ژ  ٔ ء > < ؟ BackSpace"
         - "show_numbers preferences         space       ، ! Return"
     numbers:
         - "۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰ |"
@@ -33,7 +33,7 @@ views:
         - "show_letters preferences         space       ، . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

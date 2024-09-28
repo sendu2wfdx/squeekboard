@@ -20,13 +20,13 @@ views:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "q w e r t y u i o p"
         - "PeriodSmall a s d f g h j k l MinusSmall"
-        - "Shift_L   z x c v b n m  BackSpace"
+        - "show_upper   z x c v b n m  BackSpace"
         - "show_numbers preferences      space        show_actions Return"
     upper:
         - "TabSmall Ctrl Alt PageUp PageDown Home End"
         - "Q W E R T Y U I O P"
         - "SlashSmall A S D F G H J K L PipeSmall"
-        - "Shift_L   Z X C V B N M  BackSpace"
+        - "show_upper   Z X C V B N M  BackSpace"
         - "show_numbers preferences      space        show_actions Return"
     numbers:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
@@ -48,7 +48,7 @@ views:
         - "show_letters_actions Menu Break Left Down Right"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

@@ -15,12 +15,12 @@ views:
     base:
         - "ذ ض ص ث ق ف غ ع خ ح ج"
         - "ش س ي ب ل ا ت ن م ك ط"
-        - "Shift_L ء ؤ ر ة و ز ظ د BackSpace"
+        - "show_upper ء ؤ ر ة و ز ظ د BackSpace"
         - "show_numbers preferences         space        . Return"
     extra:
         - "ذ ض ص ث ق لإ إ ع خ ح ج"
         - "ش س ى ب لأ أ ت ن م ك ط"
-        - "Shift_L ئ لآ لا ه آ ز ظ د BackSpace"
+        - "show_upper ئ لآ لا ه آ ز ظ د BackSpace"
         - "show_numbers preferences         space        . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
@@ -34,7 +34,7 @@ views:
         - "show_letters preferences         space        . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "extra"

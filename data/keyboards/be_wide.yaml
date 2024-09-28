@@ -13,12 +13,12 @@ views:
     base:
         - "a z e r t y u i o p"
         - "q s d f g h j k l m"
-        - "Shift_L   w x c v b n .   BackSpace"
+        - "show_upper   w x c v b n .   BackSpace"
         - "show_numbers preferences         space        show_eschars Return"
     upper:
         - "A Z E R T Y U I O P"
         - "Q S D F G H J K L M"
-        - "Shift_L   W X C V B N ,  BackSpace"
+        - "show_upper   W X C V B N ,  BackSpace"
         - "show_numbers preferences         space        show_eschars Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
@@ -37,7 +37,7 @@ views:
         - "show_letters preferences         space        show_eschars Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"

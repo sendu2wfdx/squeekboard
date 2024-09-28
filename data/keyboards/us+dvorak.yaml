@@ -12,12 +12,12 @@ outlines:
 
 views:
     base:
-        - "Shift_L   p y f g c r l  BackSpace"
+        - "show_upper   p y f g c r l  BackSpace"
         - "a o e u i d h t n s"
         - ", q j k x b m w v z"
         - "show_numbers preferences         space        . Return"
     upper:
-        - "Shift_L   P Y F G C R L  BackSpace"
+        - "show_upper   P Y F G C R L  BackSpace"
         - "A O E U I D H T N S"
         - ", Q J K X B M W V Z"
         - "show_numbers preferences         space        . Return"
@@ -33,7 +33,7 @@ views:
         - "show_letters preferences         space        . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
