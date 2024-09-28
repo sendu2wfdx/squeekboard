@@ -36,7 +36,7 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers \\ / < > = [ ]  BackSpace"
+        - "show_numbers \\ / < > = [ ] BackSpace"
         - "show_letters preferences space . ,-subtle-highlight Return"
 buttons:
     show_upper:

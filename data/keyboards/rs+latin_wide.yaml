@@ -15,23 +15,23 @@ views:
     base:
         - "q w e r t z u i o p š"
         - "a s d f g h j k l č ć"
-        - "show_upper    y x c v b n m đ ž BackSpace"
-        - "show_numbers preferences     space    , . Return"
+        - "show_upper y x c v b n m đ ž BackSpace"
+        - "show_numbers preferences space , . Return"
     upper:
         - "Q W E R T Z U I O P Š"
         - "A S D F G H J K L Č Ć"
-        - "show_upper    Y X C V B N M Đ Ž BackSpace"
-        - "show_numbers preferences     space    ! ? Return"
+        - "show_upper Y X C V B N M Đ Ž BackSpace"
+        - "show_numbers preferences space ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols    , \" ' : ; ! ? -- BackSpace-wide"
-        - "show_letters preferences     space    , . Return"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace-wide"
+        - "show_letters preferences space , . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers    \\ / < > = [ ] -- BackSpace-wide"
-        - "show_letters preferences     space    , . Return"
+        - "show_numbers \\ / < > = [ ] -- BackSpace-wide"
+        - "show_letters preferences space , . Return"
 
 buttons:
     show_upper:

@@ -15,22 +15,22 @@ views:
         - "ქ წ ე რ ტ ყ უ ი ო პ"
         - "ა ს დ ფ გ ჰ ჯ კ ლ"
         - "show_upper ზ ხ ც ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space    .     Return"
+        - "show_numbers preferences space . Return"
     upper:
         - "ქ ჭ ე ღ თ ყ უ ი ო პ"
         - "ა შ დ ფ გ ჰ ჟ კ ლ"
         - "show_upper ძ ხ ჩ ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space    .     Return"
+        - "show_numbers preferences space . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "! @ # $ % ^ & * ( )"
-        - "show_symbols   - ' \" : ; , ?   BackSpace"
-        - "show_letters preferences         space    .     Return"
+        - "show_symbols - ' \" : ; , ? BackSpace"
+        - "show_letters preferences space . Return"
     symbols:
         - "+ ⨯ ÷ = / _ € £ ¥ ₾"
         - "~ ` | · √ π τ ° { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space    .     Return"
+        - "show_numbers_from_symbols \\ / < > = [ ] BackSpace"
+        - "show_letters preferences space . Return"
 
 buttons:
     show_upper:

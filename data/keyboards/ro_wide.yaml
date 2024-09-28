@@ -12,28 +12,28 @@ views:
     base:
         - "q w e r t y u i o p"
         - "a s d f g h j k l"
-        - "show_upper   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences         space        . Return"
+        - "show_upper z x c v b n m BackSpace"
+        - "show_numbers show_eschars preferences space . Return"
     upper:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L"
-        - "show_upper   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences         space        , Return"
+        - "show_upper Z X C V B N M BackSpace"
+        - "show_numbers show_eschars preferences space , Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "show_symbols , \" ' : ; ! ? BackSpace"
+        - "show_letters show_eschars preferences space . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters show_eschars preferences         space        , Return"
+        - "show_numbers \\ / < > = [ ] BackSpace"
+        - "show_letters show_eschars preferences space , Return"
     eschars:
         - "ă â î ș ț á é í ó ü"
         - "Ă Â Î Ș Ț Á É Í Ó Ü"
         - "show_numbers „ ” « » ― { } BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "show_letters show_eschars preferences space . Return"
 
 buttons:
     show_upper:

@@ -15,28 +15,28 @@ views:
     base:
         - "f g ğ i o d r n h p q w"
         - "u i e a ü t k m l y ş x"
-        - "show_upper   j ö v c ç z s b BackSpace"
-        - "show_numbers show_eschars preferences         space        , . Return"
+        - "show_upper j ö v c ç z s b BackSpace"
+        - "show_numbers show_eschars preferences space , . Return"
     upper:
         - "F G Ğ I O D R N H P Q W"
         - "U I E A Ü T K M L Y Ş X"
-        - "show_upper   J Ö V C Ç Z S B BackSpace"
-        - "show_numbers show_eschars preferences         space        ! ? Return"
+        - "show_upper J Ö V C Ç Z S B BackSpace"
+        - "show_numbers show_eschars preferences space ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # ₺ % & - _ + ( )"
-        - "show_symbols   ; \" ' : = < > -- BackSpace"
-        - "show_letters show_eschars preferences         space        , . Return"
+        - "show_symbols ; \" ' : = < > -- BackSpace"
+        - "show_letters show_eschars preferences space , . Return"
     symbols:
         - "~ ` € | · √ µ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers   \\ / § π τ [ ] -- BackSpace"
-        - "show_letters show_eschars preferences         space        , . Return"
+        - "show_numbers \\ / § π τ [ ] -- BackSpace"
+        - "show_letters show_eschars preferences space , . Return"
     eschars:
         - "ä æ é ö-subtle-highlight ü-subtle-highlight Ä Æ É Ö-subtle-highlight Ü-subtle-highlight"
         - "à â ê î ô À Â Ê Î Ô"
-        - "show_numbers  ğ-subtle-highlight ç-subtle-highlight ş-subtle-highlight Ğ-subtle-highlight Ç-subtle-highlight Ş-subtle-highlight ß -- BackSpace"
-        - "show_letters show_eschars preferences         space       û Û  Return"
+        - "show_numbers ğ-subtle-highlight ç-subtle-highlight ş-subtle-highlight Ğ-subtle-highlight Ç-subtle-highlight Ş-subtle-highlight ß -- BackSpace"
+        - "show_letters show_eschars preferences space û Û Return"
 
 buttons:
     show_upper:

@@ -17,28 +17,28 @@ views:
     base:
         - "q w e r t y u ı o p ğ ü"
         - "a s d f g h j k l ş i --"
-        - "show_upper   z x c v b n m ö ç BackSpace"
-        - "show_numbers show_eschars preferences         space        ,-narrow .-narrow Return"
+        - "show_upper z x c v b n m ö ç BackSpace"
+        - "show_numbers show_eschars preferences space ,-narrow .-narrow Return"
     upper:
         - "Q W E R T Y U I O P Ğ Ü"
         - "A S D F G H J K L Ş İ --"
-        - "show_upper   Z X C V B N M Ö Ç BackSpace"
-        - "show_numbers show_eschars preferences         space        !-narrow ?-narrow Return"
+        - "show_upper Z X C V B N M Ö Ç BackSpace"
+        - "show_numbers show_eschars preferences space !-narrow ?-narrow Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # ₺ % & - _ + ( )"
         - "show_symbols -- ; \" ' : = < > -- BackSpace"
-        - "show_letters show_eschars preferences         space        ,-narrow .-narrow Return"
+        - "show_letters show_eschars preferences space ,-narrow .-narrow Return"
     symbols:
         - "~ ` € | · √ µ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
         - "show_numbers -- \\ / § π τ [ ] -- BackSpace"
-        - "show_letters show_eschars preferences         space        ,-narrow .-narrow Return"
+        - "show_letters show_eschars preferences space ,-narrow .-narrow Return"
     eschars:
         - "ä æ é ö-subtle-highlight ü-subtle-highlight Ä Æ É Ö-subtle-highlight Ü-subtle-highlight"
         - "à â ê î ô À Â Ê Î Ô"
         - "show_numbers -- ğ-subtle-highlight ç-subtle-highlight ş-subtle-highlight Ğ-subtle-highlight Ç-subtle-highlight Ş-subtle-highlight ß -- BackSpace"
-        - "show_letters show_eschars preferences         space        û Û Return"
+        - "show_letters show_eschars preferences space û Û Return"
 
 buttons:
     show_upper:

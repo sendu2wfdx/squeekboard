@@ -16,22 +16,22 @@ views:
         - "ض ص ث ق ف غ ع ه خ ح ج چ"
         - "ش س ی ب ل ا ت ن م ک گ /"
         - "show_upper ظ ط ز ر ذ د پ و ، BackSpace"
-        - "show_numbers preferences         space     zwnj ؟ . Return"
+        - "show_numbers preferences space zwnj ؟ . Return"
     upper:
         - " ْ  ٌ  ٍ  ً  ُ  ِ  َ  ّ  ] [ @ #"
         - "ؤ ئ ي إ أ آ ة » « : ؛ \\"
-        - "show_upper ك  ٓ ژ ٰ  ‌  ٔ  ء  >  <  BackSpace"
-        - "show_numbers preferences         space        ، ؟ ! Return"
+        - "show_upper ك  ٓ ژ ٰ  ‌  ٔ  ء  >  < BackSpace"
+        - "show_numbers preferences space ، ؟ ! Return"
     numbers:
         - "-- ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۰ |"
         - "… ٬ ٫ ﷼ ٪ ^ * ° ) ( − _"
-        - "show_symbols + - × ÷ = / % > <  BackSpace"
-        - "show_letters preferences         space        ، ؟ . Return"
+        - "show_symbols + - × ÷ = / % > < BackSpace"
+        - "show_letters preferences space ، ؟ . Return"
     symbols:
         - "-- & ` | · • % π τ ¶ [ ]"
         - "© ® £ € ¥ ^ * ° { } -- --"
         - "show_numbers_from_symbols + - × ÷ = \\ % < > BackSpace"
-        - "show_letters preferences         space        ، ! . Return"
+        - "show_letters preferences space ، ! . Return"
 
 buttons:
     show_upper:

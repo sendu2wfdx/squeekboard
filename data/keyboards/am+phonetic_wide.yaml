@@ -20,25 +20,25 @@ views:
         - "ք ո ե ր տ ը ւ ի օ պ խ ծ շ"
         - "-- -- ա ս դ ֆ գ հ յ կ լ ․ --"
         - "show_upper -- զ ղ ց վ բ ն մ ՛ -- BackSpace"
-        - "show_numbers preferences         space        . Return"
+        - "show_numbers preferences space . Return"
     upper:
         - "՝ Է Թ Փ Ձ Ջ Ւ և Ռ Չ Ճ — Ժ"
         - "Ք Ո Ե Ր Տ Ը Ւ Ի Օ Պ Խ Ծ Շ"
         - "-- -- Ա Ս Դ Ֆ Գ Հ Յ Կ Լ ։ --"
         - "show_upper -- Զ Ղ Ց Վ Բ Ն Մ ՞ -- BackSpace"
-        - "show_numbers preferences         space        . Return"
+        - "show_numbers preferences space . Return"
     numbers:
         - "-- -- -- -- -- -- -- -- --"
         - "-- ﬓ  ﬔ  ﬕ  ﬖ  ﬗ   ՟ և --"
         - "-- , \" ' : ; ! ? --"
         - "show_symbols 1 2 3 4 5 6 7 8 9 0 BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences space . Return"
     symbols:
         - "* # \\ % < > = [ ]"
         - "© $ / & - _ + ( )"
         - "® £ € ¥ ^ ° @ { }"
         - "show_numbers_from_symbols ~ ` | · √ π τ ÷ × ¶ BackSpace"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences space . Return"
 
 buttons:
     show_upper:
