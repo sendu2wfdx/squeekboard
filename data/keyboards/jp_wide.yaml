@@ -56,49 +56,49 @@ views:
         - " … -- -- -- -- -- -- -- -- --"
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # ¥ % & - _ + ( )"
-        - "show_symbols ; \" ' : = < > BackSpace-special-3"
+        - "show_symbols ; \" ' : = < > BackSpace-wide"
         - "show_hiragana show_romaji preferences space numbers_width_toggle_full , . Return"
     numbers_fullwidth:
         - "゠ -- -- -- -- -- -- -- -- --"
         - "１ ２ ３ ４ ５ ６ ７ ８ ９ ０"
         - "＠ ＃ ￥ ％ ＆ － ＿ ＋ （ ）"
-        - "show_symbols_fullwidth  ； ＂ ＇ ： ＝ ＜ ＞ BackSpace-special-3"
+        - "show_symbols_fullwidth  ； ＂ ＇ ： ＝ ＜ ＞ BackSpace-wide"
         - "show_hiragana show_romaji_fullwidth preferences fullwidth-space numbers_fullwidth_width_toggle_half ， ． Return"
     symbols:
         - "ヽ ♪ -- -- -- -- -- ヿ 【 】"
         - "~ ` ´ | · √ µ ÷ × ¶"
         - "© ® £ $ € ^ ° * { }"
-        - "show_numbers_from_symbols \\ / § π τ [ ] BackSpace-special-3"
+        - "show_numbers_from_symbols \\ / § π τ [ ] BackSpace-wide"
         - "show_hiragana show_romaji preferences space symbols_width_toggle_full ! ? Return"
     symbols_fullwidth:
         - "￣ ￤ -- -- -- -- -- ￢ ｟ ｠"
         - "～ ｀ -- ｜ -- -- -- -- -- --"
         - "-- -- ￡ ＄ -- ＾ -- ＊ ｛ ｝"
-        - "show_numbers_fullwidth_from_symbols ＼ ／ -- -- -- ［ ］ BackSpace-special-3"
+        - "show_numbers_fullwidth_from_symbols ＼ ／ -- -- -- ［ ］ BackSpace-wide"
         - "show_hiragana show_romaji_fullwidth preferences fullwidth-space symbols_fullwidth_width_toggle_half ！ ？ Return"
     romaji:
         - "1 2 3 4 5 6 7 8 9 0"
         - "q w e r t y u i o p"
         - "a s d f g h j k l --"
-        - "show_romaji_upper z x c v b n m BackSpace-special-3"
+        - "show_romaji_upper z x c v b n m BackSpace-wide"
         - "show_numbers show_hiragana preferences space romaji_width_toggle_full , . Return"
     romaji_upper:
         - "1 2 3 4 5 6 7 8 9 0"
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L --"
-        - "show_romaji_upper Z X C V B N M BackSpace-special-3"
+        - "show_romaji_upper Z X C V B N M BackSpace-wide"
         - "show_numbers show_hiragana preferences space romaji_width_toggle_full ! ? Return"
     romaji_fullwidth:
         - "１ ２ ３ ４ ５ ６ ７ ８ ９ ０"
         - "ｑ ｗ ｅ ｒ ｔ ｙ ｕ ｉ ｏ ｐ"
         - "ａ ｓ ｄ ｆ ｇ ｈ ｊ ｋ ｌ --"
-        - "show_romaji_fullwidth_upper ｚ ｘ ｃ ｖ ｂ ｎ ｍ BackSpace-special-3"
+        - "show_romaji_fullwidth_upper ｚ ｘ ｃ ｖ ｂ ｎ ｍ BackSpace-wide"
         - "show_numbers_fullwidth show_hiragana preferences fullwidth-space romaji_fullwidth_width_toggle_half ， ． Return"
     romaji_fullwidth_upper:
         - "１ ２ ３ ４ ５ ６ ７ ８ ９ ０"
         - "Ｑ Ｗ Ｅ Ｒ Ｔ Ｙ Ｕ Ｉ Ｏ Ｐ"
         - "Ａ Ｓ Ｄ Ｆ Ｇ Ｈ Ｊ Ｋ Ｌ --"
-        - "show_romaji_fullwidth_upper Ｚ Ｘ Ｃ Ｖ Ｂ Ｎ Ｍ BackSpace-special-3"
+        - "show_romaji_fullwidth_upper Ｚ Ｘ Ｃ Ｖ Ｂ Ｎ Ｍ BackSpace-wide"
         - "show_numbers_fullwidth show_hiragana preferences fullwidth-space romaji_fullwidth_width_toggle_half ！ ？ Return"
 
 
@@ -122,7 +122,7 @@ buttons:
         outline: "special"
         icon: "edit-clear-symbolic"
         action: "erase"
-    BackSpace-special-3:
+    BackSpace-wide:
         outline: "special-3"
         icon: "edit-clear-symbolic"
         action: "erase"
