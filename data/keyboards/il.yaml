@@ -2,8 +2,8 @@
 ---
 outlines:
     default:          { width: 41,  height: 60 }
-    altline:          { width: 41,  height: 60 }
-    wide:             { width: 82,  height: 60 }
+    special-2:        { width: 41,  height: 60 }
+    special-3:        { width: 82,  height: 60 }
     change-view:      { width: 82,  height: 60 }
     spaceline:        { width: 122, height: 60 }
     special:          { width: 41,  height: 60 }
@@ -27,7 +27,7 @@ views:
 
 buttons:
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -53,7 +53,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     --:

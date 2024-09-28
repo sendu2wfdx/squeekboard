@@ -1,12 +1,12 @@
 # Language: Hebrew
 ---
 outlines:
-    default:          { width: 53.75, height: 42 }
-    altline:          { width: 53.75, height: 42 }
-    wide:             { width: 107,   height: 42 }
-    change-view:      { width: 107,   height: 42 }
-    spaceline:        { width: 162,   height: 42 }
-    special:          { width: 53.5,  height: 42 }
+    default:     { width: 53.75, height: 42 }
+    special-2:   { width: 53.75, height: 42 }
+    special-3:   { width: 107,   height: 42 }
+    change-view: { width: 107,   height: 42 }
+    spaceline:   { width: 162,   height: 42 }
+    special:     { width: 53.5,  height: 42 }
 
 views:
     base:
@@ -27,7 +27,7 @@ views:
 
 buttons:
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -53,6 +53,6 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"

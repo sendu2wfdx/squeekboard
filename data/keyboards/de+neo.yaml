@@ -4,7 +4,7 @@ outlines:
     default:            { width: 32.12,  height: 52 }
     subtle-highlight:   { width: 32.12,  height: 52 }
     special:            { width: 32.12,  height: 52 }
-    altline:            { width: 48.17,  height: 52 }
+    special-2:          { width: 48.17,  height: 52 }
     change-view:        { width: 48.17,  height: 52 }
     fill:               { width: 64.24,  height: 52 }
     subtle-highlight-2: { width: 64.24,  height: 52 }
@@ -47,7 +47,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -80,7 +80,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "altline"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
     ä-subtle-highlight:

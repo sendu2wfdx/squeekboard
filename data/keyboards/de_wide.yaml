@@ -6,7 +6,7 @@ outlines:
     halfwidth:          { width: 24,     height: 42 }
     thin:               { width: 30,     height: 42 }
     narrow:             { width: 40.5,   height: 42 }
-    altline:            { width: 82.74,  height: 42 }
+    special-2:          { width: 82.74,  height: 42 }
     change-view:        { width: 82.74,  height: 42 }
     fill:               { width: 97.74,  height: 42 }
     subtle-highlight-2: { width: 97.74,  height: 42 }
@@ -50,7 +50,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -83,7 +83,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "altline"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
     „:

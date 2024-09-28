@@ -8,8 +8,8 @@ outlines:
     doublewidth:   { width: 96,  height: 42 }
     narrow:        { width: 33,  height: 42 }
     large:         { width: 66,  height: 42 }
-    altline:       { width: 72,  height: 42 }
-    wide:          { width: 108, height: 42 }
+    special-2:     { width: 72,  height: 42 }
+    special-3:     { width: 108, height: 42 }
     change-view:   { width: 72,  height: 42 }
     change-view-2: { width: 108, height: 42 }
     spaceline:     { width: 162, height: 42 }
@@ -51,7 +51,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -84,7 +84,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     °:

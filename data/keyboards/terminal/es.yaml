@@ -6,10 +6,10 @@ outlines:
     placeholder:   { width: 17.665, height: 45.5 }
     thin:          { width: 30.995, height: 45.5 }
     action:        { width: 59,     height: 45.5 }
-    altline:       { width: 52.67,  height: 45.5 }
+    special-2:     { width: 52.67,  height: 45.5 }
     change-view:   { width: 52.67,  height: 45.5 }
     large:         { width: 52.67,  height: 45.5 }
-    wide:          { width: 59,     height: 45.5 }
+    special-3:     { width: 59,     height: 45.5 }
     change-view-2: { width: 59,     height: 45.5 }
     spaceline:     { width: 100.96, height: 45.5 }
     special:       { width: 35.33,  height: 45.5 }
@@ -62,7 +62,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -108,7 +108,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     F1:

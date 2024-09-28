@@ -5,8 +5,8 @@
 ---
 outlines:
     default:       { width: 51.7,   height: 42 }
-    altline:       { width: 77.5,   height: 42 }
-    wide:          { width: 103.35, height: 42 }
+    special-2:     { width: 77.5,   height: 42 }
+    special-3:     { width: 103.35, height: 42 }
     change-view:   { width: 77.5,   height: 42 }
     change-view-2: { width: 103.35, height: 42 }
     spaceline:     { width: 340.3,  height: 42 }
@@ -49,7 +49,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -82,7 +82,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     --:

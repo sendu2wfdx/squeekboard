@@ -1,14 +1,14 @@
 # Language: Bulgarian
 ---
 outlines:
-    default:       { width: 48.75, height: 42 }
-    altline:       { width: 73.5,  height: 42 }
-    wide:          { width: 73.5,  height: 42 }
-    change-view:   { width: 73.5,  height: 42 }
-    spaceline:     { width: 292.5, height: 42 }
-    special:       { width: 48.75, height: 42 }
-    placeholder:   { width: 48.75, height: 42 }
-    fill:          { width: 97.5,  height: 42 }
+    default:     { width: 48.75, height: 42 }
+    special-2:   { width: 73.5,  height: 42 }
+    special-3:   { width: 73.5,  height: 42 }
+    change-view: { width: 73.5,  height: 42 }
+    spaceline:   { width: 292.5, height: 42 }
+    special:     { width: 48.75, height: 42 }
+    placeholder: { width: 48.75, height: 42 }
+    fill:        { width: 97.5,  height: 42 }
 
 views:
     base:
@@ -42,7 +42,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -68,7 +68,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     --:
