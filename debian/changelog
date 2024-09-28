@@ -1,3 +1,12 @@
+squeekboard (1.42.0) experimental; urgency=medium
+
+  * */meson.build: Fix warnings about features deprecated since Meson 0.56
+  * layouts: Adjust French (fr+bepo) terminal-layout and make it available
+  * layouts: Improve the size of the Thai (th) layout
+  * Cargo.lock: Update dependencies
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Mon, 30 Sep 2024 11:13:46 +0200
+
 squeekboard (1.42.0~rc1) experimental; urgency=medium
 
   [ MoonlightWave-12 ]
