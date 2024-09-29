@@ -114,6 +114,7 @@ foreach layout : [
     'terminal/de', 'terminal/de_wide',
     'terminal/es', 'terminal/es_wide',
     'terminal/fr', 'terminal/fr_wide',
+    'terminal/fr+bepo', 'terminal/fr+bepo_wide',
     'terminal/us', 'terminal/us_wide',
     'terminal/us+dvorak', 'terminal/us+dvorak_wide',
     
