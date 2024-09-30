@@ -1,20 +1,26 @@
-squeekboard 1.42.0~rc1
-----------------------
+squeekboard 1.42.0
+------------------
 Released September 2024
 * New layouts:
     * Belarusian (by)
+    * French (fr+bepo) terminal-layout
     * Japanese (jp)
     * Serbian (rs), (rs+latin), (rs+latinunicode)
+* Changed layouts:
+    * Thai (th):
+        * There is less empty space now.
+        * Most buttons are wider now.
+        * The arrangement of buttons for the `symbols` and `numbers` views, is more consistent with other layouts now.
 * Fixes:
     * "Keyboard Settings" in the language-selection-popover will now open the correct panel in GNOME Settings.
     * On some relatively small screens in horizontal orientation, the compact shape was used instead of the wide shape,
       even though the wide shape can fit into the same height. The wide shape will be used on those screens now.
 * Changes:
-    * The height of the panel will adapt to screens differently now.
-      In particular, the panel will now be 1/3 of the screen's height on most monitors in horizontal orientation,
+    * The height of the panel will adapt to screens differently.
+      In particular, the panel will be 1/3 of the screen's height on most monitors in horizontal orientation,
       and as tall as it can be, while maintaining the aspect-ratio of the wide shape (16:5) without empty space next to it,
       for most monitors in vertical orientation.
-    * Settings for adjusting the height of the panel for the keyboard have been added.
+    * GSettings for adjusting the height of the panel for the keyboard have been added.
     * The documentation has been improved. In particular, it should now be much easier to learn how to test changes to Squeekboard and layouts.
     * After building a Debian-package for Squeekboard and installing it, `update-alternatives` is now supported.
     * The layout-files now have the English name of the language for which the respective layout is, in a comment at the top of the file.
