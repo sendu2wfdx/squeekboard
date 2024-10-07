@@ -1,12 +1,12 @@
 ---
 outlines:
     default:       { width: 97.07,  height: 52 }
-    placeholder:   { width: 97.07,  height: 52 }
-    special:       { width: 97.07,  height: 52 }
     change-view:   { width: 97.07,  height: 52 }
     change-view-2: { width: 67.95,  height: 56 }
     emoji-group:   { width: 97.07,  height: 52 }
+    placeholder:   { width: 97.07,  height: 52 }
     placeholder-2: { width: 485.33, height: 52 }
+    special:       { width: 97.07,  height: 52 }
 
 views:
     base:

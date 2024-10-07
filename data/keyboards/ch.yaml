@@ -5,13 +5,13 @@
 ---
 outlines:
     default:       { width: 35.33,  height: 58 }
-    doublewidth:   { width: 70.66,  height: 58 }
-    special-2:     { width: 52.8,   height: 58 }
-    special-3:     { width: 64.9,   height: 58 }
     change-view:   { width: 52.8,   height: 58 }
     change-view-2: { width: 64.9,   height: 58 }
+    doublewidth:   { width: 70.66,  height: 58 }
     spaceline:     { width: 111.75, height: 58 }
     special:       { width: 35.33,  height: 58 }
+    special-2:     { width: 52.8,   height: 58 }
+    special-3:     { width: 64.9,   height: 58 }
 
 views:
     base:

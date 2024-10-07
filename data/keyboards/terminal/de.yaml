@@ -2,19 +2,19 @@
 ---
 outlines:
     default:          { width: 35.33,  height: 45.5 }
-    subtle-highlight: { width: 35.33,  height: 45.5 }
+    action:           { width: 59,     height: 45.5 }
+    change-view:      { width: 52.67,  height: 45.5 }
+    change-view-2:    { width: 59,     height: 45.5 }
     halfwidth:        { width: 17.665, height: 45.5 }
+    large:            { width: 52.67,  height: 45.5 }
     narrow:           { width: 26.335, height: 45.5 }
+    placeholder:      { width: 17.665, height: 45.5 }
+    small:            { width: 50.471, height: 24   }
+    spaceline:        { width: 100.96, height: 45.5 }
     special:          { width: 35.33,  height: 45.5 }
     special-2:        { width: 52.67,  height: 45.5 }
-    change-view:      { width: 52.67,  height: 45.5 }
-    large:            { width: 52.67,  height: 45.5 }
-    action:           { width: 59,     height: 45.5 }
     special-3:        { width: 59,     height: 45.5 }
-    change-view-2:    { width: 59,     height: 45.5 }
-    spaceline:        { width: 100.96, height: 45.5 }
-    small:            { width: 50.471, height: 24 }
-    placeholder:      { width: 17.665, height: 45.5 }
+    subtle-highlight: { width: 35.33,  height: 45.5 }
 
 views:
     base:

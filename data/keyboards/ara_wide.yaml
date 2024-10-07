@@ -3,13 +3,13 @@
 ---
 outlines:
     default:       { width: 49,   height: 42 }
-    special-2:     { width: 73.5, height: 42 }
-    special-3:     { width: 108,  height: 42 }
     change-view:   { width: 73.5, height: 42 }
     change-view-2: { width: 108,  height: 42 }
+    fill:          { width: 98,   height: 42 }
     spaceline:     { width: 295,  height: 42 }
     special:       { width: 49,   height: 42 }
-    fill:          { width: 98,   height: 42 }
+    special-2:     { width: 73.5, height: 42 }
+    special-3:     { width: 108,  height: 42 }
 
 views:
     base:

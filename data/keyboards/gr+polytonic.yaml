@@ -6,19 +6,19 @@
 ---
 outlines:
     default:          { width: 40,    height: 60 }
-    subtle-highlight: { width: 40,    height: 60 }
-    placeholder:      { width: 40,    height: 60 }
-    special:          { width: 52.67, height: 60 }
-    fill:             { width: 57.5,  height: 60 }
-    special-2:        { width: 57.5,  height: 60 }
-    large:            { width: 57.5,  height: 60 }
     change-view:      { width: 57.5,  height: 60 }
-    special-3:        { width: 62,    height: 60 }
     change-view-2:    { width: 81,    height: 60 }
     character-group:  { width: 72,    height: 60 }
+    fill:             { width: 57.5,  height: 60 }
+    large:            { width: 57.5,  height: 60 }
+    placeholder:      { width: 40,    height: 60 }
     placeholder-2:    { width: 72,    height: 60 }
     spaceline:        { width: 143,   height: 60 }
     spaceline-2:      { width: 223,   height: 60 }
+    special:          { width: 52.67, height: 60 }
+    special-2:        { width: 57.5,  height: 60 }
+    special-3:        { width: 62,    height: 60 }
+    subtle-highlight: { width: 40,    height: 60 }
 
 views:
     base:

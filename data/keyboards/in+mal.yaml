@@ -2,11 +2,11 @@
 ---
 outlines:
     default:     { width: 29.44,  height: 44.5 }
-    special-2:   { width: 58.88,  height: 44.5 }
     change-view: { width: 58.88,  height: 44.5 }
+    placeholder: { width: 29.44,  height: 44.5 }
     spaceline:   { width: 235.52, height: 44.5 }
     special:     { width: 29.44,  height: 44.5 }
-    placeholder: { width: 29.44,  height: 44.5 }
+    special-2:   { width: 58.88,  height: 44.5 }
 
 views:
     base:

@@ -1,12 +1,12 @@
 # Language: Romanian
 ---
 outlines:
-    default:       { width: 54,     height: 42 }
-    special-2:     { width: 81,     height: 42 }
-    special-3:     { width: 81,     height: 42 }
-    change-view:   { width: 81,     height: 42 }
-    spaceline:     { width: 189.25, height: 42 }
-    special:       { width: 54,     height: 42 }
+    default:     { width: 54,     height: 42 }
+    change-view: { width: 81,     height: 42 }
+    spaceline:   { width: 189.25, height: 42 }
+    special:     { width: 54,     height: 42 }
+    special-2:   { width: 81,     height: 42 }
+    special-3:   { width: 81,     height: 42 }
 
 views:
     base:

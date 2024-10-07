@@ -2,13 +2,13 @@
 ---
 outlines:
     default:          { width: 35.33, height: 52 }
-    subtle-highlight: { width: 35.33, height: 52 }
-    special-2:        { width: 52.67, height: 52 }
-    special-3:        { width: 52.67, height: 52 }
     change-view:      { width: 52.67, height: 52 }
+    placeholder:      { width: 35.33, height: 52 }
     spaceline:        { width: 88.66, height: 52 }
     special:          { width: 35.33, height: 52 }
-    placeholder:      { width: 35.33, height: 52 }
+    special-2:        { width: 52.67, height: 52 }
+    special-3:        { width: 52.67, height: 52 }
+    subtle-highlight: { width: 35.33, height: 52 }
 
 views:
     base:

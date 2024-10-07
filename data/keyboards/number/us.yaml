@@ -1,8 +1,8 @@
 ---
 outlines:
     default:   { width: 71.314,  height: 52 }
-    special:   { width: 71.314,  height: 52 }
     spaceline: { width: 142.628, height: 52 }
+    special:   { width: 71.314,  height: 52 }
 
 views:
     base:
