@@ -3,8 +3,8 @@
 outlines:
     default:       { width: 48.87,  height: 42 }
     fill:          { width: 73.31,  height: 42 }
-    altline:       { width: 48.87,  height: 42 }
-    wide:          { width: 73.31,  height: 42 }
+    special-2:     { width: 48.87,  height: 42 }
+    special-3:     { width: 73.31,  height: 42 }
     change-view:   { width: 48.87,  height: 42 }
     change-view-2: { width: 73.31,  height: 42 }
     spaceline:     { width: 244.34, height: 42 }
@@ -15,26 +15,26 @@ views:
     base:
         - "q w e r t z u i o p š"
         - "a s d f g h j k l č ć"
-        - "Shift_L    y x c v b n m đ ž BackSpace"
-        - "show_numbers preferences     space    , . Return"
+        - "show_upper y x c v b n m đ ž BackSpace"
+        - "show_numbers preferences space , . Return"
     upper:
         - "Q W E R T Z U I O P Š"
         - "A S D F G H J K L Č Ć"
-        - "Shift_L    Y X C V B N M Đ Ž BackSpace"
-        - "show_numbers preferences     space    ! ? Return"
+        - "show_upper Y X C V B N M Đ Ž BackSpace"
+        - "show_numbers preferences space ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols    , \" ' : ; ! ? -- BackSpace-wide"
-        - "show_letters preferences     space    , . Return"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace-wide"
+        - "show_letters preferences space , . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers    \\ / < > = [ ] -- BackSpace-wide"
-        - "show_letters preferences     space    , . Return"
+        - "show_numbers \\ / < > = [ ] -- BackSpace-wide"
+        - "show_letters preferences space , . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -42,11 +42,11 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     BackSpace-wide:
-        outline: "wide"
+        outline: "special-3"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -72,7 +72,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     --:

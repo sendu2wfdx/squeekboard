@@ -2,8 +2,8 @@
 ---
 outlines:
     default:       { width: 48.75, height: 42 }
-    altline:       { width: 48.75, height: 42 }
-    wide:          { width: 97.5,  height: 42 }
+    special-2:     { width: 48.75, height: 42 }
+    special-3:     { width: 97.5,  height: 42 }
     change-view:   { width: 48.75, height: 42 }
     change-view-2: { width: 97.5,  height: 42 }
     spaceline:     { width: 146.5, height: 42 }
@@ -15,26 +15,26 @@ views:
     base:
         - "й ц у к е н г ш ў з х"
         - "ф ы в а п р о л д ж э"
-        - "Shift_L  я ч с м і т ь б ю  BackSpace"
-        - "show_numbers preferences    ё  space  ,  . Return"
+        - "show_upper я ч с м і т ь б ю BackSpace"
+        - "show_numbers preferences ё space , . Return"
     upper:
         - "Й Ц У К Е Н Г Ш Ў З Х"
         - "Ф Ы В А П Р О Л Д Ж Э"
-        - "Shift_L   Я Ч С М І Т Ь Б Ю  BackSpace"
-        - "show_numbers preferences    Ё  space  ,  . Return"
+        - "show_upper Я Ч С М І Т Ь Б Ю BackSpace"
+        - "show_numbers preferences Ё space , . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
         - "show_symbols , \" ' : ; ! ? BackSpace-wide"
-        - "show_letters preferences         space-fill   . Return"
+        - "show_letters preferences space-fill . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers \\ / < > = [ ] BackSpace-wide"
-        - "show_letters preferences         space-fill   . Return"
+        - "show_letters preferences space-fill . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -42,11 +42,11 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     BackSpace-wide:
-        outline: "wide"
+        outline: "special-3"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -75,7 +75,7 @@ buttons:
         outline: "fill"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     5:

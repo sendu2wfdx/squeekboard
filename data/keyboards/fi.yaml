@@ -2,9 +2,9 @@
 ---
 outlines:
     default:       { width: 32.4,   height: 52 }
-    altline:       { width: 48.39,  height: 52 }
+    special-2:     { width: 48.39,  height: 52 }
     large:         { width: 48.39,  height: 52 }
-    wide:          { width: 62,     height: 52 }
+    special-3:     { width: 62,     height: 52 }
     change-view:   { width: 48.39,  height: 52 }
     change-view-2: { width: 62,     height: 52 }
     spaceline:     { width: 136.39, height: 52 }
@@ -16,26 +16,26 @@ views:
     base:
         - "q w e r t y u i o p å"
         - "a s d f g h j k l ö ä"
-        - "Shift_L   z x c v b n m , BackSpace"
-        - "show_numbers preferences         space        .    Return"
+        - "show_upper z x c v b n m , BackSpace"
+        - "show_numbers preferences space . Return"
     upper:
         - "Q W E R T Y U I O P Å"
         - "A S D F G H J K L Ö Ä"
-        - "Shift_L   Z X C V B N M , BackSpace"
-        - "show_numbers preferences         space        .    Return"
+        - "show_upper Z X C V B N M , BackSpace"
+        - "show_numbers preferences space . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
         - "show_symbols -- , \" ' : ; ! ? BackSpace"
-        - "show_letters preferences         space        .    Return"
+        - "show_letters preferences space . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers_from_symbols -- \\ / < > = [ ] BackSpace"
-        - "show_letters preferences         space        .    Return"
+        - "show_letters preferences space . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -43,7 +43,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -76,7 +76,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     --:

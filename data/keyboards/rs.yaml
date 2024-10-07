@@ -3,8 +3,8 @@
 outlines:
     default:       { width: 32.12,  height: 52 }
     fill:          { width: 64.24,  height: 52 }
-    altline:       { width: 48.18,  height: 52 }
-    wide:          { width: 64.24,  height: 52 }
+    special-2:     { width: 48.18,  height: 52 }
+    special-3:     { width: 64.24,  height: 52 }
     change-view:   { width: 48.18,  height: 52 }
     change-view-2: { width: 64.24,  height: 52 }
     spaceline:     { width: 128.48, height: 52 }
@@ -15,26 +15,26 @@ views:
     base:
         - "љ њ е р т з у и о п ш"
         - "а с д ф г х ј к л ч ћ"
-        - "Shift_L џ ц в б н м ђ ж BackSpace"
-        - "show_numbers preferences     space    , . Return"
+        - "show_upper џ ц в б н м ђ ж BackSpace"
+        - "show_numbers preferences space , . Return"
     upper:
         - "Љ Њ Е Р Т З У И О П Ш"
         - "А С Д Ф Г Х Ј К Л Ч Ћ"
-        - "Shift_L Џ Ц В Б Н М Ђ Ж BackSpace"
-        - "show_numbers preferences     space    ! ? Return"
+        - "show_upper Џ Ц В Б Н М Ђ Ж BackSpace"
+        - "show_numbers preferences space ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # $ % & - _ + ( )"
-        - "show_symbols    , \" ' : ; ! ? -- BackSpace"
-        - "show_letters preferences     space    , . Return"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace"
+        - "show_letters preferences space , . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
-        - "show_numbers_from_symbols    \\ / < > = [ ] -- BackSpace"
-        - "show_letters preferences     space    , . Return"
+        - "show_numbers_from_symbols \\ / < > = [ ] -- BackSpace"
+        - "show_letters preferences space , . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -42,7 +42,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -73,7 +73,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     --:

@@ -4,7 +4,7 @@ outlines:
     default:            { width: 32.12,  height: 52 }
     subtle-highlight:   { width: 32.12,  height: 52 }
     special:            { width: 32.12,  height: 52 }
-    altline:            { width: 48.17,  height: 52 }
+    special-2:          { width: 48.17,  height: 52 }
     change-view:        { width: 48.17,  height: 52 }
     fill:               { width: 64.24,  height: 52 }
     subtle-highlight-2: { width: 64.24,  height: 52 }
@@ -15,31 +15,31 @@ views:
     base:
         - "j d u a x p h l m w ß"
         - "c t i e o b n r s g q"
-        - "Shift_L   f v ü ä ö y z k BackSpace"
-        - "show_numbers show_eschars preferences         space        , . Return"
+        - "show_upper f v ü ä ö y z k BackSpace"
+        - "show_numbers show_eschars preferences space , . Return"
     upper:
         - "J D U A X P H L M W ẞ"
         - "C T I E O B N R S G Q"
-        - "Shift_L   F V Ü Ä Ö Y Z K BackSpace"
-        - "show_numbers show_eschars preferences         space        ! ? Return"
+        - "show_upper F V Ü Ä Ö Y Z K BackSpace"
+        - "show_numbers show_eschars preferences space ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
-        - "show_symbols   ; \" ' : = < >  BackSpace"
-        - "show_letters show_eschars preferences         space        , . Return"
+        - "show_symbols ; \" ' : = < > BackSpace"
+        - "show_letters show_eschars preferences space , . Return"
     symbols:
         - "~ ` ´ | · √ µ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers   \\ / § π τ [ ]  BackSpace"
-        - "show_letters show_eschars preferences         space        , . Return"
+        - "show_numbers \\ / § π τ [ ] BackSpace"
+        - "show_letters show_eschars preferences space , . Return"
     eschars:
         - "ä-subtle-highlight è é ö-subtle-highlight ü-subtle-highlight-2 Ä-subtle-highlight È É Ö-subtle-highlight Ü-subtle-highlight"
         - "à â ê î ô À Â Ê Î Ô"
-        - "show_numbers  « » ç Ç æ œ ß-subtle-highlight BackSpace"
-        - "show_letters show_eschars preferences         space        „ “ Return"
+        - "show_numbers « » ç Ç æ œ ß-subtle-highlight BackSpace"
+        - "show_letters show_eschars preferences space „ “ Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -47,7 +47,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -80,7 +80,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "altline"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
     ä-subtle-highlight:

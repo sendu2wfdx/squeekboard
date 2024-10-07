@@ -109,7 +109,7 @@ Views in Squeekboard are based on rows. The first row comes near the top of the 
 
 ```yaml
 - "Q W E R T Y U I O P Å"
-- "upper   z x c v b n m  BackSpace"
+- "upper z x c v b n m BackSpace"
 ```
 
 Each row is a single string, and button names are separated by spaces. In left-to-right languages, the panel will be laid out just like the view code. CAUTION: buttons are placed on the panel left-to-right, starting from the earliest position in the string. That may not display great in your text editor when you use right-to-left characters as button names.

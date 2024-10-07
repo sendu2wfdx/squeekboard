@@ -4,8 +4,8 @@
 ---
 outlines:
     default:       { width: 52,     height: 42 }
-    altline:       { width: 70.65,  height: 42 }
-    wide:          { width: 86.84,  height: 42 }
+    special-2:     { width: 70.65,  height: 42 }
+    special-3:     { width: 86.84,  height: 42 }
     change-view:   { width: 70.65,  height: 42 }
     change-view-2: { width: 86.84,  height: 42 }
     spaceline:     { width: 103.03, height: 42 }
@@ -15,26 +15,26 @@ views:
     base:
         - "q w e r t z u i o p ü"
         - "a s d f g h j k l ö ä"
-        - "Shift_L   y x c v b n m  BackSpace"
-        - "show_numbers ? !  preferences    '   space        , . Return"
+        - "show_upper y x c v b n m BackSpace"
+        - "show_numbers ? !  preferences ' space , . Return"
     upper:
         - "Q W E R T Z U I O P Ü"
         - "A S D F G H J K L Ö Ä"
-        - "Shift_L   Y X C V B N M  BackSpace"
-        - "show_numbers - _  preferences    \"  space        , . Return"
+        - "show_upper Y X C V B N M BackSpace"
+        - "show_numbers - _  preferences \" space , . Return"
     numbers:      
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ * + - = ( ) ~ < >"
-        - "show_symbols  # & / \\ √ ; : BackSpace"
-        - "show_letters ? !  preferences    _   space        , . Return"
+        - "show_symbols # & / \\ √ ; : BackSpace"
+        - "show_letters ? !  preferences _ space , . Return"
     symbols:
         - "€ $ £ ¥ % | § µ [ ]"
         - "© ® § ` ^ { } · ¡ ¿"
-        - "show_numbers  « » ÷ × “ ” „ BackSpace"
-        - "show_letters  preferences    -   space        , . Return"
+        - "show_numbers « » ÷ × “ ” „ BackSpace"
+        - "show_letters  preferences - space , . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -42,7 +42,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -68,6 +68,6 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"

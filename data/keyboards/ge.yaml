@@ -2,8 +2,8 @@
 ---
 outlines:
     default:       { width: 35.67, height: 52 }
-    altline:       { width: 53,    height: 52 }
-    wide:          { width: 62,    height: 52 }
+    special-2:     { width: 53,    height: 52 }
+    special-3:     { width: 62,    height: 52 }
     change-view:   { width: 53,    height: 52 }
     change-view-2: { width: 62,    height: 52 }
     spaceline:     { width: 142,   height: 52 }
@@ -14,26 +14,26 @@ views:
     base:
         - "ქ წ ე რ ტ ყ უ ი ო პ"
         - "ა ს დ ფ გ ჰ ჯ კ ლ"
-        - "Shift_L ზ ხ ც ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space    .     Return"
+        - "show_upper ზ ხ ც ვ ბ ნ მ BackSpace"
+        - "show_numbers preferences space . Return"
     upper:
         - "ქ ჭ ე ღ თ ყ უ ი ო პ"
         - "ა შ დ ფ გ ჰ ჟ კ ლ"
-        - "Shift_L ძ ხ ჩ ვ ბ ნ მ BackSpace"
-        - "show_numbers preferences         space    .     Return"
+        - "show_upper ძ ხ ჩ ვ ბ ნ მ BackSpace"
+        - "show_numbers preferences space . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "! @ # $ % ^ & * ( )"
-        - "show_symbols   - ' \" : ; , ?   BackSpace"
-        - "show_letters preferences         space    .     Return"
+        - "show_symbols - ' \" : ; , ? BackSpace"
+        - "show_letters preferences space . Return"
     symbols:
         - "+ ⨯ ÷ = / _ € £ ¥ ₾"
         - "~ ` | · √ π τ ° { }"
-        - "show_numbers_from_symbols   \\ / < > = [ ]  BackSpace"
-        - "show_letters preferences         space    .     Return"
+        - "show_numbers_from_symbols \\ / < > = [ ] BackSpace"
+        - "show_letters preferences space . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -41,7 +41,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -74,6 +74,6 @@ buttons:
     .:
         outline: "large"
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"

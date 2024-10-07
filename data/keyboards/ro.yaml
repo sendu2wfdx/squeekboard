@@ -2,8 +2,8 @@
 ---
 outlines:
     default:       { width: 35.67,  height: 52 }
-    altline:       { width: 53.5,   height: 52 }
-    wide:          { width: 62,     height: 52 }
+    special-2:     { width: 53.5,   height: 52 }
+    special-3:     { width: 62,     height: 52 }
     change-view:   { width: 53.5,   height: 52 }
     spaceline:     { width: 107.67, height: 52 }
     special:       { width: 35.67,  height: 52 }
@@ -13,31 +13,31 @@ views:
     base:
         - "q w e r t y u i o p"
         - "a s d f g h j k l"
-        - "Shift_L   z x c v b n m  BackSpace"
-        - "show_numbers show_eschars preferences         space        . Return"
+        - "show_upper z x c v b n m BackSpace"
+        - "show_numbers show_eschars preferences space . Return"
     upper:
         - "Q W E R T Y U I O P"
         - "A S D F G H J K L"
-        - "Shift_L   Z X C V B N M  BackSpace"
-        - "show_numbers show_eschars preferences         space        . Return"
+        - "show_upper Z X C V B N M BackSpace"
+        - "show_numbers show_eschars preferences space . Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "show_symbols , \" ' : ; ! ? BackSpace"
+        - "show_letters show_eschars preferences space . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers   \\ / < > = [ ]  BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "show_numbers \\ / < > = [ ] BackSpace"
+        - "show_letters show_eschars preferences space . Return"
     eschars:
         - "Ă Â Î Ș Ț Á É Í Ó Ü"
         - "ă â î ș ț á é í ó ü"
         - "show_numbers „ ” « » ― { } BackSpace"
-        - "show_letters show_eschars preferences         space        . Return"
+        - "show_letters show_eschars preferences space . Return"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -45,7 +45,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -78,7 +78,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     .:

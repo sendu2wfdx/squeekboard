@@ -3,10 +3,10 @@
 outlines:
     default:       { width: 35.33,  height: 45.5 }
     action:        { width: 59,     height: 45.5 }
-    altline:       { width: 52.67,  height: 45.5 }
+    special-2:     { width: 52.67,  height: 45.5 }
     change-view:   { width: 52.67,  height: 45.5 }
     large:         { width: 52.67,  height: 45.5 }
-    wide:          { width: 59,     height: 45.5 }
+    special-3:     { width: 59,     height: 45.5 }
     change-view-2: { width: 59,     height: 45.5 }
     spaceline:     { width: 144.96, height: 45.5 }
     special:       { width: 44,     height: 45.5 }
@@ -15,28 +15,28 @@ outlines:
 views:
     base:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
-        - "Shift_L   p y f g c r l  BackSpace"
+        - "show_upper p y f g c r l BackSpace"
         - "a o e u i d h t n s"
         - ", q j k x b m w v z"
-        - "show_numbers preferences      space        show_actions Return"
+        - "show_numbers preferences space show_actions Return"
     upper:
         - "TabSmall Ctrl Alt PageUp PageDown Home End"
-        - "Shift_L   P Y F G C R L  BackSpace"
+        - "show_upper P Y F G C R L BackSpace"
         - "A O E U I D H T N S"
         - ", Q J K X B M W V Z"
-        - "show_numbers preferences      space        show_actions Return"
+        - "show_numbers preferences space show_actions Return"
     numbers:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
-        - "show_symbols   , \" ' : ; ! ?  BackSpace"
+        - "show_symbols , \" ' : ; ! ? BackSpace"
         - "* # $ / & - _ + ( )"
         - "1 2 3 4 5 6 7 8 9 0"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences space . Return"
     symbols:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
-        - "show_numbers   \\ % < > = [ ]  BackSpace"
+        - "show_numbers \\ % < > = [ ] BackSpace"
         - "© ® £ € ¥ ^ ° @ { }"
         - "~ ` | · √ π τ ÷ × ¶"
-        - "show_letters preferences         space        . Return"
+        - "show_letters preferences space . Return"
     actions:
         - "TabSmall Ctrl Alt PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
@@ -45,7 +45,7 @@ views:
         - "show_letters_actions Menu Break Left Down Right"
 
 buttons:
-    Shift_L:
+    show_upper:
         action:
             locking:
                 lock_view: "upper"
@@ -53,7 +53,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "altline"
+        outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -91,7 +91,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
     F1:
