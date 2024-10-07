@@ -1,16 +1,16 @@
 # Language: Thai
 ---
 outlines:
-    default:       { width: 56,    height: 42 }
-    change-view:   { width: 56,    height: 42 }
-    change-view-2: { width: 112,   height: 42 }
-    fill:          { width: 112,   height: 42 }
-    large:         { width: 61.6,  height: 42 }
-    placeholder:   { width: 56,    height: 42 }
-    spaceline:     { width: 324.8, height: 42 }
-    special:       { width: 56,    height: 42 }
-    special-2:     { width: 61.6,  height: 42 }
-    special-3:     { width: 112,   height: 42 }
+    default:       { width: 56,  height: 42 }
+    change-view:   { width: 56,  height: 42 }
+    change-view-2: { width: 112, height: 42 }
+    fill:          { width: 112, height: 42 }
+    large:         { width: 70,  height: 42 }
+    placeholder:   { width: 56,  height: 42 }
+    spaceline:     { width: 308, height: 42 }
+    special:       { width: 56,  height: 42 }
+    special-2:     { width: 70,  height: 42 }
+    special-3:     { width: 112, height: 42 }
 
 views:
     base:

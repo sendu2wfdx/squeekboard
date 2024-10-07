@@ -5,20 +5,20 @@
 # 
 ---
 outlines:
-    default:          { width: 74,    height: 60 }
-    change-view:      { width: 97.44, height: 60 }
-    change-view-2:    { width: 148,   height: 60 }
-    character-group:  { width: 133.2, height: 60 }
-    fill:             { width: 97.44, height: 60 }
-    large:            { width: 97.44, height: 60 }
-    placeholder:      { width: 74,    height: 60 }
-    placeholder-2:    { width: 133.2, height: 60 }
-    spaceline:        { width: 279,   height: 60 }
-    spaceline-2:      { width: 427,   height: 60 }
-    special:          { width: 74,    height: 60 }
-    special-2:        { width: 97.44, height: 60 }
-    special-3:        { width: 114.7, height: 60 }
-    subtle-highlight: { width: 74,    height: 60 }
+    default:          { width: 51.968,  height: 42 }
+    change-view:      { width: 69.888,  height: 42 }
+    change-view-2:    { width: 103.936, height: 42 }
+    character-group:  { width: 93.542,  height: 42 }
+    fill:             { width: 69.888,  height: 42 }
+    large:            { width: 69.888,  height: 42 }
+    placeholder:      { width: 51.968,  height: 42 }
+    placeholder-2:    { width: 93.542,  height: 42 }
+    spaceline:        { width: 199.808, height: 42 }
+    spaceline-2:      { width: 303.744, height: 42 }
+    special:          { width: 51.968,  height: 42 }
+    special-2:        { width: 69.888,  height: 42 }
+    special-3:        { width: 77.952,  height: 42 }
+    subtle-highlight: { width: 51.968,  height: 42 }
 
 views:
     base:

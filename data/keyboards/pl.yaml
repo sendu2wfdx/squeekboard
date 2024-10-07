@@ -1,15 +1,13 @@
 # Language: Polish
 ---
 outlines:
-    default:       { width: 35.67, height: 52 }
-    change-view:   { width: 52.67, height: 52 }
-    change-view-2: { width: 59,    height: 52 }
-    large:         { width: 52.67, height: 52 }
-    placeholder:   { width: 35.67, height: 52 }
-    spaceline:     { width: 141,   height: 52 }
-    special:       { width: 44,    height: 52 }
-    special-2:     { width: 52.67, height: 52 }
-    special-3:     { width: 59,    height: 52 }
+    default:       { width: 35.657,  height: 52 }
+    change-view:   { width: 53.485,  height: 52 }
+    change-view-2: { width: 62.399,  height: 52 }
+    large:         { width: 53.485,  height: 52 }
+    spaceline:     { width: 124.802, height: 52 }
+    special:       { width: 53.485,  height: 52 }
+    special-2:     { width: 62.399,  height: 52 }
 
 views:
     base:
@@ -35,12 +33,12 @@ views:
     accents:
         - "q w ę r t y u i ó p"
         - "ą ś d f g h j k ł"
-        - "accents_show_upper ż ź ć v b ń m BackSpace"
+        - "show_upper_accents_from_accents ż ź ć v b ń m BackSpace"
         - "show_numbers preferences space show_accents Return"
     upper_accents:
         - "Q W Ę R T Y U I Ó P"
         - "Ą Ś D F G H J K Ł"
-        - "accents_show_upper Ż Ź Ć V B Ń M BackSpace"
+        - "show_upper_accents_from_accents Ż Ź Ć V B Ń M BackSpace"
         - "show_numbers preferences space show_upper_accents Return"
 
 buttons:
@@ -51,7 +49,7 @@ buttons:
                 unlock_view: "base"
         outline: "change-view"
         icon: "key-shift"
-    accents_show_upper:
+    show_upper_accents_from_accents:
         action:
             locking:
                 lock_view: "upper_accents"
@@ -61,7 +59,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "special-2"
+        outline: "special"
         icon: "edit-clear-symbolic"
         keysym: "BackSpace"
     preferences:
@@ -111,9 +109,6 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "special-3"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
-    --:
-        outline: "placeholder"
-        text: ""

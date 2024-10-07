@@ -1,15 +1,15 @@
 # Language: Polish
 ---
 outlines:
-    default:       { width: 54,  height: 42 }
-    change-view:   { width: 81,  height: 42 }
-    change-view-2: { width: 100, height: 42 }
-    large:         { width: 81,  height: 42 }
-    placeholder:   { width: 54,  height: 42 }
-    spaceline:     { width: 206, height: 42 }
-    special:       { width: 54,  height: 42 }
-    special-2:     { width: 81,  height: 42 }
-    special-3:     { width: 100, height: 42 }
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 80.64,  height: 42 }
+    change-view-2: { width: 94.08,  height: 42 }
+    large:         { width: 80.64,  height: 42 }
+    placeholder:   { width: 53.76,  height: 42 }
+    spaceline:     { width: 215.04, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 80.64,  height: 42 }
+    special-3:     { width: 94.08,  height: 42 }
 
 views:
     base:

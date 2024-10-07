@@ -2,15 +2,15 @@
 # Created by Sotiris Papadopoulos, sotirios.papadopoulos@inserm.fr
 ---
 outlines:
-    default:          { width: 73,  height: 60 }
-    change-view:      { width: 110, height: 60 }
-    change-view-2:    { width: 146, height: 60 }
-    fill:             { width: 110, height: 60 }
-    spaceline:        { width: 256, height: 60 }
-    special:          { width: 73,  height: 60 }
-    special-2:        { width: 110, height: 60 }
-    special-3:        { width: 146, height: 60 }
-    subtle-highlight: { width: 73,  height: 60 }
+    default:          { width: 51.768,  height: 42 }
+    fill:             { width: 77.652,  height: 42 }
+    change-view:      { width: 77.652,  height: 42 }
+    change-view-2:    { width: 103.536, height: 42 }
+    spaceline:        { width: 181.188, height: 42 }
+    special:          { width: 51.768,  height: 42 }
+    special-2:        { width: 77.652,  height: 42 }
+    special-3:        { width: 103.536, height: 42 }
+    subtle-highlight: { width: 51.768,  height: 42 }
 
 views:
     base:

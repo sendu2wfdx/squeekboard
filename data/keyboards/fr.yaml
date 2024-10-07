@@ -1,13 +1,12 @@
 # Language: French
 ---
 outlines:
-    default:       { width: 35.33, height: 52 }
-    change-view:   { width: 52.67, height: 52 }
-    change-view-2: { width: 59,    height: 52 }
-    spaceline:     { width: 140,   height: 52 }
-    special:       { width: 44,    height: 52 }
-    special-2:     { width: 52.67, height: 52 }
-    special-3:     { width: 59,    height: 52 }
+    default:       { width: 35.657,  height: 52 }
+    change-view:   { width: 53.485,  height: 52 }
+    change-view-2: { width: 62.399,  height: 52 }
+    spaceline:     { width: 124.802, height: 52 }
+    special:       { width: 53.485,  height: 52 }
+    special-2:     { width: 62.399,  height: 52 }
 
 views:
     base:
@@ -45,7 +44,7 @@ buttons:
         outline: "change-view"
         icon: "key-shift"
     BackSpace:
-        outline: "special-2"
+        outline: "special"
         icon: "edit-clear-symbolic"
         action: "erase"
     preferences:
@@ -83,6 +82,6 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "special-3"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"

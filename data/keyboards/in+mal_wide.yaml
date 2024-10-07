@@ -1,12 +1,12 @@
 # Language: Malayalam
 ---
 outlines:
-    default:     { width: 45.11,  height: 36.65 }
-    change-view: { width: 90.22,  height: 36.65 }
-    placeholder: { width: 45.11,  height: 36.65 }
-    spaceline:   { width: 360.88, height: 36.65 }
-    special:     { width: 45.11,  height: 36.65 }
-    special-2:   { width: 90.22,  height: 36.65 }
+    default:     { width: 51.692,  height: 42 }
+    change-view: { width: 103.384, height: 42 }
+    placeholder: { width: 51.692,  height: 42 }
+    spaceline:   { width: 413.536, height: 42 }
+    special:     { width: 51.692,  height: 42 }
+    special-2:   { width: 103.384, height: 42 }
 
 views:
     base:

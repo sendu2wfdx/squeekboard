@@ -1,13 +1,12 @@
 # Language: Czech (QWERTY)
 ---
 outlines:
-    default:       { width: 54,  height: 42 }
-    change-view:   { width: 81,  height: 42 }
-    change-view-2: { width: 54,  height: 42 }
-    spaceline:     { width: 162, height: 42 }
-    special:       { width: 54,  height: 42 }
-    special-2:     { width: 81,  height: 42 }
-    special-3:     { width: 81,  height: 42 }
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 53.76,  height: 42 }
+    change-view-2: { width: 80.64,  height: 42 }
+    spaceline:     { width: 161.28, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 80.64,  height: 42 }
 
 views:
     base:
@@ -47,14 +46,14 @@ buttons:
             locking:
                 lock_view: "upper"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         icon: "key-shift"
     accents_show_upper:
         action:
             locking:
                 lock_view: "upper_accents"
                 unlock_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         icon: "key-shift"
     BackSpace:
         outline: "special-2"
@@ -67,36 +66,36 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "123"
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "ABC"
     show_symbols:
         action:
             set_view: "symbols"
-        outline: "change-view"
+        outline: "change-view-2"
         label: "*/="
     show_accents:
         action:
             locking:
                 lock_view: "accents"
                 unlock_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "á"
     show_upper_accents:
         action:
             locking:
                 lock_view: "upper_accents"
                 unlock_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "Á"
     space:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "special-3"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"

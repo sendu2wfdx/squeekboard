@@ -1,53 +1,53 @@
 # Language: Spanish
 ---
 outlines:
-    default:       { width: 35.33,  height: 45.5 }
-    action:        { width: 59,     height: 45.5 }
-    change-view:   { width: 52.67,  height: 45.5 }
-    change-view-2: { width: 59,     height: 45.5 }
-    halfwidth:     { width: 17.665, height: 45.5 }
-    large:         { width: 52.67,  height: 45.5 }
-    placeholder:   { width: 17.665, height: 45.5 }
-    small:         { width: 50.471, height: 24   }
-    spaceline:     { width: 100.96, height: 45.5 }
-    special:       { width: 35.33,  height: 45.5 }
-    special-2:     { width: 52.67,  height: 45.5 }
-    special-3:     { width: 59,     height: 45.5 }
-    thin:          { width: 30.995, height: 45.5 }
+    default:       { width: 40.41,   height: 52     }
+    action:        { width: 67.35,   height: 52     }
+    change-view:   { width: 60.615,  height: 52     }
+    change-view-2: { width: 67.35,   height: 52     }
+    halfwidth:     { width: 20.205,  height: 52     }
+    large:         { width: 60.615,  height: 52     }
+    placeholder:   { width: 20.205,  height: 52     }
+    small:         { width: 57.728,  height: 27.725 }
+    spaceline:     { width: 114.495, height: 52     }
+    special:       { width: 40.41,   height: 52     }
+    special-2:     { width: 60.615,  height: 52     }
+    special-3:     { width: 67.35,   height: 52     }
+    thin:          { width: 35.358,  height: 52     }
 
 views:
     base:
-        - "TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Tab-small Ctrl Alt ↑ ↓ ← →"
         - "q w e r t y u i o p"
-        - "PeriodSmall a s d f g h j k l MinusSmall"
+        - ".-thin a s d f g h j k l --thin"
         - "show_upper z x c v b n m BackSpace"
         - "show_numbers show_eschars preferences space show_actions Return"
     upper:
-        - "TabSmall Ctrl Alt PageUp PageDown Home End"
+        - "Tab-small Ctrl Alt PageUp PageDown Home End"
         - "Q W E R T Y U I O P"
-        - "SlashSmall A S D F G H J K L PipeSmall"
+        - "/-thin A S D F G H J K L |-thin"
         - "show_upper Z X C V B N M BackSpace"
         - "show_numbers show_eschars preferences space show_actions Return"
     numbers:
-        - "TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Tab-small Ctrl Alt ↑ ↓ ← →"
         - "1 2 3 4 5 6 7 8 9 0"
         - "\\ * # $ / & - + ( ) _"
         - "show_symbols , \" ' : ; ! ? BackSpace"
         - "show_letters show_eschars preferences space . Return"
     symbols:
-        - "TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Tab-small Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
         - "-- © ® £ € ¥ ^ ° { } --"
         - "show_numbers % | < > = [ ] BackSpace"
         - "show_letters show_eschars preferences space . Return"
     eschars:
-        - "TabSmall Ctrl Alt ↑ ↓ ← →"
+        - "Tab-small Ctrl Alt ↑ ↓ ← →"
         - "á é í ó ú Á É Í Ó Ú"
         - "à è ì ò ù À È Ì Ò Ù"
         - "show_numbers ü ç ï ñ Ü Ç Ï Ñ BackSpace"
-        - "show_letters show_eschars preferences space show_actions Return"
+        - "show_letters show_eschars preferences space . Return"
     actions:
-        - "TabSmall Ctrl Alt PageUp PageDown Home End"
+        - "Tab-small Ctrl Alt PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
@@ -103,7 +103,6 @@ buttons:
         label: ">_"
     .:
         outline: "large"
-        text: "."
     space:
         outline: "spaceline"
         text: " "
@@ -153,7 +152,7 @@ buttons:
     Tab:
         outline: "action"
         keysym: "Tab"
-    TabSmall:
+    Tab-small:
         outline: "small"
         keysym: "Tab"
         label: "Tab"
@@ -244,16 +243,16 @@ buttons:
         outline: "thin"
     Ñ:
         outline: "thin"
-    MinusSmall:
+    --thin:
         outline: "halfwidth"
         text: "-"
-    SlashSmall:
+    /-thin:
         outline: "halfwidth"
         text: "/"
-    PipeSmall:
+    "|-thin":
         outline: "halfwidth"
         text: "|"
-    PeriodSmall:
+    .-thin:
         outline: "halfwidth"
         text: "."
     "\\":

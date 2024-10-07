@@ -1,39 +1,37 @@
 # Language: Turkish
 ---
 outlines:
-    default:            { width: 45.11,  height: 42 }
-    change-view:        { width: 67.67,  height: 42 }
-    fill:               { width: 90.22,  height: 42 }
-    halfwidth:          { width: 24,     height: 42 }
-    narrow:             { width: 40.5,   height: 42 }
-    placeholder:        { width: 45.11,  height: 42 }
-    spaceline:          { width: 212.2,  height: 42 }
-    special:            { width: 45.11,  height: 42 }
-    special-2:          { width: 67.67,  height: 42 }
-    subtle-highlight:   { width: 45.11,  height: 42 }
-    subtle-highlight-2: { width: 90.22,  height: 42 }
+    default:            { width: 44.8,  height: 42 }
+    change-view:        { width: 67.2,  height: 42 }
+    fill:               { width: 89.6,  height: 42 }
+    placeholder:        { width: 44.8,  height: 42 }
+    spaceline:          { width: 201.6, height: 42 }
+    special:            { width: 44.8,  height: 42 }
+    special-2:          { width: 67.2,  height: 42 }
+    subtle-highlight:   { width: 44.8,  height: 42 }
+    subtle-highlight-2: { width: 89.6,  height: 42 }
 
 views:
     base:
         - "q w e r t y u ı o p ğ ü"
         - "a s d f g h j k l ş i --"
         - "show_upper z x c v b n m ö ç BackSpace"
-        - "show_numbers show_eschars preferences space ,-narrow .-narrow Return"
+        - "show_numbers show_eschars preferences space , . Return"
     upper:
         - "Q W E R T Y U I O P Ğ Ü"
         - "A S D F G H J K L Ş İ --"
         - "show_upper Z X C V B N M Ö Ç BackSpace"
-        - "show_numbers show_eschars preferences space !-narrow ?-narrow Return"
+        - "show_numbers show_eschars preferences space ! ? Return"
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # ₺ % & - _ + ( )"
         - "show_symbols -- ; \" ' : = < > -- BackSpace"
-        - "show_letters show_eschars preferences space ,-narrow .-narrow Return"
+        - "show_letters show_eschars preferences space , . Return"
     symbols:
         - "~ ` € | · √ µ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
         - "show_numbers -- \\ / § π τ [ ] -- BackSpace"
-        - "show_letters show_eschars preferences space ,-narrow .-narrow Return"
+        - "show_letters show_eschars preferences space , . Return"
     eschars:
         - "ä æ é ö-subtle-highlight ü-subtle-highlight Ä Æ É Ö-subtle-highlight Ü-subtle-highlight"
         - "à â ê î ô À Â Ê Î Ô"
@@ -85,22 +83,6 @@ buttons:
         outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
-    û:
-        outline: "narrow"
-    Û:
-        outline: "narrow"
-    ",-narrow":
-        outline: "narrow"
-        text: ","
-    .-narrow:
-        outline: "narrow"
-        text: "."
-    "!-narrow":
-        outline: "narrow"
-        text: "!"
-    ?-narrow:
-        outline: "narrow"
-        text: "?"
     --:
         outline: "placeholder"
         text: ""

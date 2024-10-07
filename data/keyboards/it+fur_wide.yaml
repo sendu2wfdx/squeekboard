@@ -3,14 +3,11 @@
 # 14 october 2020
 ---
 outlines:
-    default:       { width: 53.5,  height: 42 }
-    change-view:   { width: 80.25, height: 42 }
-    change-view-2: { width: 91.26, height: 42 }
-    placeholder:   { width: 53.5,  height: 42 }
-    spaceline:     { width: 134,   height: 42 }
-    special:       { width: 53.5,  height: 42 }
-    special-2:     { width: 80.25, height: 42 }
-    special-3:     { width: 91.26, height: 42 }
+    default:       { width: 53.76, height: 42 }
+    change-view:   { width: 80.64, height: 42 }
+    spaceline:     { width: 134.4, height: 42 }
+    special:       { width: 53.76, height: 42 }
+    special-2:     { width: 80.64, height: 42 }
 
 views:
     base:
@@ -84,6 +81,3 @@ buttons:
         outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
-    --:
-        outline: "placeholder"
-        text: ""

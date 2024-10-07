@@ -1,14 +1,14 @@
 # Language: German (Bone)
 ---
 outlines:
-    default:            { width: 32.12,  height: 52 }
-    change-view:        { width: 48.17,  height: 52 }
-    fill:               { width: 64.24,  height: 52 }
+    default:            { width: 32.415, height: 52 }
+    change-view:        { width: 48.622, height: 52 }
+    fill:               { width: 64.83,  height: 52 }
     spaceline:          { width: 112.45, height: 52 }
-    special:            { width: 32.12,  height: 52 }
-    special-2:          { width: 48.17,  height: 52 }
-    subtle-highlight:   { width: 32.12,  height: 52 }
-    subtle-highlight-2: { width: 64.24,  height: 52 }
+    special:            { width: 32.415, height: 52 }
+    special-2:          { width: 48.622, height: 52 }
+    subtle-highlight:   { width: 32.415, height: 52 }
+    subtle-highlight-2: { width: 64.83,  height: 52 }
 
 views:
     base:
