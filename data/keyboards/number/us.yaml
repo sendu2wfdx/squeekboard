@@ -1,26 +1,26 @@
 ---
 outlines:
-    default:   { width: 37.46,  height: 52 }
-    special-2: { width: 48.39,  height: 52 }
-    special-3: { width: 88.98,  height: 52 }
-    spaceline: { width: 120.58, height: 52 }
+    default:   { width: 71.314,  height: 52 }
+    special:   { width: 71.314,  height: 52 }
+    spaceline: { width: 142.628, height: 52 }
 
 views:
     base:
-        - "1 2 3 ( )"
-        - "4 5 6 # *"
-        - "7 8 9 + -"
+        - "( 1 2 3 )"
+        - "# 4 5 6 +"
+        - "* 7 8 9 -"
         - "BackSpace 0 space Return"
 
 buttons:
     BackSpace:
-        outline: "special-2"
+        outline: "special"
         icon: "edit-clear-symbolic"
         action: "erase"
     space:
         outline: "spaceline"
         text: " "
+        label: "␣"
     Return:
-        outline: "special-3"
+        outline: "special"
         icon: "key-enter"
         keysym: "Return"
