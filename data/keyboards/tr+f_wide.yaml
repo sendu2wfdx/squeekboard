@@ -2,16 +2,16 @@
 ---
 outlines:
     default:            { width: 45.11,  height: 42 }
-    subtle-highlight:   { width: 45.11,  height: 42 }
-    halfwidth:          { width: 24,     height: 42 }
-    narrow:             { width: 40.5,   height: 42 }
-    special-2:          { width: 67.67,  height: 42 }
     change-view:        { width: 67.67,  height: 42 }
     fill:               { width: 90.22,  height: 42 }
-    subtle-highlight-2: { width: 90.22,  height: 42 }
+    halfwidth:          { width: 24,     height: 42 }
+    narrow:             { width: 40.5,   height: 42 }
+    placeholder:        { width: 45.11,  height: 42 }
     spaceline:          { width: 202.98, height: 42 }
     special:            { width: 45.11,  height: 42 }
-    placeholder:        { width: 45.11,  height: 42 }
+    special-2:          { width: 67.67,  height: 42 }
+    subtle-highlight:   { width: 45.11,  height: 42 }
+    subtle-highlight-2: { width: 90.22,  height: 42 }
 
 views:
     base:

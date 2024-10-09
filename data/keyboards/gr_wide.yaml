@@ -3,14 +3,14 @@
 ---
 outlines:
     default:          { width: 73,  height: 60 }
-    special:          { width: 73,  height: 60 }
-    subtle-highlight: { width: 73,  height: 60 }
-    fill:             { width: 110, height: 60 }
-    special-2:        { width: 110, height: 60 }
     change-view:      { width: 110, height: 60 }
-    special-3:        { width: 146, height: 60 }
     change-view-2:    { width: 146, height: 60 }
+    fill:             { width: 110, height: 60 }
     spaceline:        { width: 256, height: 60 }
+    special:          { width: 73,  height: 60 }
+    special-2:        { width: 110, height: 60 }
+    special-3:        { width: 146, height: 60 }
+    subtle-highlight: { width: 73,  height: 60 }
 
 views:
     base:

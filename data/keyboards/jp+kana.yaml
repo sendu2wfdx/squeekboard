@@ -3,10 +3,10 @@
 ---
 outlines:
     default:         { width: 71.33, height: 52 }
-    special:         { width: 71.33, height: 52 }
-    character-group: { width: 71.33, height: 52 }
     change-view:     { width: 71.33, height: 52 }
+    character-group: { width: 71.33, height: 52 }
     placeholder:     { width: 71.33, height: 52 }
+    special:         { width: 71.33, height: 52 }
 
 views:
     base: # hiragana

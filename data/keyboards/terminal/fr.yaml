@@ -3,14 +3,14 @@
 outlines:
     default:       { width: 35.33,  height: 45.5 }
     action:        { width: 59,     height: 45.5 }
-    small:         { width: 50.471, height: 24 }
-    special-2:     { width: 52.67,  height: 45.5 }
     change-view:   { width: 52.67,  height: 45.5 }
-    large:         { width: 52.67,  height: 45.5 }
-    special-3:     { width: 59,     height: 45.5 }
     change-view-2: { width: 59,     height: 45.5 }
+    large:         { width: 52.67,  height: 45.5 }
+    small:         { width: 50.471, height: 24   }
     spaceline:     { width: 100.96, height: 45.5 }
     special:       { width: 35.33,  height: 45.5 }
+    special-2:     { width: 52.67,  height: 45.5 }
+    special-3:     { width: 59,     height: 45.5 }
 
 views:
     base:

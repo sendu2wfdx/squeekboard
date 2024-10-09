@@ -3,17 +3,16 @@
 outlines:
     default:       { width: 40,    height: 56 }
     default-2:     { width: 48,    height: 56 }
-    thin:          { width: 36.92, height: 56 }
     change-view:   { width: 36.92, height: 56 }
     change-view-2: { width: 72,    height: 56 }
     change-view-3: { width: 80,    height: 56 }
+    placeholder:   { width: 48,    height: 56 }
+    placeholder-2: { width: 80,    height: 56 }
     spaceline:     { width: 80,    height: 56 }
     special:       { width: 36.92, height: 56 }
     special-2:     { width: 40,    height: 56 }
     special-3:     { width: 72,    height: 56 }
-    placeholder:   { width: 48,    height: 56 }
-    placeholder-2: { width: 80,    height: 56 }
-
+    thin:          { width: 36.92, height: 56 }
 
 views:
     base:

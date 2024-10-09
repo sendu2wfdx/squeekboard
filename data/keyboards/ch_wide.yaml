@@ -5,15 +5,15 @@
 ---
 outlines:
     default:       { width: 48,  height: 42 }
-    doublewidth:   { width: 96,  height: 42 }
-    narrow:        { width: 33,  height: 42 }
-    large:         { width: 66,  height: 42 }
-    special-2:     { width: 72,  height: 42 }
-    special-3:     { width: 108, height: 42 }
     change-view:   { width: 72,  height: 42 }
     change-view-2: { width: 108, height: 42 }
+    doublewidth:   { width: 96,  height: 42 }
+    large:         { width: 66,  height: 42 }
+    narrow:        { width: 33,  height: 42 }
     spaceline:     { width: 162, height: 42 }
     special:       { width: 48,  height: 42 }
+    special-2:     { width: 72,  height: 42 }
+    special-3:     { width: 108, height: 42 }
 
 views:
     base:

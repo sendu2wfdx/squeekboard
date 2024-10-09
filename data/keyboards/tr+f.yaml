@@ -2,14 +2,14 @@
 ---
 outlines:
     default:            { width: 29.44, height: 52 }
-    subtle-highlight:   { width: 29.44, height: 52 }
-    subtle-highlight-2: { width: 58.88, height: 52 }
-    fill:               { width: 58.88, height: 52 }
-    special-2:          { width: 58.88, height: 52 }
     change-view:        { width: 58.88, height: 52 }
+    fill:               { width: 58.88, height: 52 }
+    placeholder:        { width: 29.44, height: 52 }
     spaceline:          { width: 88.32, height: 52 }
     special:            { width: 29.44, height: 52 }
-    placeholder:        { width: 29.44, height: 52 }
+    special-2:          { width: 58.88, height: 52 }
+    subtle-highlight:   { width: 29.44, height: 52 }
+    subtle-highlight-2: { width: 58.88, height: 52 }
 
 views:
     base:
