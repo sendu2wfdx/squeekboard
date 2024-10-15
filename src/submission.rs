@@ -296,10 +296,13 @@ impl Submission {
     fn select_keymap(&mut self, idx: usize, time: Timestamp) {
         if self.keymap_idx != Some(idx) {
             self.keymap_idx = Some(idx);
+            let modifiers = self.modifiers_active.clone();
             self.clear_all_modifiers();
             self.release_all_virtual_keys(time);
             let keymap = &self.keymap_fds[idx];
             self.virtual_keyboard.update_keymap(keymap);
+            self.modifiers_active = modifiers;
+            self.update_modifiers();
         }
     }
     
@@ -316,5 +319,8 @@ impl Submission {
         // However, self.keymap_idx needs to become Option<>
         // in order to force update on new layouts.
         self.select_keymap(0, time);
+
+        // Reset modifiers when changing layouts.
+        self.clear_all_modifiers();
     }
 }
