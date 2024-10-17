@@ -1,3 +1,13 @@
+squeekboard (1.42.1) experimental; urgency=medium
+
+  [ Sebastian Krzyszkowiak ]
+  * keyboard: Only generate keycodes from an allowlist
+
+  [ MoonlightWave-12 ]
+  * submission.rs: Restore active modifiers after changing keymaps
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Thu, 17 Oct 2024 17:33:18 +0200
+
 squeekboard (1.42.0) experimental; urgency=medium
 
   * */meson.build: Fix warnings about features deprecated since Meson 0.56
