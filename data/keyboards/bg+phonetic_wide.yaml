@@ -1,14 +1,13 @@
 # Language: Bulgarian (phonetic)
 ---
 outlines:
-    default:     { width: 48.75, height: 42 }
-    change-view: { width: 73.5,  height: 42 }
-    fill:        { width: 97.5,  height: 42 }
-    placeholder: { width: 48.75, height: 42 }
-    spaceline:   { width: 292.5, height: 42 }
-    special:     { width: 48.75, height: 42 }
-    special-2:   { width: 73.5,  height: 42 }
-    special-3:   { width: 73.5,  height: 42 }
+    default:     { width: 48.872,  height: 42 }
+    change-view: { width: 73.308,  height: 42 }
+    fill:        { width: 97.744,  height: 42 }
+    placeholder: { width: 48.872,  height: 42 }
+    spaceline:   { width: 293.232, height: 42 }
+    special:     { width: 48.872,  height: 42 }
+    special-2:   { width: 73.308,  height: 42 }
 
 views:
     base:
@@ -24,14 +23,13 @@ views:
     numbers:
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # € % & - _ + ( )"
-        - "show_symbols , \" ' : ; ! ? BackSpace"
-        - "show_letters preferences space Return"
+        - "show_symbols , \" ' : ; ! ? -- BackSpace"
+        - "show_letters preferences space . Return"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ $ ¥ ^ ° * { }"
-        - "show_numbers \\ / < > = [ ] BackSpace"
-        - "show_letters preferences space Return"
-
+        - "show_numbers \\ / < > = [ ] -- BackSpace"
+        - "show_letters preferences space , Return"
 
 buttons:
     show_upper:
@@ -68,7 +66,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "special-3"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
     --:

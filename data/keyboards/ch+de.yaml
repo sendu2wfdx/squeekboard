@@ -3,35 +3,37 @@
 
 ---
 outlines:
-    default:       { width: 35.33, height: 52 }
-    change-view:   { width: 48,    height: 52 }
-    change-view-2: { width: 59,    height: 52 }
-    spaceline:     { width: 70,    height: 52 }
-    special:       { width: 28,    height: 52 }
-    special-2:     { width: 48,    height: 52 }
-    special-3:     { width: 59,    height: 52 }
+    default:       { width: 32.415, height: 52 }
+    change-view:   { width: 48.622, height: 52 }
+    change-view-2: { width: 56.726, height: 52 }
+    fill:          { width: 64.83,  height: 52 }
+    placeholder:   { width: 32.415, height: 52 }
+    spaceline:     { width: 89.142, height: 52 }
+    special:       { width: 32.415, height: 52 }
+    special-2:     { width: 48.622, height: 52 }
+    special-3:     { width: 56.726, height: 52 }
 
 views:
     base:
         - "q w e r t z u i o p ü"
         - "a s d f g h j k l ö ä"
-        - "show_upper y x c v b n m BackSpace"
-        - "show_numbers ? !  preferences ' space , . Return"
+        - "show_upper y x c v b n m -- BackSpace"
+        - "show_numbers preferences ? ' space , . Return"
     upper:
         - "Q W E R T Z U I O P Ü"
         - "A S D F G H J K L Ö Ä"
-        - "show_upper Y X C V B N M BackSpace"
-        - "show_numbers - _  preferences \" space , . Return"
+        - "show_upper Y X C V B N M -- BackSpace"
+        - "show_numbers preferences ! \" space - _ Return"
     numbers:      
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ * + - = ( ) ~ < >"
-        - "show_symbols # & / \\ √ ; : BackSpace"
-        - "show_letters ? !  preferences _ space , . Return"
+        - "show_symbols # & / \\ √ ; : -- BackSpace"
+        - "show_letters preferences ? _ space , . Return"
     symbols:
         - "€ $ £ ¥ % | § µ [ ]"
         - "© ® § ` ^ { } · ¡ ¿"
-        - "show_numbers « » ÷ × “ ” „ BackSpace"
-        - "show_letters  preferences - space , . Return"
+        - "show_numbers « » ÷ × “ ” „ -- BackSpace"
+        - "show_letters preferences ! - space , . Return"
 
 buttons:
     show_upper:
@@ -71,3 +73,14 @@ buttons:
         outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
+    --:
+        outline: "placeholder"
+        text: ""
+    5:
+        outline: "fill"
+    =:
+        outline: "fill"
+    "%":
+        outline: "fill"
+    ^:
+        outline: "fill"

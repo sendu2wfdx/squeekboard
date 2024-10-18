@@ -1,18 +1,18 @@
 # Language: Japanese
 ---
 outlines:
-    default:       { width: 40,    height: 56 }
-    default-2:     { width: 48,    height: 56 }
-    change-view:   { width: 36.92, height: 56 }
-    change-view-2: { width: 72,    height: 56 }
-    change-view-3: { width: 80,    height: 56 }
-    placeholder:   { width: 48,    height: 56 }
-    placeholder-2: { width: 80,    height: 56 }
-    spaceline:     { width: 80,    height: 56 }
-    special:       { width: 36.92, height: 56 }
-    special-2:     { width: 40,    height: 56 }
-    special-3:     { width: 72,    height: 56 }
-    thin:          { width: 36.92, height: 56 }
+    default:       { width: 37.142, height: 52 }
+    default-2:     { width: 44.570, height: 52 }
+    change-view:   { width: 34.284, height: 52 }
+    change-view-2: { width: 66.855, height: 52 }
+    change-view-3: { width: 74.284, height: 52 }
+    placeholder:   { width: 44.570, height: 52 }
+    placeholder-2: { width: 74.284, height: 52 }
+    spaceline:     { width: 74.284, height: 52 }
+    special:       { width: 34.284, height: 52 }
+    special-2:     { width: 37.142, height: 52 }
+    special-3:     { width: 66.855, height: 52 }
+    thin:          { width: 34.284, height: 52 }
 
 views:
     base:
@@ -61,7 +61,7 @@ views:
         - "゠ -- -- -- -- -- -- -- -- --"
         - "１ ２ ３ ４ ５ ６ ７ ８ ９ ０"
         - "＠ ＃ ￥ ％ ＆ － ＿ ＋ （ ）"
-        - "show_symbols_fullwidth  ； ＂ ＇ ： ＝ ＜ ＞ BackSpace-wide"
+        - "show_symbols_fullwidth ； ＂ ＇ ： ＝ ＜ ＞ BackSpace-wide"
         - "show_hiragana show_romaji_fullwidth preferences fullwidth-space numbers_fullwidth_width_toggle_half ， ． Return"
     symbols:
         - "ヽ ♪ -- -- -- -- -- ヿ 【 】"

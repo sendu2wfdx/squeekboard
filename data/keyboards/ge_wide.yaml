@@ -1,13 +1,13 @@
 # Language: Georgian
 ---
 outlines:
-    default:       { width: 53.5,  height: 42 }
-    change-view:   { width: 80.25, height: 42 }
-    change-view-2: { width: 91.26, height: 42 }
-    spaceline:     { width: 245,   height: 42 }
-    special:       { width: 53.5,  height: 42 }
-    special-2:     { width: 80.25, height: 42 }
-    special-3:     { width: 91.26, height: 42 }
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 80.64,  height: 42 }
+    change-view-2: { width: 94.08,  height: 42 }
+    spaceline:     { width: 241.92, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 80.64,  height: 42 }
+    special-3:     { width: 94.08,  height: 42 }
 
 views:
     base:

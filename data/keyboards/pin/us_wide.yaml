@@ -1,7 +1,8 @@
 ---
 margins: { top: 4, side: 0, bottom: 4 }
 outlines:
-    default: { width: 120, height: 52 }
+    default: { width: 123.428, height: 52 }
+    special: { width: 123.428, height: 52 }
 
 views:
     base:
@@ -12,9 +13,10 @@ views:
 
 buttons:
     BackSpace:
+        outline: "special"
         icon: "edit-clear-symbolic"
         action: "erase"
     Return:
+        outline: "special"
         icon: "key-enter"
         keysym: "Return"
-

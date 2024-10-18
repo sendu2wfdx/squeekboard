@@ -1,14 +1,14 @@
 # Language: French (Canada)
 ---
 outlines:
-    default:       { width: 53.7,  height: 42 }
-    change-view:   { width: 80.5,  height: 42 }
-    change-view-2: { width: 92,    height: 42 }
-    placeholder:   { width: 53.7,  height: 42 }
-    spaceline:     { width: 219.5, height: 42 }
-    special:       { width: 53.7,  height: 42 }
-    special-2:     { width: 80.5,  height: 42 }
-    special-3:     { width: 92,    height: 42 }
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 80.64,  height: 42 }
+    change-view-2: { width: 94.08,  height: 42 }
+    placeholder:   { width: 53.76,  height: 42 }
+    spaceline:     { width: 215.04, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 80.64,  height: 42 }
+    special-3:     { width: 94.08,  height: 42 }
 
 views:
     base:

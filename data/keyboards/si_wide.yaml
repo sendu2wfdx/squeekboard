@@ -1,15 +1,15 @@
 # Language: Slovenian
 ---
 outlines:
-    default:          { width: 45,  height: 42 }
-    change-view:      { width: 90,  height: 42 }
-    fill:             { width: 90,  height: 42 }
-    placeholder:      { width: 45,  height: 42 }
-    spaceline:        { width: 135, height: 42 }
-    special:          { width: 45,  height: 42 }
-    special-2:        { width: 90,  height: 42 }
-    special-3:        { width: 90,  height: 42 }
-    subtle-highlight: { width: 45,  height: 42 }
+    default:          { width: 44.8,  height: 42 }
+    change-view:      { width: 89.6,  height: 42 }
+    fill:             { width: 89.6,  height: 42 }
+    placeholder:      { width: 44.8,  height: 42 }
+    spaceline:        { width: 134.4, height: 42 }
+    special:          { width: 44.8,  height: 42 }
+    special-2:        { width: 89.6,  height: 42 }
+    special-3:        { width: 89.6,  height: 42 }
+    subtle-highlight: { width: 44.8,  height: 42 }
 
 views:
     base:

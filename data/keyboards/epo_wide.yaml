@@ -1,16 +1,14 @@
 # Language: Esperanto
 ---
 outlines:
-    default:       { width: 53.75, height: 42 }
-    change-view:   { width: 80.5,  height: 42 }
-    change-view-2: { width: 91.25, height: 42 }
-    large:         { width: 80,    height: 42 }
-    placeholder:   { width: 53.75, height: 42 }
-    thin:          { width: 40,    height: 42 }
-    spaceline:     { width: 164,   height: 42 }
-    special:       { width: 52,    height: 42 }
-    special-2:     { width: 80.5,  height: 42 }
-    special-3:     { width: 91.25, height: 42 }
+    default:     { width: 53.76,  height: 42 }
+    change-view: { width: 80.64,  height: 42 }
+    large:       { width: 80.64,  height: 42 }
+    placeholder: { width: 53.76,  height: 42 }
+    spaceline:   { width: 161.28, height: 42 }
+    special:     { width: 53.76,  height: 42 }
+    special-2:   { width: 80.64,  height: 42 }
+    thin:        { width: 40.32,  height: 42 }
 
 views:
     base:

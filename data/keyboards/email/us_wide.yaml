@@ -1,12 +1,11 @@
 ---
 outlines:
-    default:       { width: 52,    height: 42 }
-    change-view:   { width: 77.52, height: 42 }
-    change-view-2: { width: 91.25, height: 42 }
-    large:         { width: 54.76, height: 42 }
-    spaceline:     { width: 157,   height: 42 }
-    special:       { width: 64.76, height: 42 }
-    special-2:     { width: 91.25, height: 42 }
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 80.64,  height: 42 }
+    change-view-2: { width: 94.08,  height: 42 }
+    spaceline:     { width: 188.16, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 94.08,  height: 42 }
 
 views:
     base:
@@ -42,8 +41,6 @@ buttons:
         outline: "special-2"
         icon: "edit-clear-symbolic"
         action: "erase"
-    "@":
-        outline: "large"
     preferences:
         action: "show_prefs"
         outline: "special"
@@ -68,8 +65,6 @@ buttons:
             set_view: "symbols"
         outline: "change-view"
         label: "*/="
-    .:
-        outline: "large"
     space:
         outline: "spaceline"
         text: " "

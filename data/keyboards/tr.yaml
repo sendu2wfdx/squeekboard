@@ -1,12 +1,12 @@
 # Language: Turkish
 ---
 outlines:
-    default:          { width: 35.33, height: 52 }
-    change-view:      { width: 52.67, height: 52 }
-    spaceline:        { width: 89.3,  height: 52 }
-    special:          { width: 35.33, height: 52 }
-    special-2:        { width: 52.67, height: 52 }
-    subtle-highlight: { width: 35.33, height: 52 }
+    default:          { width: 35.657, height: 52 }
+    change-view:      { width: 53.485, height: 52 }
+    spaceline:        { width: 89.144, height: 52 }
+    special:          { width: 35.657, height: 52 }
+    special-2:        { width: 53.485, height: 52 }
+    subtle-highlight: { width: 35.657, height: 52 }
 
 views:
     base:

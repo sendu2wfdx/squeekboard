@@ -2,13 +2,12 @@
 # This layout-file is a copy of "br.yaml"
 ---
 outlines:
-    default:     { width: 35.67, height: 52 }
-    change-view: { width: 53,    height: 52 }
-    large:       { width: 71.34, height: 52 }
-    spaceline:   { width: 90,    height: 52 }
-    special:     { width: 35.67, height: 52 }
-    special-2:   { width: 53,    height: 52 }
-    special-3:   { width: 53,    height: 52 }
+    default:     { width: 35.657, height: 52 }
+    change-view: { width: 53.485, height: 52 }
+    large:       { width: 71.314, height: 52 }
+    spaceline:   { width: 89.144, height: 52 }
+    special:     { width: 35.657, height: 52 }
+    special-2:   { width: 53.485, height: 52 }
 
 views:
     base:
@@ -85,6 +84,6 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "special-3"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"

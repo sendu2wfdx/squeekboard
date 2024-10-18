@@ -1,13 +1,11 @@
 # Language: French
 ---
 outlines:
-    default:       { width: 54,  height: 42 }
-    change-view:   { width: 81,  height: 42 }
-    change-view-2: { width: 100, height: 42 }
-    spaceline:     { width: 205, height: 42 }
-    special:       { width: 54,  height: 42 }
-    special-2:     { width: 81,  height: 42 }
-    special-3:     { width: 100, height: 42 }
+    default:     { width: 53.76,  height: 42 }
+    change-view: { width: 80.64,  height: 42 }
+    spaceline:   { width: 241.92, height: 42 }
+    special:     { width: 53.76,  height: 42 }
+    special-2:   { width: 80.64,  height: 42 }
 
 views:
     base:
@@ -55,7 +53,7 @@ buttons:
     show_numbers:
         action:
             set_view: "numbers"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "123"
     show_numbers_from_symbols:
         action:
@@ -65,7 +63,7 @@ buttons:
     show_letters:
         action:
             set_view: "base"
-        outline: "change-view-2"
+        outline: "change-view"
         label: "ABC"
     show_symbols:
         action:
@@ -83,6 +81,6 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "special-3"
+        outline: "special-2"
         icon: "key-enter"
         keysym: "Return"

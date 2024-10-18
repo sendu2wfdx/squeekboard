@@ -8,11 +8,15 @@ sq_view {
 /* Becomes readable with a special font */
 sq_view.gr_polytonic {
     font-family: GFSDidotClassic, cantarell, sans-serif;
-    font-size: 2em;
+    font-size: 1.75em;
+}
+
+sq_view.wide.gr_polytonic {
+    font-size: 1.4em;
 }
 
 sq_view.in_mal {
-    font-size: 1em;
+    font-size: 1.195em;
 }
 
 sq_view.wide.in_mal {
@@ -23,8 +27,16 @@ sq_view.ir_azb {
     font-size: 1.368em;
 }
 
+sq_view.jp {
+    font-size: 1.425em;
+}
+
 sq_view.wide.jp {
-    font-size: 1.15em;
+    font-size: 1.5em;
+}
+
+sq_view.wide.emoji {
+    font-size: 1.225em;
 }
 
 sq_button {
@@ -46,7 +58,7 @@ sq_button.action {
 }
 
 sq_button.small {
-    font-size: 0.5em;
+    font-size: 0.575em;
 }
 
 sq_view.pin sq_button {

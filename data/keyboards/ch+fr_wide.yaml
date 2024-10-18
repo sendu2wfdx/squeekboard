@@ -2,41 +2,39 @@
 # Maintained by: Jordi Bossy <jordi@bossy.space>. No Copyright, enjoy!
 ---
 outlines:
-    default:       { width: 53.5,  height: 42 }
-    change-view:   { width: 80,    height: 42 }
-    change-view-2: { width: 86.84, height: 42 }
-    spaceline:     { width: 126,   height: 42 }
-    special:       { width: 41.21, height: 42 }
-    special-2:     { width: 80,    height: 42 }
-    special-3:     { width: 86.84, height: 42 }
-    thin:          { width: 40,    height: 42 }
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 80.64,  height: 42 }
+    spaceline:     { width: 120.96, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 80.64,  height: 42 }
+    special-3:     { width: 94.08,  height: 42 }
 
 views:
     base:
         - "q w e r t z u i o p"
         - "a s d f g h j k l ?"
         - "show_upper y x c v b n m BackSpace"
-        - "show_numbers show_eschars preferences ' space , . Return"
+        - "show_numbers show_eschars preferences space , . Return"
     upper:
         - "Q W E R T Z U I O P"
         - "A S D F G H J K L !"
         - "show_upper Y X C V B N M BackSpace"
-        - "show_numbers show_eschars preferences \" space , . Return"
+        - "show_numbers show_eschars preferences space ' \" Return"
     numbers:      
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ * + - = ( ) ~ < >"
         - "show_symbols # & / \\ √ ; : BackSpace"
-        - "show_letters show_eschars preferences _ space , . Return"
+        - "show_letters show_eschars preferences space , . Return"
     symbols:
         - "€ $ £ ¥ % | § µ [ ]"
         - "© ® § ` ^ { } · ¡ ¿"
         - "show_numbers « » ÷ × “ ” „ BackSpace"
-        - "show_letters show_eschars preferences --thin space , . Return"
+        - "show_letters show_eschars preferences space - _ Return"
     eschars:
         - "à â ç é è ê î ô ù û"
         - "À Â Ç É È Ê Î Ô Ù Û"
         - "show_numbers æ œ ä ë ï ö ü BackSpace"
-        - "show_letters show_eschars preferences ' space ° ß Return"
+        - "show_letters show_eschars preferences space ° ß Return"
 
 buttons:
     show_upper:
@@ -83,20 +81,3 @@ buttons:
         outline: "special-3"
         icon: "key-enter"
         keysym: "Return"
-    "'":
-        outline: "thin"
-    "\"":
-        outline: "thin"
-    _:
-        outline: "thin"
-    --thin:
-        outline: "thin"
-        text: "-"
-    .:
-        outline: "thin"
-    ",":
-        outline: "thin"
-    ß:
-        outline: "thin"
-    °:
-        outline: "thin"

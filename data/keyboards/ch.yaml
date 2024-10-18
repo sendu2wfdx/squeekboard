@@ -4,14 +4,14 @@
 
 ---
 outlines:
-    default:       { width: 35.33,  height: 58 }
-    change-view:   { width: 52.8,   height: 58 }
-    change-view-2: { width: 64.9,   height: 58 }
-    doublewidth:   { width: 70.66,  height: 58 }
-    spaceline:     { width: 111.75, height: 58 }
-    special:       { width: 35.33,  height: 58 }
-    special-2:     { width: 52.8,   height: 58 }
-    special-3:     { width: 64.9,   height: 58 }
+    default:       { width: 32.415, height: 52 }
+    change-view:   { width: 48.622, height: 52 }
+    change-view-2: { width: 56.726, height: 52 }
+    fill:          { width: 64.83,  height: 52 }
+    spaceline:     { width: 105.35, height: 52 }
+    special:       { width: 32.415, height: 52 }
+    special-2:     { width: 48.622, height: 52 }
+    special-3:     { width: 56.726, height: 52 }
 
 views:
     base:
@@ -86,10 +86,10 @@ buttons:
         icon: "key-enter"
         keysym: "Return"
     °:
-        outline: "doublewidth"
-    "|":
-        outline: "doublewidth"
-    "}":
-        outline: "doublewidth"
+        outline: "fill"
+    "%":
+        outline: "fill"
+    "{":
+        outline: "fill"
     ×:
-        outline: "doublewidth"
+        outline: "fill"
