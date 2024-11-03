@@ -105,9 +105,8 @@ fn sorted<'a, I: Iterator<Item=String>>(
 pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
     key_names: C,
 ) -> HashMap<String, KeyCode> {
-    // Some broken clients try to interpret keymaps as if they were input
-    // sequences coming from evdev. Workaround that by only using codes
-    // that directly produce characters.
+    // Some clients try to interpret keymaps as if they were input-sequences coming from evdev.
+    // Workaround: Only use keycodes which directly produce characters.
     let allowed = [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8,
                    KEY_9, KEY_0, KEY_MINUS, KEY_EQUAL, KEY_Q, KEY_W, KEY_E,
                    KEY_R, KEY_T, KEY_Y, KEY_U, KEY_I, KEY_O, KEY_P, KEY_LEFTBRACE,
@@ -116,14 +115,146 @@ pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
                    KEY_BACKSLASH, KEY_Z, KEY_X, KEY_C, KEY_V, KEY_B, KEY_N,
                    KEY_M, KEY_COMMA, KEY_DOT, KEY_SLASH];
 
+    let keycode_offset = 8;
+
     HashMap::from_iter(
         // Sort to remove a source of indeterminism in keycode assignment.
         sorted(key_names.into_iter())
-            .zip(util::cycle_count((9..255).filter(|x| allowed.contains(&(x - 8)))))
-            .map(|(name, (code, keymap_idx))| (
+            .zip(util::cycle_count((9..255).filter(|x| allowed.contains(&(x - keycode_offset)))))
+            .map(|(name, (mut code, mut keymap_idx))| {
+                // Some apps expect specific keycodes for certain characters/functions.
+                // Reserve the first 2 keymaps (0 and 1) for sorting those manually,
+                // and use keymap_idx 2 and higher for other keycodes,
+                // to not assign identical keycodes twice.
+                // TODO: Add the "Shift"-modifier for keycodes on keymap 1.
+                keymap_idx = keymap_idx + 2;
+                if name == "1"         { code = KEY_1           + keycode_offset; keymap_idx = 0 }
+                if name == "2"         { code = KEY_2           + keycode_offset; keymap_idx = 0 }
+                if name == "3"         { code = KEY_3           + keycode_offset; keymap_idx = 0 }
+                if name == "4"         { code = KEY_4           + keycode_offset; keymap_idx = 0 }
+                if name == "5"         { code = KEY_5           + keycode_offset; keymap_idx = 0 }
+                if name == "6"         { code = KEY_6           + keycode_offset; keymap_idx = 0 }
+                if name == "7"         { code = KEY_7           + keycode_offset; keymap_idx = 0 }
+                if name == "8"         { code = KEY_8           + keycode_offset; keymap_idx = 0 }
+                if name == "9"         { code = KEY_9           + keycode_offset; keymap_idx = 0 }
+                if name == "0"         { code = KEY_0           + keycode_offset; keymap_idx = 0 }
+                if name == "a"         { code = KEY_A           + keycode_offset; keymap_idx = 0 }
+                if name == "b"         { code = KEY_B           + keycode_offset; keymap_idx = 0 }
+                if name == "c"         { code = KEY_C           + keycode_offset; keymap_idx = 0 }
+                if name == "d"         { code = KEY_D           + keycode_offset; keymap_idx = 0 }
+                if name == "e"         { code = KEY_E           + keycode_offset; keymap_idx = 0 }
+                if name == "f"         { code = KEY_F           + keycode_offset; keymap_idx = 0 }
+                if name == "g"         { code = KEY_G           + keycode_offset; keymap_idx = 0 }
+                if name == "h"         { code = KEY_H           + keycode_offset; keymap_idx = 0 }
+                if name == "i"         { code = KEY_I           + keycode_offset; keymap_idx = 0 }
+                if name == "j"         { code = KEY_J           + keycode_offset; keymap_idx = 0 }
+                if name == "k"         { code = KEY_K           + keycode_offset; keymap_idx = 0 }
+                if name == "l"         { code = KEY_L           + keycode_offset; keymap_idx = 0 }
+                if name == "m"         { code = KEY_M           + keycode_offset; keymap_idx = 0 }
+                if name == "n"         { code = KEY_N           + keycode_offset; keymap_idx = 0 }
+                if name == "o"         { code = KEY_O           + keycode_offset; keymap_idx = 0 }
+                if name == "p"         { code = KEY_P           + keycode_offset; keymap_idx = 0 }
+                if name == "q"         { code = KEY_Q           + keycode_offset; keymap_idx = 0 }
+                if name == "r"         { code = KEY_R           + keycode_offset; keymap_idx = 0 }
+                if name == "s"         { code = KEY_S           + keycode_offset; keymap_idx = 0 }
+                if name == "t"         { code = KEY_T           + keycode_offset; keymap_idx = 0 }
+                if name == "u"         { code = KEY_U           + keycode_offset; keymap_idx = 0 }
+                if name == "v"         { code = KEY_V           + keycode_offset; keymap_idx = 0 }
+                if name == "w"         { code = KEY_W           + keycode_offset; keymap_idx = 0 }
+                if name == "x"         { code = KEY_X           + keycode_offset; keymap_idx = 0 }
+                if name == "y"         { code = KEY_Y           + keycode_offset; keymap_idx = 0 }
+                if name == "z"         { code = KEY_Z           + keycode_offset; keymap_idx = 0 }
+                if name == "A"         { code = KEY_A           + keycode_offset; keymap_idx = 1 }
+                if name == "B"         { code = KEY_B           + keycode_offset; keymap_idx = 1 }
+                if name == "C"         { code = KEY_C           + keycode_offset; keymap_idx = 1 }
+                if name == "D"         { code = KEY_D           + keycode_offset; keymap_idx = 1 }
+                if name == "E"         { code = KEY_E           + keycode_offset; keymap_idx = 1 }
+                if name == "F"         { code = KEY_F           + keycode_offset; keymap_idx = 1 }
+                if name == "G"         { code = KEY_G           + keycode_offset; keymap_idx = 1 }
+                if name == "H"         { code = KEY_H           + keycode_offset; keymap_idx = 1 }
+                if name == "I"         { code = KEY_I           + keycode_offset; keymap_idx = 1 }
+                if name == "J"         { code = KEY_J           + keycode_offset; keymap_idx = 1 }
+                if name == "K"         { code = KEY_K           + keycode_offset; keymap_idx = 1 }
+                if name == "L"         { code = KEY_L           + keycode_offset; keymap_idx = 1 }
+                if name == "M"         { code = KEY_M           + keycode_offset; keymap_idx = 1 }
+                if name == "N"         { code = KEY_N           + keycode_offset; keymap_idx = 1 }
+                if name == "O"         { code = KEY_O           + keycode_offset; keymap_idx = 1 }
+                if name == "P"         { code = KEY_P           + keycode_offset; keymap_idx = 1 }
+                if name == "Q"         { code = KEY_Q           + keycode_offset; keymap_idx = 1 }
+                if name == "R"         { code = KEY_R           + keycode_offset; keymap_idx = 1 }
+                if name == "S"         { code = KEY_S           + keycode_offset; keymap_idx = 1 }
+                if name == "T"         { code = KEY_T           + keycode_offset; keymap_idx = 1 }
+                if name == "U"         { code = KEY_U           + keycode_offset; keymap_idx = 1 }
+                if name == "V"         { code = KEY_V           + keycode_offset; keymap_idx = 1 }
+                if name == "W"         { code = KEY_W           + keycode_offset; keymap_idx = 1 }
+                if name == "X"         { code = KEY_X           + keycode_offset; keymap_idx = 1 }
+                if name == "Y"         { code = KEY_Y           + keycode_offset; keymap_idx = 1 }
+                if name == "Z"         { code = KEY_Z           + keycode_offset; keymap_idx = 1 }
+                if name == "U0021"     { code = KEY_1           + keycode_offset; keymap_idx = 1 }
+                if name == "U0040"     { code = KEY_2           + keycode_offset; keymap_idx = 1 }
+                if name == "U0023"     { code = KEY_3           + keycode_offset; keymap_idx = 1 }
+                if name == "U0024"     { code = KEY_4           + keycode_offset; keymap_idx = 1 }
+                if name == "U0025"     { code = KEY_5           + keycode_offset; keymap_idx = 1 }
+                if name == "U005E"     { code = KEY_6           + keycode_offset; keymap_idx = 1 }
+                if name == "U0026"     { code = KEY_7           + keycode_offset; keymap_idx = 1 }
+                if name == "U002A"     { code = KEY_8           + keycode_offset; keymap_idx = 1 }
+                if name == "U0028"     { code = KEY_9           + keycode_offset; keymap_idx = 1 }
+                if name == "U0029"     { code = KEY_0           + keycode_offset; keymap_idx = 1 }
+                if name == "U002D"     { code = KEY_MINUS       + keycode_offset; keymap_idx = 0 }
+                if name == "U005F"     { code = KEY_MINUS       + keycode_offset; keymap_idx = 1 }
+                if name == "U003D"     { code = KEY_EQUAL       + keycode_offset; keymap_idx = 0 }
+                if name == "U002B"     { code = KEY_EQUAL       + keycode_offset; keymap_idx = 1 }
+                if name == "U005B"     { code = KEY_LEFTBRACE   + keycode_offset; keymap_idx = 0 }
+                if name == "U007B"     { code = KEY_LEFTBRACE   + keycode_offset; keymap_idx = 1 }
+                if name == "U005D"     { code = KEY_RIGHTBRACE  + keycode_offset; keymap_idx = 0 }
+                if name == "U007D"     { code = KEY_RIGHTBRACE  + keycode_offset; keymap_idx = 1 }
+                if name == "U003B"     { code = KEY_SEMICOLON   + keycode_offset; keymap_idx = 0 }
+                if name == "U003A"     { code = KEY_SEMICOLON   + keycode_offset; keymap_idx = 1 }
+                if name == "U0027"     { code = KEY_APOSTROPHE  + keycode_offset; keymap_idx = 0 }
+                if name == "U0022"     { code = KEY_APOSTROPHE  + keycode_offset; keymap_idx = 1 }
+                if name == "U00B4"     { code = KEY_GRAVE       + keycode_offset; keymap_idx = 0 }
+                if name == "U007E"     { code = KEY_GRAVE       + keycode_offset; keymap_idx = 1 }
+                if name == "U005C"     { code = KEY_BACKSLASH   + keycode_offset; keymap_idx = 0 }
+                if name == "U007C"     { code = KEY_BACKSLASH   + keycode_offset; keymap_idx = 1 }
+                if name == "U002C"     { code = KEY_COMMA       + keycode_offset; keymap_idx = 0 }
+                if name == "U003C"     { code = KEY_COMMA       + keycode_offset; keymap_idx = 1 }
+                if name == "U002E"     { code = KEY_DOT         + keycode_offset; keymap_idx = 0 }
+                if name == "U003E"     { code = KEY_DOT         + keycode_offset; keymap_idx = 1 }
+                if name == "U002F"     { code = KEY_SLASH       + keycode_offset; keymap_idx = 0 }
+                if name == "U003F"     { code = KEY_SLASH       + keycode_offset; keymap_idx = 1 }
+                if name == "U0020"     { code = KEY_SPACE       + keycode_offset; keymap_idx = 0 }
+                if name == "BackSpace" { code = KEY_BACKSPACE   + keycode_offset; keymap_idx = 0 }
+                if name == "Delete"    { code = KEY_DELETE      + keycode_offset; keymap_idx = 0 }
+                if name == "Down"      { code = KEY_DOWN        + keycode_offset; keymap_idx = 0 }
+                if name == "Left"      { code = KEY_LEFT        + keycode_offset; keymap_idx = 0 }
+                if name == "Right"     { code = KEY_RIGHT       + keycode_offset; keymap_idx = 0 }
+                if name == "Up"        { code = KEY_UP          + keycode_offset; keymap_idx = 0 }
+                if name == "End"       { code = KEY_END         + keycode_offset; keymap_idx = 0 }
+                if name == "Escape"    { code = KEY_ESC         + keycode_offset; keymap_idx = 0 }
+                if name == "F1"        { code = KEY_F1          + keycode_offset; keymap_idx = 0 }
+                if name == "F2"        { code = KEY_F2          + keycode_offset; keymap_idx = 0 }
+                if name == "F3"        { code = KEY_F3          + keycode_offset; keymap_idx = 0 }
+                if name == "F4"        { code = KEY_F4          + keycode_offset; keymap_idx = 0 }
+                if name == "F5"        { code = KEY_F5          + keycode_offset; keymap_idx = 0 }
+                if name == "F6"        { code = KEY_F6          + keycode_offset; keymap_idx = 0 }
+                if name == "F7"        { code = KEY_F7          + keycode_offset; keymap_idx = 0 }
+                if name == "F8"        { code = KEY_F8          + keycode_offset; keymap_idx = 0 }
+                if name == "F9"        { code = KEY_F9          + keycode_offset; keymap_idx = 0 }
+                if name == "F10"       { code = KEY_F10         + keycode_offset; keymap_idx = 0 }
+                if name == "F11"       { code = KEY_F11         + keycode_offset; keymap_idx = 0 }
+                if name == "F12"       { code = KEY_F12         + keycode_offset; keymap_idx = 0 }
+                if name == "Home"      { code = KEY_HOME        + keycode_offset; keymap_idx = 0 }
+                if name == "Insert"    { code = KEY_INSERT      + keycode_offset; keymap_idx = 0 }
+                if name == "Menu"      { code = KEY_MENU        + keycode_offset; keymap_idx = 0 }
+                if name == "Page_Down" { code = KEY_PAGEDOWN    + keycode_offset; keymap_idx = 0 }
+                if name == "Page_Up"   { code = KEY_PAGEUP      + keycode_offset; keymap_idx = 0 }
+                if name == "Pause"     { code = KEY_PAUSE       + keycode_offset; keymap_idx = 0 }
+                if name == "Return"    { code = KEY_ENTER       + keycode_offset; keymap_idx = 0 }
+                if name == "Tab"       { code = KEY_TAB         + keycode_offset; keymap_idx = 0 }
+            (
                 String::from(name),
                 KeyCode { code, keymap_idx },
-            ))
+            )})
     )
 }
 
