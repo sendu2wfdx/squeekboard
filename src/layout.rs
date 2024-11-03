@@ -17,6 +17,8 @@
  * and let the renderer scale and center it within the widget.
  */
 
+use gdk::prelude::SettingsExt;
+use gio::Settings;
 use std::cmp;
 use std::collections::HashMap;
 use std::ffi::CString;
@@ -809,11 +811,18 @@ impl LayoutData {
         &self,
         available: Size,
     ) -> c::Transformation {
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let stretch_layout_to_fit_panel = gsettings.boolean ("layout-shape-changes-to-fit-panel");
+
+        let layout_stretching_limit: f64;
+        if stretch_layout_to_fit_panel == true { layout_stretching_limit = 1.055 }
+        else { layout_stretching_limit = 1.0 };
+
         let size = self.calculate_size();
         let h_scale = available.width / size.width;
         let v_scale = available.height / size.height;
         // Allow up to 5% (and a bit more) horizontal stretching for filling up available space
-        let scale_x = if (h_scale / v_scale) < 1.055 { h_scale } else { v_scale };
+        let scale_x = if (h_scale / v_scale) < layout_stretching_limit { h_scale } else { v_scale };
         let scale_y = cmp::min(FloatOrd(h_scale), FloatOrd(v_scale)).0;
         let outside_margins = c::Transformation {
             origin_x: (available.width - (scale_x * size.width)) / 2.0,
