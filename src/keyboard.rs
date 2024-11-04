@@ -251,10 +251,8 @@ pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
                 if name == "Pause"     { code = KEY_PAUSE       + keycode_offset; keymap_idx = 0 }
                 if name == "Return"    { code = KEY_ENTER       + keycode_offset; keymap_idx = 0 }
                 if name == "Tab"       { code = KEY_TAB         + keycode_offset; keymap_idx = 0 }
-            (
-                String::from(name),
-                KeyCode { code, keymap_idx },
-            )})
+                (String::from(name), KeyCode { code, keymap_idx })
+            }),
     );
     // Workaround: BackSpace does not work with `tools/entry.py` (made with GTK3),
     // if the keymap with BackSpace does not contain any other keycodes.
