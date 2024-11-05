@@ -818,8 +818,8 @@ impl LayoutData {
         let outside_margins = c::Transformation {
             origin_x: (available.width - (scale_x * size.width)) / 2.0,
             origin_y: (available.height - (scale_y * size.height)) / 2.0,
-            scale_x: scale_x,
-            scale_y: scale_y,
+            scale_x,
+            scale_y,
         };
         outside_margins.chain(c::Transformation {
             origin_x: self.margins.left,
