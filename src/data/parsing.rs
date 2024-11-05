@@ -420,6 +420,9 @@ fn create_action<H: logging::Handler>(
             }).collect(),
         },
         SubmitData::Modifier(modifier) => match modifier {
+            Modifier::Shift => action::Action::ApplyModifier(
+                action::Modifier::Shift,
+            ),
             Modifier::Control => action::Action::ApplyModifier(
                 action::Modifier::Control,
             ),

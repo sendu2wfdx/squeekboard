@@ -15,6 +15,7 @@ pub enum Modifier {
     /// Control and Alt are the only modifiers
     /// which doesn't interfere with levels,
     /// so it's simple to implement as levels are deprecated in squeekboard.
+    Shift,
     Control,
     Alt,
     Mod4,
