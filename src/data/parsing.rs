@@ -696,7 +696,7 @@ mod tests {
             xkb::KEYSYM_NO_FLAGS,
         );
         let keysym = xkb::keysym_to_utf8(keysym);
-        assert_eq!(keysym, "å\0");
+        assert_eq!(keysym, "å");
     }
     
     #[test]

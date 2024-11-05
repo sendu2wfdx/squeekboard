@@ -34,7 +34,7 @@ clap = { version = "4.4", features=["std"], default-features = false }
 zbus = "1.9"
 zvariant = "2.10"
 zvariant_derive = "2.10"
-xkbcommon = { version = "0.7", features = ["wayland"] }
+xkbcommon = { version = "0.8", features = ["wayland"] }
 
 [dependencies.cairo-rs]
 version = "0.18"
