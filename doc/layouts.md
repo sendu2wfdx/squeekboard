@@ -50,6 +50,9 @@ For testing the basic/compact shape:
 ```sh
 [output:WL-1]
 mode = 360x720
+phys_width = 60
+phys_height = 120
+scale = 1.00
 ```
 
 For testing the wide shape:
@@ -57,8 +60,10 @@ For testing the wide shape:
 ```sh
 [output:WL-1]
 mode = 1280x800
+phys_width = 104
+phys_height = 65
+scale = 1.00
 ```
-Make sure there is no `phys_height` or `phys_width` set.
 
 ### Layout-stretching
 
