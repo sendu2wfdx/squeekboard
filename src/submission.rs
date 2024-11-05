@@ -238,6 +238,7 @@ impl Submission {
     fn update_modifiers(&mut self) {
         let raw_modifiers = self.modifiers_active.iter()
             .map(|(_id, m)| match m {
+                Modifier::Shift => Modifiers::SHIFT,
                 Modifier::Control => Modifiers::CONTROL,
                 Modifier::Alt => Modifiers::MOD1,
                 Modifier::Mod4 => Modifiers::MOD4,
