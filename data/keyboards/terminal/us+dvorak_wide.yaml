@@ -6,7 +6,7 @@ outlines:
     change-view:   { width: 92.736,  height: 42   }
     change-view-2: { width: 103.04,  height: 42   }
     large:         { width: 92.736,  height: 42   }
-    small:         { width: 77.28,   height: 25.2 }
+    small:         { width: 68.693,  height: 25.2 }
     spaceline:     { width: 267.904, height: 42   }
     special:       { width: 61.824,  height: 42   }
     special-2:     { width: 92.736,  height: 42   }
@@ -14,31 +14,31 @@ outlines:
 
 views:
     base:
-        - "Esc-small Tab-small Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "show_upper p y f g c r l BackSpace"
         - "a o e u i d h t n s"
         - ", q j k x b m w v z"
         - "show_numbers preferences space show_actions Return"
     upper:
-        - "Esc-small Tab-small Ctrl Alt PageUp PageDown Home End"
+        - "Esc-small Tab-small Ctrl Alt Shift PageUp PageDown Home End"
         - "show_upper P Y F G C R L BackSpace"
         - "A O E U I D H T N S"
         - ", Q J K X B M W V Z"
         - "show_numbers preferences space show_actions Return"
     numbers:
-        - "Esc-small Tab-small Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "show_symbols , \" ' : ; ! ? BackSpace"
         - "* # $ / & - _ + ( )"
         - "1 2 3 4 5 6 7 8 9 0"
         - "show_letters preferences space . Return"
     symbols:
-        - "Esc-small Tab-small Ctrl Alt ↑ ↓ ← →"
+        - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "show_numbers \\ % < > = [ ] BackSpace"
         - "© ® £ € ¥ ^ ° @ { }"
         - "~ ` | · √ π τ ÷ × ¶"
         - "show_letters preferences space . Return"
     actions:
-        - "Esc-small Tab-small Ctrl Alt PageUp PageDown Home End"
+        - "Esc-small Tab-small Ctrl Alt Shift PageUp PageDown Home End"
         - "F1  F2  F3  F4  F5  F6"
         - "F7  F8  F9  F10 F11 F12"
         - "Esc Tab Pause Insert Up Del"
@@ -209,3 +209,7 @@ buttons:
         modifier: "Alt"
         outline: "small"
         label: "Alt"
+    Shift:
+        modifier: "Shift"
+        outline: "small"
+        label: "Shift"
