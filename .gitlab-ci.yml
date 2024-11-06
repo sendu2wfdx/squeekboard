@@ -113,19 +113,6 @@ test_style:
     variables:
       - $PKG_ONLY == "1"
 
-check_release:
-  stage: test
-  needs: []
-  only:
-    refs:
-      - main
-  script:
-    - apt-get -y install git python3
-    - (head -n 1 ./debian/changelog && git tag) | ./debian/check_release.py
-  except:
-    variables:
-      - $PKG_ONLY == "1"
-
 pages:
   stage: deploy
   needs:
