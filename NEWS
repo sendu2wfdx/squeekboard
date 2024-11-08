@@ -1,3 +1,12 @@
+squeekboard 1.42.2
+------------------
+Released November 2024
+* Fixes:
+    * Compatibility: Squeekboard should now work better with apps that do not use the text-input-protocol of Wayland and rely on specific keycodes being assigned to specific characters/functions.
+    * Documentation: The recommended settings for creating layouts while using Phoc in a nested session, have been updated to work correctly with the changes to the scaling-algorithm.
+* Contributors:
+    * MoonlightWave-12
+
 squeekboard 1.42.1
 ------------------
 Released October 2024

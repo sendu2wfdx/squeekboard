@@ -1,3 +1,11 @@
+squeekboard (1.42.2) experimental; urgency=medium
+
+  * keyboard.rs: Add more keycodes and sort those
+  * keyboard.rs: Add keycode to the keymap with BackSpace if there is no other
+  * doc/layouts.md: Update recommended settings for creating layouts
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Wed, 06 Nov 2024 11:24:22 +0100
+
 squeekboard (1.42.1) experimental; urgency=medium
 
   [ Sebastian Krzyszkowiak ]
