@@ -815,15 +815,30 @@ impl LayoutData {
         let stretch_layout_to_fit_panel = gsettings.boolean ("layout-shape-changes-to-fit-panel");
 
         let layout_stretching_limit: f64;
-        if stretch_layout_to_fit_panel == true { layout_stretching_limit = 1.055 }
-        else { layout_stretching_limit = 1.0 };
+        if stretch_layout_to_fit_panel == true {
+            // The "Base"-layout-shape is intended for use on small displays,
+            // and thus should fill the available space.
+            if self.kind == ArrangementKind::Base { layout_stretching_limit = 5.0 }
+            // The "Wide"-layout-shape is also used on monitors,
+            // and thus should not stretch more than necessary.
+            else { layout_stretching_limit = 1.4 }
+        }
+        else { layout_stretching_limit = 1.0 }
 
         let size = self.calculate_size();
         let h_scale = available.width / size.width;
         let v_scale = available.height / size.height;
-        // Allow up to 5% (and a bit more) horizontal stretching for filling up available space
-        let scale_x = if (h_scale / v_scale) < layout_stretching_limit { h_scale } else { v_scale };
-        let scale_y = cmp::min(FloatOrd(h_scale), FloatOrd(v_scale)).0;
+        // Stretch layouts to fill available space, up to some reasonable limits.
+        // TODO: On screens that are too large to be held during normal use (such as monitors),
+        // layouts should probably not stretch to fit the panel.
+        let scale_x = if stretch_layout_to_fit_panel == true {
+                          if (h_scale / v_scale) <= layout_stretching_limit { h_scale }
+                          else { v_scale }
+                      }
+                      else if h_scale / v_scale < 1.0 { h_scale }
+                      else { v_scale };
+        let scale_y = if stretch_layout_to_fit_panel == true && h_scale / v_scale > 0.49 { v_scale }
+                      else { cmp::min(FloatOrd(h_scale), FloatOrd(v_scale)).0 };
         let outside_margins = c::Transformation {
             origin_x: (available.width - (scale_x * size.width)) / 2.0,
             origin_y: (available.height - (scale_y * size.height)) / 2.0,
