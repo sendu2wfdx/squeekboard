@@ -106,8 +106,14 @@ You can change the height of the panel for the keyboard with:
 $ gsettings set sm.puri.Squeekboard scale-in-horizontal-screen-orientation 1.0
 $ gsettings set sm.puri.Squeekboard scale-in-vertical-screen-orientation 1.0
 ```
+and wether or not layouts will stretch to fit the panel with:
 
-Note: If the keyboard is open when the settings for the panel-height are changed, the height of the keyboard will not change until it is opened again, or the layout is changed.
+```sh
+$ gsettings set sm.puri.Squeekboard layout-shape-changes-to-fit-panel true
+$ gsettings set sm.puri.Squeekboard layout-shape-changes-to-fit-panel false
+```
+
+Note: If the keyboard is open when the settings are changed, the changes will not be visible until the keyboard is opened again, or the layout is changed.
 While using Phosh, you can long-click/long-tap the home-bar at the bottom, to open and close the keyboard.
 
 To reset the settings to the default, you can use:
