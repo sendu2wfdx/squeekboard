@@ -7,7 +7,6 @@ outlines:
     change-view-2: { width: 103.04,  height: 42   }
     halfwidth:     { width: 30.912,  height: 42   }
     large:         { width: 92.736,  height: 42   }
-    placeholder:   { width: 30.912,  height: 42   }
     small:         { width: 68.693,  height: 25.2 }
     spaceline:     { width: 175.168, height: 42   }
     special:       { width: 61.824,  height: 42   }
@@ -37,7 +36,7 @@ views:
     symbols:
         - "Esc-small Tab-small Ctrl Alt Shift ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
-        - "-- © ® £ € ¥ ^ ° { } --"
+        - "\\ © ® £ € ¥ ^ ° { } _"
         - "show_numbers % | < > = [ ] BackSpace"
         - "show_letters show_eschars preferences space . Return"
     eschars:
@@ -267,6 +266,3 @@ buttons:
         outline: "halfwidth"
     _:
         outline: "halfwidth"
-    --:
-        outline: "placeholder"
-        text: ""
