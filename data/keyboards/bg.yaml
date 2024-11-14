@@ -29,7 +29,7 @@ views:
     symbols:
         - "~ ` | · √ π τ ÷ × ¶ ²"
         - "© ® £ $ ¥ ^ ° * { } ³"
-        - "show_numbers_from_symbols -- \\ / < > = [ ] BackSpace"
+        - "show_numbers_from_symbols \\ / < > = [ ] -- BackSpace"
         - "show_letters preferences space ,-large Return"
 
 
