@@ -33,8 +33,8 @@ views:
         - "show_symbols 1 2 3 4 5 6 7 8 9 0 BackSpace"
         - "show_letters preferences space . Return"
     symbols:
-        - "-- -- * # \\ % < > = [ ] -- --"
-        - "-- -- © $ / & - _ + ( ) -- --"
+        - "-- -- * # \\ % < > = [ ] ² --"
+        - "-- -- © $ / & - _ + ( ) ³ --"
         - "-- -- ® £ € ¥ ^ ° @ { } -- --"
         - "show_numbers_from_symbols ~ ` | · √ π τ ÷ × ¶ BackSpace"
         - "show_letters preferences space . Return"

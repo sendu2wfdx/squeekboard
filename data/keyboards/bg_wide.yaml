@@ -3,7 +3,6 @@
 outlines:
     default:     { width: 48.872,  height: 42 }
     change-view: { width: 73.308,  height: 42 }
-    fill:        { width: 97.744,  height: 42 }
     placeholder: { width: 48.872,  height: 42 }
     spaceline:   { width: 293.232, height: 42 }
     special:     { width: 48.872,  height: 42 }
@@ -21,13 +20,13 @@ views:
         - "show_upper Ю Й Ъ Ф Х П Р Л BackSpace"
         - "show_numbers preferences space , Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # € % & - _ + ( )"
+        - "1 2 3 4 5 6 7 8 9 0 ²"
+        - "@ # € % & - _ + ( ) ³"
         - "show_symbols , \" ' : ; ! ? ѝ BackSpace"
         - "show_letters preferences space . Return"
     symbols:
-        - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ $ ¥ ^ ° * { }"
+        - "~ ` | · √ π τ ÷ × ¶ ²"
+        - "© ® £ $ ¥ ^ ° * { } ³"
         - "show_numbers \\ / < > = [ ] -- BackSpace"
         - "show_letters preferences space , Return"
 
@@ -72,11 +71,3 @@ buttons:
     --:
         outline: "placeholder"
         text: ""
-    5:
-        outline: "fill"
-    "&":
-        outline: "fill"
-    √:
-        outline: "fill"
-    ¥:
-        outline: "fill"

@@ -52,7 +52,7 @@ views:
         - "show_katakana_halfwidth_upper ｯ ｻ ｿ ﾋ ｺ ﾐ ﾓ ､ ｡ ･ ｰ BackSpace"
         - "show_numbers show_romaji preferences space katakana_halfwidth_width_toggle_full show_hiragana Return"
     numbers:
-        - " … -- -- -- -- -- -- -- -- --"
+        - " … -- -- -- -- -- -- -- ² ³"
         - "1 2 3 4 5 6 7 8 9 0"
         - "@ # ¥ % & - _ + ( )"
         - "show_symbols ; \" ' : = < > BackSpace-wide"
@@ -385,6 +385,10 @@ buttons:
     9:
         outline: "default-2"
     0:
+        outline: "default-2"
+    ²:
+        outline: "default-2"
+    ³:
         outline: "default-2"
     "@":
         outline: "default-2"

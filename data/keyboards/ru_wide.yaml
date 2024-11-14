@@ -22,13 +22,13 @@ views:
         - "show_upper Я Ч С М И Т Ь Б Ю BackSpace"
         - "show_numbers preferences Ё space Ъ , Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # $ % & - _ + ( )"
+        - "1 2 3 4 5 6 7 8 9 0 ²"
+        - "@ # $ % & - _ + ( ) ³"
         - "show_symbols , \" ' : ; ! ? BackSpace-wide"
         - "show_letters preferences space-fill . Return"
     symbols:
-        - "~ ` | · √ π τ ÷ × ¶"
-        - "© ® £ € ¥ ^ ° * { }"
+        - "~ ` | · √ π τ ÷ × ¶ ²"
+        - "© ® £ € ¥ ^ ° * { } ³"
         - "show_numbers \\ / < > = [ ] BackSpace-wide"
         - "show_letters preferences space-fill . Return"
 
@@ -77,11 +77,3 @@ buttons:
         outline: "special-2"
         icon: "key-enter"
         keysym: "Return"
-    5:
-        outline: "fill"
-    "&":
-        outline: "fill"
-    √:
-        outline: "fill"
-    ¥:
-        outline: "fill"

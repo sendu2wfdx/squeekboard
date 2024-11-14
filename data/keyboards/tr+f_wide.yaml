@@ -23,13 +23,13 @@ views:
         - "show_upper J Ö V C Ç Z S B -- BackSpace"
         - "show_numbers show_eschars preferences space ! ? Return"
     numbers:
-        - "1 2 3 4 5 6 7 8 9 0"
-        - "@ # ₺ % & - _ + ( )"
+        - "1 2 3 4 5 6 7 8 9 0 ²"
+        - "@ # ₺ % & - _ + ( ) ³"
         - "show_symbols -- ; \" ' : = < > -- BackSpace"
         - "show_letters show_eschars preferences space , . Return"
     symbols:
-        - "~ ` € | · √ µ ÷ × ¶"
-        - "© ® £ $ ¥ ^ ° * { }"
+        - "~ ` € | · √ µ ÷ × ¶ ²"
+        - "© ® £ $ ¥ ^ ° * { } ³"
         - "show_numbers -- \\ / § π τ [ ] -- BackSpace"
         - "show_letters show_eschars preferences space , . Return"
     eschars:
@@ -99,14 +99,6 @@ buttons:
     Ä:
         outline: "fill"
     À:
-        outline: "fill"
-    √:
-        outline: "fill"
-    6:
-        outline: "fill"
-    -:
-        outline: "fill"
-    ^:
         outline: "fill"
     ğ-subtle-highlight:
         outline: "subtle-highlight"
