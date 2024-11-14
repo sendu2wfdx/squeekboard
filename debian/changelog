@@ -1,4 +1,4 @@
-squeekboard (1.43.0~alpha0) UNRELEASED; urgency=medium
+squeekboard (1.43.0) experimental; urgency=medium
 
   [ MoonlightWave-12 ]
   * layouts: Change `Shift_L` to `show_upper`
@@ -9,21 +9,26 @@ squeekboard (1.43.0~alpha0) UNRELEASED; urgency=medium
   * scaling: Keep proportions of labels and icons when stretching layouts
   * layouts: Improve `number`-layout
   * layouts: Sort outlines alphabetically
-  * submission.rs: Restore active modifiers after changing keymaps
   * layouts: Adjust layout-sizes to the correct aspect-ratios
   * layouts: Add emojis from Unicode 16.0 to the emoji-layout
   * keyboard.rs: Reword a comment
-  * keyboard.rs: Add more keycodes and sort those
-  * keyboard.rs: Add keycode to the keymap with BackSpace if there is no other
   * keyboard.rs: Format code better
   * input: Add the `Shift`-modifier
-  * doc/layouts.md: Update recommended settings for creating layouts
   * layouts: Add `Shift`-button to the terminal-layouts
   * Cargo.lock: Update dependencies
   * treewide: Increase project-version to "1.43.0~alpha0"
-
-  [ Sebastian Krzyszkowiak ]
-  * keyboard: Only generate keycodes from an allowlist
+  * CI: Remove 'check_release'-CI-job and 'check_release.py'
+  * layout.rs: Fix code-style
+  * scaling: Add a setting for fitting layouts to the panel
+  * doc/layout.md: Update information about how to deactivate layout-stretching
+  * README.md: Mention the settings for layout-stretching
+  * scaling: Let layouts stretch to fill the panel
+  * layout.rs: Adjust tests to work with layout-stretching
+  * layouts: Fill some placeholders with '²' and '³'
+  * layouts: Make placeholder-position more consistent in bg(+phonetic)-layouts
+  * layouts: Fill placeholders with duplicated buttons in terminal-layouts
+  * layouts: Change "small"-outline to "small-row"-outline in terminal-layouts
+  * Cargo.lock: Update dependencies
 
   [ Alexander Shopov ]
   * Add Bulgarian translation
@@ -32,7 +37,25 @@ squeekboard (1.43.0~alpha0) UNRELEASED; urgency=medium
   * Cargo.toml: use xkbcommon 0.8
   * parsing: fix test for new xkbcommon version
 
- -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Wed, 06 Nov 2024 20:20:38 +0100
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Fri, 15 Nov 2024 11:48:10 +0100
+
+squeekboard (1.42.2) experimental; urgency=medium
+
+  * keyboard.rs: Add more keycodes and sort those
+  * keyboard.rs: Add keycode to the keymap with BackSpace if there is no other
+  * doc/layouts.md: Update recommended settings for creating layouts
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Wed, 06 Nov 2024 11:24:22 +0100
+
+squeekboard (1.42.1) experimental; urgency=medium
+
+  [ Sebastian Krzyszkowiak ]
+  * keyboard: Only generate keycodes from an allowlist
+
+  [ MoonlightWave-12 ]
+  * submission.rs: Restore active modifiers after changing keymaps
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Thu, 17 Oct 2024 17:33:18 +0200
 
 squeekboard (1.42.0) experimental; urgency=medium
 
