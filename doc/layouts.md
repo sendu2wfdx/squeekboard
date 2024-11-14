@@ -67,9 +67,18 @@ scale = 1.00
 
 ### Layout-stretching
 
-Squeekboard may slightly stretch layouts horizontally (up to 5.5%) before showing them.
-For creating layouts with precise sizes, it can be useful to disable this.
-This can be done by changing the value `1.055` in the line `let scale_x = if (h_scale / v_scale) < 1.055 { h_scale } else { v_scale };` of the `calculate_transformation` function in `src/layout.rs` to `1.0`, before building Squeekboard.
+Layouts will adjust their proportions to fit the available space on a panel.
+For creating layouts with precise sizes, it can be useful to deactivate this with:
+
+```
+$ gsettings set sm.puri.Squeekboard layout-shape-changes-to-fit-panel false
+```
+
+It can be activated again with:
+
+```
+$ gsettings set sm.puri.Squeekboard layout-shape-changes-to-fit-panel true
+```
 
 Layout syntax
 -------------
