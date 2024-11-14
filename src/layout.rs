@@ -1583,7 +1583,10 @@ mod test {
 
     #[test]
     fn check_bottom_margin() {
-        // just one button
+        // TODO: This should work correctly independent from the current settings on the system.
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let stretch_layout_to_fit_panel = gsettings.boolean("layout-shape-changes-to-fit-panel");
+        // Just one button
         let view = View::new(vec![
             (
                 0.0,
@@ -1619,21 +1622,25 @@ mod test {
             layout.calculate_size(),
             Size { width: 1.0, height: 2.0 }
         );
-        // Don't change those values randomly!
-        // They take advantage of incidental precise float representation
-        // to even be comparable.
+        // Do not change these values randomly,
+        // because these are comparable due to incidentally precise float-representation.
         let transformation = layout.calculate_transformation(
-            Size { width: 2.0, height: 2.0 }
+            Size { width: 2.0, height: 2.0 } // Panel with a size of 2x2 pixels.
         );
-        assert_eq!(transformation.scale_x, 1.0);
-        assert_eq!(transformation.scale_y, 1.0);
-        assert_eq!(transformation.origin_x, 0.5);
-        assert_eq!(transformation.origin_y, 0.0);
+        let scale_x_comparison = if stretch_layout_to_fit_panel == true { 2.0 } else { 1.0 };
+        let origin_x_comparison = if stretch_layout_to_fit_panel == true { 0.0 } else { 0.5 };
+        assert_eq!(transformation.scale_x, scale_x_comparison, "transformation.scale_x changed.");
+        assert_eq!(transformation.scale_y, 1.0, "transformation.scale_y changed.");
+        assert_eq!(transformation.origin_x, origin_x_comparison, "transformation.origin_x changed.");
+        assert_eq!(transformation.origin_y, 0.0, "transformation.origin_y changed.");
     }
 
     #[test]
     fn check_stretching() {
-        // just one button
+        // TODO: This should work correctly independent from the current settings on the system.
+        let gsettings = Settings::new("sm.puri.Squeekboard");
+        let stretch_layout_to_fit_panel = gsettings.boolean("layout-shape-changes-to-fit-panel");
+        // Just one button
         let view = View::new(vec![
             (
                 0.0,
@@ -1660,25 +1667,58 @@ mod test {
             },
             purpose: ContentPurpose::Normal,
         };
+        // Test that layouts will keep their defined proportions,
+        // if those fit the panel precisely.
         let transformation = layout.calculate_transformation(
             Size { width: 100.0, height: 100.0 }
         );
-        assert_eq!(transformation.scale_x, 100.0);
-        assert_eq!(transformation.scale_y, 100.0);
-        let transformation = layout.calculate_transformation(
-            Size { width: 95.0, height: 100.0 }
-        );
-        assert_eq!(transformation.scale_x, 95.0);
-        assert_eq!(transformation.scale_y, 95.0);
-        let transformation = layout.calculate_transformation(
-            Size { width: 105.0, height: 100.0 }
-        );
-        assert_eq!(transformation.scale_x, 105.0);
-        assert_eq!(transformation.scale_y, 100.0);
-        let transformation = layout.calculate_transformation(
-            Size { width: 106.0, height: 100.0 }
-        );
-        assert_eq!(transformation.scale_x, 100.0);
-        assert_eq!(transformation.scale_y, 100.0);
+        assert_eq!(transformation.scale_x, 100.0,
+            "Layout-width changed when it was supposed to not change.");
+        assert_eq!(transformation.scale_y, 100.0,
+            "Layout-height changed when it was supposed to not change.");
+        // Test that layouts will keep their defined proportions when their size decreases,
+        // if layout-stretching is off.
+        if stretch_layout_to_fit_panel == false {
+            let transformation = layout.calculate_transformation(
+                Size { width: 95.0, height: 100.0 }
+            );
+            assert_eq!(transformation.scale_x, 95.0,
+                "Layout-width did not decrease by the expected amount.");
+            assert_eq!(transformation.scale_y, 95.0,
+                "Layout-height did not decrease by the expected amount.");
+        }
+        // Test that layouts adjust to the panel-size, if layout-stretching is on.
+        if stretch_layout_to_fit_panel == true {
+            let transformation = layout.calculate_transformation(
+                Size { width: 500.0, height: 100.0 }
+            );
+            assert_eq!(transformation.scale_x, 500.0,
+                "Layout-width did not increase by the expected amount.");
+            assert_eq!(transformation.scale_y, 100.0,
+                "Layout-height changed when it was supposed to not change.");
+            let transformation = layout.calculate_transformation(
+                Size { width: 100.0, height: 204.0 }
+            );
+            assert_eq!(transformation.scale_x, 100.0,
+                "Layout-width changed when it was supposed to not change.");
+            assert_eq!(transformation.scale_y, 204.0,
+                "Layout-height did not increase by the expected amount.");
+            // Test that layouts will keep their defined proportions,
+            // if those cannot reach the borders of the screen without stretching by more than the limit.
+            let transformation = layout.calculate_transformation(
+                Size { width: 501.0, height: 100.0 }
+            );
+            assert_eq!(transformation.scale_x, 100.0,
+                "Layout-width changed when it was supposed to not change.");
+            assert_eq!(transformation.scale_y, 100.0,
+                "Layout-height changed when it was supposed to not change.");
+            let transformation = layout.calculate_transformation(
+                Size { width: 100.0, height: 205.0 }
+            );
+            assert_eq!(transformation.scale_x, 100.0,
+                "Layout-width changed when it was supposed to not change.");
+            assert_eq!(transformation.scale_y, 100.0,
+                "Layout-height changed when it was supposed to not change.");
+        }
     }
 }
