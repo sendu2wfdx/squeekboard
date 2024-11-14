@@ -31,8 +31,8 @@ views:
         - "show_symbols _ # & / \\ √ ; : BackSpace"
         - "show_letters show_eschars preferences space , . Return"
     symbols:
-        - "€ $ £ ¥ % | § µ [ ]"
-        - "© ® § ` { } @ · ¡ ¿"
+        - "€ $ £ ¥ % | § µ [ ] ²"
+        - "© ® § ` { } @ · ¡ ¿ ³"
         - "show_numbers « » ÷ × “ ” „ BackSpace"
         - "show_letters show_eschars preferences space , . Return"
     eschars:
@@ -92,9 +92,5 @@ buttons:
         outline: "narrow"
     ",":
         outline: "narrow"
-    "%":
-        outline: "fill"
-    "{":
-        outline: "fill"
     ×:
         outline: "fill"
