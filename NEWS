@@ -1,3 +1,42 @@
+squeekboard 1.43.0
+------------------
+Released November 2024
+* Fixes:
+    * Labels and icons on buttons will now keep their proportions when the proportions of layouts change.
+* Changes:
+    * Layouts will now change their shape to fill empty space on the panel.
+      Note: For the "Wide"-shapes of layouts, this is currently limited to about 1.4 times the width.
+    * A setting for changing wether or not layouts will change their shape to fit the panel has been added.
+    * The "Shift"-modifier can be assigned to buttons now.
+    * "Shift"-buttons have been added to the terminal-layouts.
+    * New emojis from Unicode 16.0 have been added.
+    * Layouts have been made more consistent.
+    * Some placeholders on layouts have been filled.
+* Contributors:
+    * Arnaud Ferraris
+    * MoonlightWave-12
+* UI translations:
+    * Alexander Shopov (bg)
+
+squeekboard 1.42.2
+------------------
+Released November 2024
+* Fixes:
+    * Compatibility: Squeekboard should now work better with apps that do not use the text-input-protocol of Wayland and rely on specific keycodes being assigned to specific characters/functions.
+    * Documentation: The recommended settings for creating layouts while using Phoc in a nested session, have been updated to work correctly with the changes to the scaling-algorithm.
+* Contributors:
+    * MoonlightWave-12
+
+squeekboard 1.42.1
+------------------
+Released October 2024
+* Fixes:
+    * With some apps, in particular apps made with Electron, text-input did not work with some buttons, depending on which layout was used. Text-input should now work normally with those apps.
+    * In some situations, modifiers were cleared after pressing another button (for example: when pressing `C`, for `Ctrl + C`), resulting in text-input without the modifiers. The modifiers will remain active in those situations from now on.
+* Contributors:
+    * MoonlightWave-12
+    * Sebastian Krzyszkowiak
+
 squeekboard 1.42.0
 ------------------
 Released September 2024

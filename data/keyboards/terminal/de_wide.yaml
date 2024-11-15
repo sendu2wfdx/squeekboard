@@ -8,7 +8,7 @@ outlines:
     halfwidth:        { width: 30.912,  height: 42   }
     large:            { width: 92.736,  height: 42   }
     narrow:           { width: 46.368,  height: 42   }
-    small:            { width: 68.693,  height: 25.2 }
+    small-row:        { width: 68.693,  height: 25.2 }
     spaceline:        { width: 175.168, height: 42   }
     special:          { width: 61.824,  height: 42   }
     special-2:        { width: 92.736,  height: 42   }
@@ -150,14 +150,14 @@ buttons:
         outline: "action"
         keysym: "Escape"
     Esc-small:
-        outline: "small"
+        outline: "small-row"
         keysym: "Escape"
         label: "Esc"
     Tab:
         outline: "action"
         keysym: "Tab"
     Tab-small:
-        outline: "small"
+        outline: "small-row"
         keysym: "Tab"
         label: "Tab"
     Del:
@@ -180,32 +180,32 @@ buttons:
         keysym: "Break"
         label: "Untbr"
     Home:
-        outline: "small"
+        outline: "small-row"
         keysym: "Home"
         label: "Pos1"
     End:
-        outline: "small"
+        outline: "small-row"
         keysym: "End"
         label: "Ende"
     PageUp:
-        outline: "small"
+        outline: "small-row"
         keysym: "Page_Up"
         label: "Bild ↑"
     PageDown:
-        outline: "small"
+        outline: "small-row"
         keysym: "Page_Down"
         label: "Bild ↓"
     "↑":
-        outline: "small"
+        outline: "small-row"
         keysym: "Up"
     "↓":
-        outline: "small"
+        outline: "small-row"
         keysym: "Down"
     "←":
-        outline: "small"
+        outline: "small-row"
         keysym: "Left"
     "→":
-        outline: "small"
+        outline: "small-row"
         keysym: "Right"
     Up:
         label: "↑"
@@ -225,15 +225,15 @@ buttons:
         keysym: "Right"
     Ctrl:
         modifier: "Control"
-        outline: "small"
+        outline: "small-row"
         label: "Strg"
     Alt:
         modifier: "Alt"
-        outline: "small"
+        outline: "small-row"
         label: "Alt"
     Shift:
         modifier: "Shift"
-        outline: "small"
+        outline: "small-row"
         label: "Umschalt"
     MinusSmall:
         outline: "halfwidth"
