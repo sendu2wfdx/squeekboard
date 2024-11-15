@@ -6,7 +6,7 @@ outlines:
     change-view:   { width: 60.615,  height: 52     }
     change-view-2: { width: 67.35,   height: 52     }
     large:         { width: 60.615,  height: 52     }
-    small:         { width: 50.512,  height: 27.725 }
+    small-row:     { width: 50.512,  height: 27.725 }
     spaceline:     { width: 114.495, height: 52     }
     special:       { width: 40.41,   height: 52     }
     special-2:     { width: 60.615,  height: 52     }
@@ -96,7 +96,7 @@ buttons:
         outline: "action"
         keysym: "Tab"
     Tab-small:
-        outline: "small"
+        outline: "small-row"
         keysym: "Tab"
         label: "Tab"
     Del:
@@ -118,32 +118,32 @@ buttons:
         keysym: "Break"
         label: "Attn"
     Home:
-        outline: "small"
+        outline: "small-row"
         keysym: "Home"
         label: "🡔"
     End:
-        outline: "small"
+        outline: "small-row"
         keysym: "End"
         label: "Fin"
     PageUp:
-        outline: "small"
+        outline: "small-row"
         keysym: "Page_Up"
         label: "Page ↑"
     PageDown:
-        outline: "small"
+        outline: "small-row"
         keysym: "Page_Down"
         label: "Page ↓"
     "↑":
-        outline: "small"
+        outline: "small-row"
         keysym: "Up"
     "↓":
-        outline: "small"
+        outline: "small-row"
         keysym: "Down"
     "←":
-        outline: "small"
+        outline: "small-row"
         keysym: "Left"
     "→":
-        outline: "small"
+        outline: "small-row"
         keysym: "Right"
     Up:
         label: "↑"
@@ -163,15 +163,15 @@ buttons:
         keysym: "Right"
     Ctrl:
         modifier: "Control"
-        outline: "small"
+        outline: "small-row"
         label: "Ctrl"
     Alt:
         modifier: "Alt"
-        outline: "small"
+        outline: "small-row"
         label: "Alt"
     Shift:
         modifier: "Shift"
-        outline: "small"
+        outline: "small-row"
         label: "Maj"
     show_actions:
         action:
