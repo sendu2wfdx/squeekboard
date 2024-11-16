@@ -1,3 +1,9 @@
+squeekboard (1.44.0~alpha0) UNRELEASED; urgency=medium
+
+  * treewide: Increase version to 1.44.0~alpha0
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Fri, 15 Nov 2024 15:37:09 +0100
+
 squeekboard (1.43.0) experimental; urgency=medium
 
   [ MoonlightWave-12 ]
