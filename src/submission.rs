@@ -220,7 +220,8 @@ impl Submission {
     pub fn handle_add_modifier(
         &mut self,
         key_id: KeyStateId,
-        modifier: Modifier, _time: Timestamp,
+        modifier: Modifier,
+        _time: Timestamp,
     ) {
         self.modifiers_active.push((key_id, modifier));
         self.update_modifiers();
