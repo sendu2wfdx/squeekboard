@@ -220,7 +220,8 @@ impl Submission {
     pub fn handle_add_modifier(
         &mut self,
         key_id: KeyStateId,
-        modifier: Modifier, _time: Timestamp,
+        modifier: Modifier,
+        _time: Timestamp,
     ) {
         self.modifiers_active.push((key_id, modifier));
         self.update_modifiers();
@@ -228,10 +229,11 @@ impl Submission {
 
     pub fn handle_drop_modifier(
         &mut self,
-        key_id: KeyStateId,
+        _key_id: KeyStateId,
+        modifier: Modifier,
         _time: Timestamp,
     ) {
-        vec_remove(&mut self.modifiers_active, |(id, _)| *id == key_id);
+        vec_remove(&mut self.modifiers_active, |(_, m)| *m == modifier);
         self.update_modifiers();
     }
 
