@@ -1,3 +1,11 @@
+squeekboard 1.43.1
+------------------
+Released November 2024
+* Fixes:
+    * Input: Modifiers can now be deactivated with all buttons for the same modifier, instead of only with the same button that was used to activate it.
+* Contributors:
+    * MoonlightWave-12
+
 squeekboard 1.43.0
 ------------------
 Released November 2024

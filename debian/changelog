@@ -1,3 +1,9 @@
+squeekboard (1.43.1) experimental; urgency=medium
+
+  * input: Make it possible to deactivate a modifier with any button for it
+
+ -- MoonlightWave-12 <135532-MoonlightWave-12@users.noreply.gitlab.gnome.org>  Sat, 23 Nov 2024 14:56:04 +0100
+
 squeekboard (1.43.0) experimental; urgency=medium
 
   [ MoonlightWave-12 ]

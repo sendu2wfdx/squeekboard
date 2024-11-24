@@ -1186,7 +1186,7 @@ mod seat {
                         key_id,
                         modifier, time,
                     ),
-                    false => submission.handle_drop_modifier(key_id, time),
+                    false => submission.handle_drop_modifier(key_id, modifier, time),
                 }
             }
             // only show when UI is present
