@@ -123,7 +123,7 @@ registry_handle_global (void *data,
             &zwp_input_method_manager_v2_interface, 1);
     } else if (!strcmp (interface, "wl_output")) {
         struct wl_output *output = wl_registry_bind (registry, name,
-            &wl_output_interface, 2);
+            &wl_output_interface, 4);
         squeek_outputs_register(wayland->outputs, output, name);
     } else if (!strcmp(interface, "wl_seat")) {
         wayland->seat = wl_registry_bind(registry, name,
