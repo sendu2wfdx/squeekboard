@@ -7,18 +7,18 @@ use crate::actors::Destination;
 use crate::actors::popover;
 use crate::logging;
 use std::thread;
-use zbus::{Connection, dbus_proxy};
+use zbus::blocking::Connection;
 
 use super::Void;
 
 
-#[dbus_proxy(
+#[zbus::proxy(
     interface = "org.freedesktop.ScreenSaver",
     default_service = "org.freedesktop.ScreenSaver",
     default_path = "/org/freedesktop/ScreenSaver"
 )]
 pub trait Manager {
-    #[dbus_proxy(signal)]
+    #[zbus(signal)]
     fn active_changed(&self, active: bool) -> fdo::Result<()>;
 }
 
@@ -36,22 +36,21 @@ pub fn init(destination: popover::Destination) {
 }
 
 fn start(destination: popover::Destination) -> Result<Void, zbus::Error> {
-    let conn = Connection::new_session()?;
-    let manager = ManagerProxy::new(&conn)?;
+    let conn = Connection::session()?;
+    let manager = ManagerProxyBlocking::new(&conn)?;
 
-    manager.connect_active_changed(move |m| {
-        destination.send(popover::Event::ScreensaverActive(m));
-        Ok(())
-    })?;
+    let mut active_changed = manager.receive_active_changed()?;
 
-    loop {
-        match manager.next_signal() {
-            Ok(None) => {}
-            other => log_print!(
+    for m in active_changed {
+        match m.args() {
+            Ok(args) => destination.send(popover::Event::ScreensaverActive(args.active)),
+            Err(err) => log_print!(
                 logging::Level::Bug,
                 "Encountered unhandled event: {:?}",
-                other,
+                err,
             ),
         }
     }
+
+    unreachable!()
 }
