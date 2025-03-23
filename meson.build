@@ -36,10 +36,6 @@ add_project_arguments(
 
 i18n = import('i18n')
 
-if get_option('buildtype').startswith('debug')
-    add_project_arguments('-DDEBUG=1', language : 'c')
-endif
-
 if get_option('strict')
     add_project_arguments(
         [
@@ -52,10 +48,11 @@ endif
 if get_option('buildtype') != 'plain'
     add_project_arguments('-fstack-protector-strong', language: 'c')
 endif
-if get_option('buildtype') == 'release'
-    cargo_build_flags = ['--release'] # for artifacts
-else
+if get_option('debug')
+    add_project_arguments('-DDEBUG=1', language : 'c')
     cargo_build_flags = []
+else
+    cargo_build_flags = ['--release'] # for artifacts
 endif
 
 prefix = get_option('prefix')
