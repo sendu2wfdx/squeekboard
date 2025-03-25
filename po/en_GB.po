@@ -1,0 +1,45 @@
+# British English translation for squeekboard.
+# Copyright (C) 2024 squeekboard's COPYRIGHT HOLDER
+# This file is distributed under the same license as the squeekboard package.
+# Andi Chandler <andi@gowling.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squeekboard master\n"
+"Report-Msgid-Bugs-To: https://source.puri.sm/Librem5/squeekboard/issues\n"
+"POT-Creation-Date: 2024-03-08 15:47+0000\n"
+"PO-Revision-Date: 2024-03-08 16:56+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: British English <en_GB@li.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. translators: This is a emmoji keyboard layout
+#: data/popover.ui:6
+msgid "Emoji"
+msgstr "Emoji"
+
+#. translators: This is a terminal keyboard layout
+#: data/popover.ui:12
+msgid "Terminal"
+msgstr "Terminal"
+
+#: data/popover.ui:18
+msgid "Keyboard Settings"
+msgstr "Keyboard Settings"
+
+#: data/sm.puri.Squeekboard.desktop.in.in:3
+msgid "Squeekboard"
+msgstr "Squeekboard"
+
+#: data/sm.puri.Squeekboard.desktop.in.in:4
+msgid "On Screen Keyboard"
+msgstr "On Screen Keyboard"
+
+#: data/sm.puri.Squeekboard.desktop.in.in:5
+msgid "An on screen virtual keyboard"
+msgstr "An on screen virtual keyboard"
