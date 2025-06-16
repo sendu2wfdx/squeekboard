@@ -245,7 +245,7 @@ pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
                 if name == "F12"       { code = KEY_F12         + keycode_offset; keymap_idx = 0 }
                 if name == "Home"      { code = KEY_HOME        + keycode_offset; keymap_idx = 0 }
                 if name == "Insert"    { code = KEY_INSERT      + keycode_offset; keymap_idx = 0 }
-                if name == "Menu"      { code = KEY_MENU        + keycode_offset; keymap_idx = 0 }
+                if name == "Menu"      { code = KEY_COMPOSE     + keycode_offset; keymap_idx = 0 }
                 if name == "Page_Down" { code = KEY_PAGEDOWN    + keycode_offset; keymap_idx = 0 }
                 if name == "Page_Up"   { code = KEY_PAGEUP      + keycode_offset; keymap_idx = 0 }
                 if name == "Pause"     { code = KEY_PAUSE       + keycode_offset; keymap_idx = 0 }
