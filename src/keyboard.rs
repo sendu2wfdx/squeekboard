@@ -254,17 +254,12 @@ pub fn generate_keycodes<'a, C: IntoIterator<Item=String>>(
                 (String::from(name), KeyCode { code, keymap_idx })
             }),
     );
-    // Workaround: BackSpace does not work with `tools/entry.py` (made with GTK3),
-    // if the keymap with BackSpace does not contain any other keycodes.
-    // This should only happen for the emoji-layout or incomplete custom-layouts,
-    // because the layout-tests for normal layouts check for the presence of a button for Return.
-    // This does add an "Unknown"-keycode, if necessary, to let BackSpace work anyway.
-    if !HashMap::contains_key(&keycode_map, &"Return".to_string()) {
-        HashMap::insert(&mut keycode_map,
-                        "Unknown".to_string(),
-                        KeyCode { code: KEY_UNKNOWN + keycode_offset, keymap_idx: 0 }
-        );
-    }
+    // Workaround: some keys (such as Backspace or Menu) don't work with GTK3 when
+    // they're last in the keymap, so we add a dummy entry to be the last one instead.
+    HashMap::insert(&mut keycode_map,
+                    "Unknown".to_string(),
+                    KeyCode { code: KEY_UNKNOWN + keycode_offset, keymap_idx: 0 }
+    );
     keycode_map
 }
 
