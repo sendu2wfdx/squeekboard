@@ -1,0 +1,46 @@
+# Esperanto translation for squeekboard.
+# Copyright (C) 2025 squeekboard's COPYRIGHT HOLDER
+# This file is distributed under the same license as the squeekboard package.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squeekboard main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/squeekboard/"
+"issues\n"
+"POT-Creation-Date: 2025-09-10 23:19+0000\n"
+"PO-Revision-Date: 2025-09-21 14:30+0200\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 48.0\n"
+
+#. translators: This is a emmoji keyboard layout
+#: data/popover.ui:6
+msgid "Emoji"
+msgstr "Emoĝio"
+
+#. translators: This is a terminal keyboard layout
+#: data/popover.ui:12
+msgid "Terminal"
+msgstr "Terminalo"
+
+#: data/popover.ui:18
+msgid "Keyboard Settings"
+msgstr "Agordoj de klavaro"
+
+#: data/sm.puri.Squeekboard.desktop.in.in:2
+msgid "Squeekboard"
+msgstr "Squeekboard"
+
+#: data/sm.puri.Squeekboard.desktop.in.in:3
+msgid "On Screen Keyboard"
+msgstr "Ekranklavaro"
+
+#: data/sm.puri.Squeekboard.desktop.in.in:4
+msgid "An on screen virtual keyboard"
+msgstr "Virtuala ekranklavaro"
