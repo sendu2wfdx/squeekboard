@@ -72,6 +72,16 @@ endif
 dbusdir = join_paths(depdatadir, 'dbus-1/interfaces')
 schemasdir = datadir / 'glib-2.0' / 'schemas'
 
+systemd_user_unit_dir = get_option('systemd_user_unit_dir')
+systemd_dep = dependency('systemd', required: false)
+if systemd_user_unit_dir == ''
+  if systemd_dep.found()
+    systemd_user_unit_dir = systemd_dep.get_variable('systemd_user_unit_dir')
+  else
+    systemd_user_unit_dir = prefix / get_option('libdir') / 'systemd' / 'user'
+  endif
+endif
+
 conf_data = configuration_data()
 conf_data.set_quoted('GETTEXT_PACKAGE', 'squeekboard')
 conf_data.set_quoted('LOCALEDIR', localedir)

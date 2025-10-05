@@ -1,0 +1,16 @@
+# This is a systemd user unit intended to be started with gnome-session.
+
+[Unit]
+Description=Squeekboard, an on-screen-keyboard input-method for Phosh
+Documentation=https://gitlab.gnome.org/World/Phosh/squeekboard
+CollectMode=inactive-or-failed
+
+After=gnome-session-initialized.target
+
+[Service]
+Slice=session.slice
+Type=dbus
+BusName=sm.puri.OSK0
+ExecStart=@bindir@/squeekboard
+Restart=on-failure
+TimeoutStopSec=5
