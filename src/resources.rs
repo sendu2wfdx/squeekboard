@@ -106,6 +106,9 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("jp+kana", include_str!("../data/keyboards/jp+kana.yaml")),
     ("jp+kana_wide", include_str!("../data/keyboards/jp+kana_wide.yaml")),
 
+    ("kr", include_str!("../data/keyboards/kr.yaml")),
+    ("kr_wide", include_str!("../data/keyboards/kr_wide.yaml")),
+
     ("no", include_str!("../data/keyboards/no.yaml")),
     ("no_wide", include_str!("../data/keyboards/no_wide.yaml")),
 
@@ -175,6 +178,9 @@ static KEYBOARDS: &[(&'static str, &'static str)] = &[
     ("terminal/fr_wide", include_str!("../data/keyboards/terminal/fr_wide.yaml")),
     ("terminal/fr+bepo", include_str!("../data/keyboards/terminal/fr+bepo.yaml")),
     ("terminal/fr+bepo_wide", include_str!("../data/keyboards/terminal/fr+bepo_wide.yaml")),
+
+    ("terminal/kr", include_str!("../data/keyboards/terminal/kr.yaml")),
+    ("terminal/kr_wide",   include_str!("../data/keyboards/terminal/kr_wide.yaml")),
 
     ("terminal/us", include_str!("../data/keyboards/terminal/us.yaml")),
     ("terminal/us_wide",   include_str!("../data/keyboards/terminal/us_wide.yaml")),
