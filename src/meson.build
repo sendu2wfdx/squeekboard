@@ -37,6 +37,12 @@ generated_sources = declare_dependency(
 
 cc = meson.get_compiler('c')
 
+if cc.has_function('strlcpy')
+  libbsd_dep = dependency('', required: false)
+  add_project_arguments('-DHAVE_STRLCPY', language: 'c')
+else
+  libbsd_dep = dependency('libbsd')
+endif
 
 deps = [
   generated_sources,
@@ -44,7 +50,7 @@ deps = [
   dependency('gio-unix-2.0'),
   dependency('gnome-desktop-3.0', version: '>=3.0'),
   dependency('gtk+-3.0', version: '>=3.0'),
-  dependency('libbsd'),
+  libbsd_dep,
   dependency('libfeedback-0.0'),
   dependency('wayland-client', version: '>=1.14'),
   dependency('xkbcommon'),

@@ -20,8 +20,11 @@
 
 #include "config.h"
 
+#ifndef HAVE_STRLCPY
+/* Requesting POSIX disables strlcpy in libc but not libbsd */
 #define _XOPEN_SOURCE 500
 #include <bsd/string.h>
+#endif
 #include <errno.h>
 #include <fcntl.h>
 #include <string.h>
