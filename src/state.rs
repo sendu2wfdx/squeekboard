@@ -23,6 +23,7 @@ use gio::Settings;
 use gdk::prelude::SettingsExt;
 use std::cmp;
 use std::collections::HashMap;
+use std::env;
 use std::time::Instant;
 
 
@@ -204,6 +205,7 @@ pub struct Application {
     /// because it's not clear how to derive the output from the rest of the state.
     /// It should probably follow the focused input,
     /// but not sure about being allowed on non-touch displays.
+    pub preferred_output_name: Option<String>,
     pub preferred_output: Option<OutputId>,
     pub outputs: HashMap<OutputId, OutputState>,
     /// We presume that the system always has some preference,
@@ -228,6 +230,8 @@ impl Application {
             visibility_override: visibility::State::NotForced,
             physical_keyboard: Presence::Missing,
             debug_mode_enabled: false,
+            preferred_output_name: env::var_os("PREFERRED_OUTPUT_NAME")
+                .and_then(|v| v.into_string().ok()),
             preferred_output: None,
             outputs: Default::default(),
             layout_choice: LayoutChoice {
@@ -274,14 +278,37 @@ impl Application {
                 let mut app = self;
                 match change {
                     outputs::ChangeType::Altered(state) => {
-                        app.outputs.insert(output, state);
+                        if app.preferred_output_name.is_some()
+                            && app.preferred_output_name == state.name
+                        {
+                            app.preferred_output = Some(output)
+                        }
                         app.preferred_output = app.preferred_output.or(Some(output));
+                        app.outputs.insert(output, state);
                     },
                     outputs::ChangeType::Removed => {
                         app.outputs.remove(&output);
                         if app.preferred_output == Some(output) {
-                            // There's currently no policy to choose one output over another,
-                            // so just take whichever comes first.
+                            app.preferred_output = None;
+                        }
+
+                        if app.preferred_output.is_none() && app.preferred_output_name.is_some() {
+                            app.preferred_output = app
+                                .outputs
+                                .iter()
+                                .filter_map(|(o_id, o_state)| {
+                                    if o_state.name == app.preferred_output_name {
+                                        Some(o_id)
+                                    } else {
+                                        None
+                                    }
+                                })
+                                .next()
+                                .copied()
+                        }
+
+                        if app.preferred_output.is_none() {
+                            // just take whichever comes first.
                             app.preferred_output = app.outputs.keys().next().map(|output| *output);
                         }
                     },
@@ -567,6 +594,7 @@ pub mod test {
                 current_mode: None,
                 geometry: None,
                 scale: 1,
+                name: None,
             },
         );
         Application {
@@ -784,6 +812,7 @@ pub mod test {
                     },
                 }),
                 scale,
+                name: None,
             }),
             Some((
                 PixelSize {
@@ -833,6 +862,7 @@ pub mod test {
                     },
                 }),
                 scale,
+                name: None,
             }),
             Some((
                 PixelSize {

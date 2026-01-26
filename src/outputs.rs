@@ -4,6 +4,7 @@
 
 /*! Managing Wayland outputs */
 
+use std::ffi::CStr;
 use std::ops;
 use std::vec::Vec;
 use crate::logging;
@@ -69,6 +70,16 @@ pub mod c {
             T, // data
             WlOutput,
             i32, // factor
+        ),
+        name: extern fn(
+            T, // data
+            WlOutput,
+            *const c_char, // name
+        ),
+        description: extern fn(
+            T, // data
+            WlOutput,
+            *const c_char, // description
         ),
     }
     
@@ -217,7 +228,7 @@ pub mod c {
                 output.current = output.pending.clone();
                 Some(Event {
                     output: OutputId(wl_output),
-                    change: ChangeType::Altered(output.current),
+                    change: ChangeType::Altered(output.current.clone()),
                 })
             },
             None => {
@@ -253,6 +264,50 @@ pub mod c {
         };
     }
 
+    extern fn outputs_handle_name(
+        outputs: COutputs,
+        wl_output: WlOutput,
+        name: *const c_char,
+    ) {
+        let outputs = outputs.clone_ref();
+        let mut collection = outputs.borrow_mut();
+        let output_state: Option<&mut OutputState>
+            = collection
+                .find_output_mut(wl_output)
+                .map(|o| &mut o.pending);
+        match output_state {
+            Some(state) => {
+                let cstr = unsafe { CStr::from_ptr(name) };
+                // Protocol documents this as being a valid UTF-8 string
+                state.name = Some(String::from(cstr.to_string_lossy()));
+            },
+            None => log_print!(
+                logging::Level::Warning,
+                "Got name on unknown output",
+            ),
+        };
+    }
+
+    extern fn outputs_handle_description(
+        outputs: COutputs,
+        wl_output: WlOutput,
+        _description: *const c_char,
+    ) {
+        let outputs = outputs.clone_ref();
+        let mut collection = outputs.borrow_mut();
+        let output_state: Option<&mut OutputState>
+            = collection
+                .find_output_mut(wl_output)
+                .map(|o| &mut o.pending);
+        match output_state {
+            Some(_state) => { }
+            None => log_print!(
+                logging::Level::Warning,
+                "Got description on unknown output",
+            ),
+        };
+    }
+
     // End callbacks
 
     #[no_mangle]
@@ -282,6 +337,8 @@ pub mod c {
                 mode: outputs_handle_mode,
                 done: outputs_handle_done,
                 scale: outputs_handle_scale,
+                name: outputs_handle_name,
+                description: outputs_handle_description,
             } as *const WlOutputListener<COutputs>,
             raw_collection,
         )};
@@ -346,11 +403,12 @@ pub struct Geometry {
     pub phys_size: Size<Option<Millimeter>>,
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug)]
 pub struct OutputState {
     pub current_mode: Option<Mode>,
     pub geometry: Option<Geometry>,
     pub scale: i32,
+    pub name: Option<String>,
 }
 
 impl OutputState {
@@ -365,6 +423,7 @@ impl OutputState {
             current_mode: None,
             geometry: None,
             scale: 1,
+            name: None,
         }
     }
 
@@ -397,6 +456,7 @@ impl OutputState {
                 current_mode: Some(Mode { width, height } ),
                 geometry: Some(Geometry { transform, .. } ),
                 scale: _,
+                name: _,
             } => Some(Self::transform_size(*width as u32, *height as u32, *transform)),
             OutputState {
                 current_mode: Some(Mode { width, height } ),
@@ -486,14 +546,14 @@ impl Outputs {
     }
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug)]
 pub enum ChangeType {
     /// Added or changed
     Altered(OutputState),
     Removed,
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug)]
 pub struct Event {
     pub output: OutputId,
     pub change: ChangeType,
