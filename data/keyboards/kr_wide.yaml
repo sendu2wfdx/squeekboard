@@ -1,0 +1,201 @@
+# Language: Korean (KR)
+---
+outlines:
+    default:       { width: 53.76,  height: 42 }
+    change-view:   { width: 80.64,  height: 42 }
+    change-view-2: { width: 94.08,  height: 42 }
+    large:         { width: 53.76,  height: 42 }
+    spaceline:     { width: 241.92, height: 42 }
+    special:       { width: 53.76,  height: 42 }
+    special-2:     { width: 80.64,  height: 42 }
+    special-3:     { width: 94.08,  height: 42 }
+
+views:
+    base:
+        - "q w e r t y u i o p"
+        - "a s d f g h j k l"
+        - "show_upper z x c v b n m BackSpace"
+        - "show_numbers han_eng space . Return"
+    upper:
+        - "Q W E R T Y U I O P"
+        - "A S D F G H J K L"
+        - "show_upper Z X C V B N M BackSpace"
+        - "show_numbers han_eng space . Return"
+    numbers:
+        - "1 2 3 4 5 6 7 8 9 0"
+        - "@ # $ % & - _ + ( )"
+        - "show_symbols , \" ' : ; ! ? BackSpace"
+        - "show_letters han_eng space . Return"
+    symbols:
+        - "~ ` | · √ π τ ÷ × ¶"
+        - "© ® ₩ € ¥ ^ ° * { }"
+        - "show_numbers_from_symbols \\\ / < > = [ ] BackSpace"
+        - "show_letters han_eng space . Return"
+
+buttons:
+    # View switching / special
+    show_upper:
+        action:
+            locking:
+                lock_view: "upper"
+                unlock_view: "base"
+        outline: "change-view"
+        icon: "key-shift"
+    BackSpace:
+        outline: "special-2"
+        icon: "edit-clear-symbolic"
+        action: "erase"
+
+    show_numbers:
+        action:
+            set_view: "numbers"
+        outline: "change-view-2"
+        label: "123"
+    show_numbers_from_symbols:
+        action:
+            set_view: "numbers"
+        outline: "change-view"
+        label: "123"
+    show_letters:
+        action:
+            set_view: "base"
+        outline: "change-view-2"
+        label: "가나"
+    show_symbols:
+        action:
+            set_view: "symbols"
+        outline: "change-view"
+        label: "*/="
+
+    han_eng:
+        outline: "special"
+        label: "한/영"
+        keysym: "Hangul"
+
+    .:
+        outline: "large"
+    space:
+        outline: "spaceline"
+        text: " "
+    Return:
+        outline: "special-3"
+        icon: "key-enter"
+        keysym: "Return"
+
+    # --- Lowercase letters (base view) ---
+    # Row 1
+    q:
+        label: "q ㅂ"
+        text: "q"
+    w:
+        label: "w ㅈ"
+        text: "w"
+    e:
+        label: "e ㄷ"
+        text: "e"
+    r:
+        label: "r ㄱ"
+        text: "r"
+    t:
+        label: "t ㅅ"
+        text: "t"
+    y:
+        label: "y ㅛ"
+        text: "y"
+    u:
+        label: "u ㅕ"
+        text: "u"
+    i:
+        label: "i ㅑ"
+        text: "i"
+    o:
+        label: "o ㅐ"
+        text: "o"
+    p:
+        label: "p ㅔ"
+        text: "p"
+
+    # Row 2
+    a:
+        label: "a ㅁ"
+        text: "a"
+    s:
+        label: "s ㄴ"
+        text: "s"
+    d:
+        label: "d ㅇ"
+        text: "d"
+    f:
+        label: "f ㄹ"
+        text: "f"
+    g:
+        label: "g ㅎ"
+        text: "g"
+    h:
+        label: "h ㅗ"
+        text: "h"
+    j:
+        label: "j ㅓ"
+        text: "j"
+    k:
+        label: "k ㅏ"
+        text: "k"
+    l:
+        label: "l ㅣ"
+        text: "l"
+
+    # Row 3
+    z:
+        label: "z ㅋ"
+        text: "z"
+    x:
+        label: "x ㅌ"
+        text: "x"
+    c:
+        label: "c ㅊ"
+        text: "c"
+    v:
+        label: "v ㅍ"
+        text: "v"
+    b:
+        label: "b ㅠ"
+        text: "b"
+    n:
+        label: "n ㅜ"
+        text: "n"
+    m:
+        label: "m ㅡ"
+        text: "m"
+
+    # --- Upper view (Latin label uppercase, still sending lowercase) ---
+    # Row 1
+    Q:
+        label: "Q ㅃ"
+        text: "q"
+    W:
+        label: "W ㅉ"
+        text: "w"
+    E:
+        label: "E ㄸ"
+        text: "e"
+    R:
+        label: "R ㄲ"
+        text: "r"
+    T:
+        label: "T ㅆ"
+        text: "t"
+    Y:
+        label: "Y ㅛ"
+        text: "y"
+    U:
+        label: "U ㅕ"
+        text: "u"
+    I:
+        label: "I ㅑ"
+        text: "i"
+    O:
+        label: "O ㅒ"
+        text: "o"
+    P:
+        label: "P ㅖ"
+        text: "p"
