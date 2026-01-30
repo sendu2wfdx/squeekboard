@@ -56,3 +56,11 @@ i18n.merge_file(
     install_dir: desktopdir,
     type: 'desktop'
 )
+
+configure_file(
+  input: 'sm.puri.Squeekboard.service.in',
+  output: 'mobi.phosh.OSK.service',
+  configuration: desktopconf,
+  install: true,
+  install_dir: systemd_user_unit_dir,
+)

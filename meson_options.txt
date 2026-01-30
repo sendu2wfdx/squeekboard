@@ -14,3 +14,7 @@ option('find_orphans',
 option('strict',
        type: 'boolean', value: true,
        description: 'Turn more warnings into errors')
+
+option('systemd_user_unit_dir',
+       type: 'string', value: '',
+       description: 'Directory for systemd user units')
