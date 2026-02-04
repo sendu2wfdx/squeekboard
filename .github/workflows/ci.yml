@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  build-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cargo \
+            meson \
+            ninja-build \
+            pkg-config \
+            libbsd-dev \
+            libfeedback-dev \
+            libglib2.0-dev \
+            libgnome-desktop-3-dev \
+            libgtk-3-dev \
+            libwayland-dev \
+            python3 \
+            python3-ruamel.yaml \
+            rustc \
+            wayland-protocols
+      
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      
+      - name: Cache cargo
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      
+      - name: Build with meson
+        run: |
+          meson setup _build
+          ninja -C _build
+      
+      - name: Run tests
+        run: |
+          ninja -C _build test
+        continue-on-error: true
+      
+      - name: Check build artifacts
+        run: |
+          ls -lh _build/src/

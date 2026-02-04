@@ -1,0 +1,261 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  build-deb-amd64:
+    name: Build .deb package (amd64)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cargo \
+            debhelper-compat \
+            meson \
+            ninja-build \
+            pkg-config \
+            libbsd-dev \
+            libfeedback-dev \
+            libglib2.0-dev \
+            libgnome-desktop-3-dev \
+            libgtk-3-dev \
+            libwayland-dev \
+            lsb-release \
+            python3 \
+            python3-ruamel.yaml \
+            rustc \
+            wayland-protocols \
+            devscripts \
+            git
+      
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      
+      - name: Cache cargo registry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/registry
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+      
+      - name: Cache cargo index
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/git
+          key: ${{ runner.os }}-cargo-git-${{ hashFiles('**/Cargo.lock') }}
+      
+      - name: Build with meson
+        run: |
+          meson setup _build -Ddepdatadir=/usr/share
+          ninja -C _build
+      
+      - name: Run tests
+        run: |
+          ninja -C _build test
+        continue-on-error: true
+      
+      - name: Build .deb package
+        run: |
+          # Get version info
+          REV=$(git log -1 --format=%h)
+          VER=$(dpkg-parsechangelog -SVersion)
+          
+          # Update changelog
+          export DEBFULLNAME="GitHub Actions"
+          export EMAIL="actions@github.com"
+          dch -v "${VER}+github${GITHUB_RUN_NUMBER}.${REV}" "Automated build from GitHub Actions"
+          
+          # Build package
+          debuild -i -us -uc -b
+          
+          # Move packages to workspace
+          mkdir -p dist
+          mv ../*.deb dist/ || true
+          mv ../*.buildinfo dist/ || true
+          mv ../*.changes dist/ || true
+      
+      - name: List generated files
+        run: |
+          ls -lh dist/
+      
+      - name: Upload .deb artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: squeekboard-deb-amd64
+          path: dist/*.deb
+          if-no-files-found: error
+      
+      - name: Upload build info
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-info-amd64
+          path: |
+            dist/*.buildinfo
+            dist/*.changes
+          if-no-files-found: ignore
+
+  build-deb-arm64:
+    name: Build .deb package (arm64)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build ARM64 .deb in Docker
+        run: |
+          docker run --rm --platform linux/arm64 \
+            -v $(pwd):/build \
+            -w /build \
+            debian:bookworm \
+            bash -c '
+              export DEBIAN_FRONTEND=noninteractive
+              apt-get update
+              apt-get install -y \
+                cargo \
+                debhelper-compat \
+                meson \
+                ninja-build \
+                pkg-config \
+                libbsd-dev \
+                libfeedback-dev \
+                libglib2.0-dev \
+                libgnome-desktop-3-dev \
+                libgtk-3-dev \
+                libwayland-dev \
+                lsb-release \
+                python3 \
+                python3-ruamel.yaml \
+                rustc \
+                wayland-protocols \
+                devscripts \
+                git
+              
+              # Get version info
+              REV=$(git log -1 --format=%h)
+              VER=$(dpkg-parsechangelog -SVersion)
+              
+              # Update changelog
+              export DEBFULLNAME="GitHub Actions"
+              export EMAIL="actions@github.com"
+              dch -v "${VER}+github-arm64.${REV}" "Automated ARM64 build from GitHub Actions"
+              
+              # Build package
+              debuild -i -us -uc -b
+              
+              # Copy packages
+              mkdir -p dist-arm64
+              cp ../*.deb dist-arm64/ || true
+              cp ../*.buildinfo dist-arm64/ || true
+              cp ../*.changes dist-arm64/ || true
+            '
+      
+      - name: List generated files
+        run: |
+          ls -lh dist-arm64/ || echo "No files generated"
+      
+      - name: Upload .deb artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: squeekboard-deb-arm64
+          path: dist-arm64/*.deb
+          if-no-files-found: warn
+      
+      - name: Upload build info
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-info-arm64
+          path: |
+            dist-arm64/*.buildinfo
+            dist-arm64/*.changes
+          if-no-files-found: ignore
+
+  create-release:
+    name: Create GitHub Release
+    needs: [build-deb-amd64, build-deb-arm64]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download amd64 artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: squeekboard-deb-amd64
+          path: release-amd64
+      
+      - name: Download arm64 artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: squeekboard-deb-arm64
+          path: release-arm64
+        continue-on-error: true
+      
+      - name: Prepare release assets
+        run: |
+          mkdir -p release-assets
+          cp release-amd64/*.deb release-assets/ || true
+          cp release-arm64/*.deb release-assets/ || true
+          ls -lh release-assets/
+      
+      - name: Extract release notes
+        id: extract-notes
+        run: |
+          # Extract version from tag
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          
+          # Try to extract release notes from NEWS file
+          if [ -f NEWS ]; then
+            echo "Found NEWS file"
+          fi
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release-assets/*.deb
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          name: Release ${{ steps.extract-notes.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

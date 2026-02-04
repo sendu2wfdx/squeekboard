@@ -1,4 +1,5 @@
 _build/
+_build_arm64/
 debian/*.debhelper
 debian/.debhelper/
 debian/cargo/registry/
@@ -21,3 +22,22 @@ vgdump
 *~
 \#*#
 .\#*
+
+# Build artifacts
+*.deb
+*.buildinfo
+*.changes
+dist/
+dist-arm64/
+release-*/
+
+# Docker
+Dockerfile.arm64
+
+# Cross-compilation
+cross-arm64.ini
+cross-arm64.txt
+.cargo/config.toml
+
+# Temporary package directories
+squeekboard_*_*/
