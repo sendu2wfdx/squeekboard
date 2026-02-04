@@ -1,6 +1,9 @@
 *squeekboard* - a Wayland on-screen keyboard
 ========================================
 
+[![CI](https://github.com/sendu2wfdx/squeekboard/actions/workflows/ci.yml/badge.svg)](https://github.com/sendu2wfdx/squeekboard/actions/workflows/ci.yml)
+[![Build and Release](https://github.com/sendu2wfdx/squeekboard/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/sendu2wfdx/squeekboard/actions/workflows/build-and-release.yml)
+
 *Squeekboard* is the on-screen-keyboard input-method for Phosh. It is primarily designed for smartphones, tablet-PCs, and other devices with touchscreens.
 
 It squeaks because some Rust got inside.
@@ -29,6 +32,38 @@ Creating layouts
 -------------------
 
 If you want to work on layouts, check out the [guide](doc/tutorial.md).
+
+GitHub Actions CI/CD
+--------------------
+
+This repository includes GitHub Actions workflows for automated building, testing, and releasing:
+
+### Automated Builds
+- **Continuous Integration**: Every push triggers a quick build and test
+- **Multi-Architecture**: Builds for both AMD64 and ARM64 (Raspberry Pi 5)
+- **Artifact Upload**: All builds produce downloadable .deb packages
+
+### Creating Releases
+To create a new release with packaged .deb files:
+
+```sh
+# Tag your version
+git tag -a v1.44.0 -m "Release version 1.44.0"
+git push origin v1.44.0
+```
+
+GitHub Actions will automatically:
+1. Build .deb packages for AMD64 and ARM64
+2. Create a GitHub Release with the tag
+3. Upload the packages as release assets
+
+### Download Pre-built Packages
+- **From Releases**: Visit the [Releases page](../../releases) to download the latest .deb packages
+- **From Actions**: Download build artifacts from any workflow run in the [Actions tab](../../actions)
+
+### Documentation
+- English guide: [.github/README.md](.github/README.md)
+- 中文说明: [.github/README.zh-CN.md](.github/README.zh-CN.md)
 
 Nightly builds
 --------------
