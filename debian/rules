@@ -30,3 +30,32 @@ export RUSTFLAGS = --remap-path-prefix=$(CURDIR)=/remap-pwd $(xgot)
 # TODO: Remove this, after Squeekboard can also be built with Debian packages only.
 execute_before_dh_auto_configure:
 	cargo vendor
+
+# Add Rust compiler support to meson cross-file for cross-compilation
+override_dh_auto_configure:
+	# Check if cross-compiling
+	if [ "$(DEB_BUILD_ARCH)" != "$(DEB_HOST_ARCH)" ]; then \
+		echo "Cross-compiling for aarch64-unknown-linux-gnu"; \
+		mkdir -p debian/.debhelper/generated/_source; \
+		echo "[binaries]" > /tmp/cross-arm64.txt; \
+		echo "c = 'aarch64-linux-gnu-gcc'" >> /tmp/cross-arm64.txt; \
+		echo "cpp = 'aarch64-linux-gnu-g++'" >> /tmp/cross-arm64.txt; \
+		echo "ar = 'aarch64-linux-gnu-ar'" >> /tmp/cross-arm64.txt; \
+		echo "strip = 'aarch64-linux-gnu-strip'" >> /tmp/cross-arm64.txt; \
+		echo "pkgconfig = 'pkg-config'" >> /tmp/cross-arm64.txt; \
+		echo "cargo = '/root/.cargo/bin/cargo'" >> /tmp/cross-arm64.txt; \
+		echo "rust = '/usr/local/bin/rustc-aarch64'" >> /tmp/cross-arm64.txt; \
+		echo "" >> /tmp/cross-arm64.txt; \
+		echo "[properties]" >> /tmp/cross-arm64.txt; \
+		echo "rust_ld = 'aarch64-linux-gnu-gcc'" >> /tmp/cross-arm64.txt; \
+		echo "pkg_config_libdir = '/usr/lib/aarch64-linux-gnu/pkgconfig'" >> /tmp/cross-arm64.txt; \
+		echo "" >> /tmp/cross-arm64.txt; \
+		echo "[host_machine]" >> /tmp/cross-arm64.txt; \
+		echo "system = 'linux'" >> /tmp/cross-arm64.txt; \
+		echo "cpu_family = 'aarch64'" >> /tmp/cross-arm64.txt; \
+		echo "cpu = 'aarch64'" >> /tmp/cross-arm64.txt; \
+		echo "endian = 'little'" >> /tmp/cross-arm64.txt; \
+		dh_auto_configure -- --cross-file /tmp/cross-arm64.txt; \
+	else \
+		dh_auto_configure; \
+	fi

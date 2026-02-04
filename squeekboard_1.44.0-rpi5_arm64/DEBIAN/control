@@ -1,0 +1,11 @@
+Package: squeekboard
+Version: 1.44.0-rpi5
+Architecture: arm64
+Maintainer: Cross-Compile Builder <builder@example.com>
+Depends: libgtk-3-0, libwayland-client0, libglib2.0-0, libgnome-desktop-3-19, libfeedback-0.0-0, fonts-gfs-didot-classic, gnome-themes-extra-data
+Section: x11
+Priority: optional
+Homepage: https://gitlab.gnome.org/World/Phosh/squeekboard
+Description: On-screen keyboard for Wayland (ARM64 build for Raspberry Pi 5)
+ Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone.
+ This is a cross-compiled ARM64 build optimized for Raspberry Pi 5.
